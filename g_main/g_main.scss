@@ -30,11 +30,24 @@ button{border:0; background:transparent;display:inline-block;}
 .content{
     &__section{
         &.type-head{position:relative;overflow: hidden;}
+        &.type-2{margin-top:50px;}
     }
     &__wrap{width:1200px; margin:0 auto;
         &.type-head{position:relative;}
+        &.type-2{width:1232px;}
+    }
+    &-tit{line-height:32px;
+        &__tit{display:inline-block;font-size:24px;letter-spacing:-1px;padding-left:16px;}
+        &__right{float:right;}
+        &__link{display:inline-block;line-height:32px;
+            &.type-tit{color:#222;}
+            &.type-right{position:relative;color:#777;font-size:15px; letter-spacing: -1px;padding-right:25px;
+                &:after{content:"";display:inline-block;position:absolute;width:18px; height:18px;top:7px;right:0;background:url(//pics.gmarket.co.kr/pc/sprite/kr/homemain/sprite__homemain.svg) no-repeat;background-position:0 -44px;}
+            }
+        }
     }
 }
+
 
 .footer{position:absolute;bottom:0; left:0; right:0;height:457px; background-color:#ddd; }
 
@@ -68,6 +81,7 @@ button{border:0; background:transparent;display:inline-block;}
     &__link{font-size:14px; color:#777;letter-spacing:-1px;line-height:29px;
         &:hover{text-decoration: underline;}
     }
+    &__last{display:block;}
     &__inner{
         &.type-img{width:329px; height:216px;border:1px solid #ddd;text-align:center;overflow: hidden;background:url(//image.gmarket.co.kr/hanbando/202002/853719ad-655f-4479-b575-e03b343788d3.jpg)no-repeat center center/cover;
             &.type-tour{background:url(//image.gmarket.co.kr/hanbando/202010/fc7b12c5-ea07-49af-ae43-f9ae016e2fcc.jpg)no-repeat center center/cover; }
@@ -90,7 +104,23 @@ button{border:0; background:transparent;display:inline-block;}
         &:hover{text-decoration: underline;}
     }
 }
-.top-slide{position:absolute;right:0;top:0;width:calc(100% - 224px);}
+.top-slide{position:absolute;right:0;top:0;width:calc(100% - 224px);
+    &__control{position:absolute;bottom:18px; right:19px;font-size:0;z-index:9}
+    &__button{display:inline-block;background:url(//pics.gmarket.co.kr/pc/sprite/kr/homemain/sprite__homemain.svg) no-repeat;width:40px; height:40px;vertical-align: top;color:transparent;
+        &.type-pause{background-position:-248px -46px;}
+        &.type-start{    background-position: -410px 0;}
+        &.type-play{background-position: -410px 0;}
+        &.type-plus{background-position: -292px -46px;margin-left:2px;}
+    }
+    &__inner{
+        &.type-control{display:inline-block;height:40px;overflow: hidden;border-radius: 20px;vertical-align: middle;margin-left:5px;}
+    }
+    &__pagination{display:inline-block;position:relative;font-size:14px; color:#fff;width:76px;height:40px; line-height:40px;bottom:auto;background-color:rgba(0,0,0,.12);
+        .swiper-pagination-current{font-weight:900;}
+    }
+
+
+}
 
 
 
