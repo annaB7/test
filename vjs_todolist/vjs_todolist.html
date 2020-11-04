@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>todolist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+</head>
+<body>
+    <div class="wrap">
+  <div style="border:1px solid red">
+    <input type="text" class="input" id="input">
+    <button type="button" class="add" id="add">할일추가</button>
+  </div>
+   <div style="border:1px solid blue">
+    <ul id="list"></ul>
+  </div>
+</div>
+<script>
+    var input = document.getElementById('input');
+    var add_btn = document.getElementById('add');
+    var remove_btn = document.getElementById('remove');
+    var list = document.getElementById('list');
+    var idx = 0;
+
+    function hasClass(elem, className) {
+        return elem.className.split(' ').indexOf(className) > -1;
+    }
+
+    document.addEventListener('click', function (e) {
+        if (hasClass(e.target, 'add')) {
+            var input_val = input.value;
+            input.value = "";
+            list.innerHTML += "<li>"+input_val+"<button type='button' id='remove"+idx+"' class='remove'>삭제하기</button></li>"
+            idx++;
+        } else if (hasClass(e.target, 'remove')) {
+            var li = e.target.parentNode;
+            li.remove();
+        }
+
+    }, false);
+
+
+</script>
+</body>
+</html>
