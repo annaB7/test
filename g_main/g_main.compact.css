@@ -133,6 +133,12 @@ button { border: 0; background: transparent; display: inline-block; }
 
 .top-slide { position: absolute; right: 0; top: 0; width: calc(100% - 224px); }
 
+.top-slide__dimed { position: absolute; width: 100%; top: 0; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 5; }
+
+.top-slide__dimed.type-right { left: 50%; margin-left: 600px; }
+
+.top-slide__dimed.type-left { left: -50%; margin-left: -600px; }
+
 .top-slide__control { position: absolute; bottom: 18px; right: 19px; font-size: 0; z-index: 9; }
 
 .top-slide__button { display: inline-block; background: url(//pics.gmarket.co.kr/pc/sprite/kr/homemain/sprite__homemain.svg) no-repeat; width: 40px; height: 40px; vertical-align: top; color: transparent; }
