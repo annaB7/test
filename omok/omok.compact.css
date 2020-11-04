@@ -1,0 +1,27 @@
+.wrap { padding: 30px; text-align: center; }
+
+.omok { position: relative; display: inline-block; width: 630px; padding: 30px; background-color: #cea73d; }
+
+.omok:before { content: ""; display: block; padding-top: 100%; }
+
+.omok__ground { position: absolute; left: 30px; top: 30px; width: calc(100% - 60px); height: calc(100% - 60px); border: 1px solid #000; }
+
+.omok__line { position: absolute; display: block; background-color: #000; }
+
+.omok__line.type-colmn { top: 0; left: 0; width: 1px; height: 100%; }
+
+.omok__line.type-row { top: 0; left: 0; height: 1px; width: 100%; }
+
+.omok__stone { display: block; position: absolute; top: 0; left: 0; width: 28px; height: 28px; border-radius: 50%; margin-left: -14px; margin-top: -14px; cursor: pointer; color: transparent; }
+
+.omok__stone.type-blk { background-color: #000; }
+
+.omok__stone.type-wht { background-color: #fff; }
+
+.omok__mak { position: absolute; left: 0; top: 0; z-index: 10; background-color: rgba(0, 0, 0, 0.5); color: #fff; font-size: 30px; }
+
+.omok__mak.type-end { right: 0; bottom: 0; }
+
+.omok__reset { position: absolute; left: 50%; top: 50%; width: 100px; height: 50px; margin-left: -50px; margin-top: -25px; font-size: 18px; }
+
+.omok__cancel { margin-bottom: 15px; }

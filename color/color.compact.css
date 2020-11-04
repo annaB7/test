@@ -1,0 +1,54 @@
+* { margin: 0; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+body { -webkit-text-size-adjust: none; }
+
+ul, ol { list-style: none; }
+
+button { -webkit-border-radius: 0; border-radius: 0; background-color: transparent; cursor: pointer; }
+
+a, a:hover, a:active, a:focus { text-decoration: none; }
+
+em, address { font-style: normal; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+iframe, fieldset, img { border: 0; }
+
+textarea { resize: none; }
+
+input[type="button"], input[type="email"], input[type="number"], input[type="password"], input[type="reset"], input[type="search"], input[type="submit"], input[type="tel"], input[type="text"], select, textarea { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+img { vertical-align: top; }
+
+hr { display: none; }
+
+button { border: 0; background: transparent; display: inline-block; }
+
+/* Global Common */
+.for-a11y { overflow: hidden; position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; clip: rect(0 0 0 0); }
+
+.wrap { position: relative; padding: 100px; }
+
+.color { width: 800px; height: auto; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px; }
+
+.color__text { position: fixed; margin-bottom: 50px; }
+
+.color__level { font-size: 20px; }
+
+.color__life { font-size: 20px; color: red; }
+
+.color__list { font-size: 0; padding: 0; border-radius: 5px; }
+
+.color__item { position: relative; display: inline-block; width: 50%; border-radius: 5px; }
+
+.color__item:before { display: block; content: ""; padding-top: 100%; }
+
+.color__color { position: absolute; margin: 2px; left: 0; top: 0; background-color: #ddd; width: calc(100% - 4px); height: calc(100% - 4px); border-radius: 5px; }
+
+@media (max-width: 1024px) { .wrap { padding: 10px; }
+    .color { width: 100%; }
+    .color__text { position: static; } }

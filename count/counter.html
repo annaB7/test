@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./counter.compact.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.js"></script>
+
+</head>
+<body>
+    <div class="load_type wrap_type">
+        <h3>로드타입</h3>
+        <div class="counter">30</div>
+        <div class="counter">40</div>
+        <div class="counter">150</div>
+        <div class="counter">270</div>
+        <div class="counter">5</div>
+    </div>
+    <div class="load_type wrap_type">
+        <h3>버튼타입</h3>
+        <div class="counter">30</div>
+        <div class="counter">40</div>
+        <div class="counter">150</div>
+        <div class="counter">270</div>
+        <div class="counter">5</div>
+    </div>
+
+
+<!-- <input type="button" value="시작" onclick="start_count();" /> -->
+
+<script>
+var numId = null;
+var arr = [];
+var how = 0;
+    $(document).ready(function(){
+        for(i=0;i<$(".counter").length;i++){
+            arr.push(i);
+            $(".counter").eq(i).addClass("counter"+i);
+        }
+        start(".counter0");
+    });
+
+    function start(who){
+        $(who).addClass("on");
+
+        var who = $(who);
+        var who_num = Number($(who).text());
+        var start_num = who_num + 30;
+        $(who).text(start_num);
+
+        let numId = setTimeout(function print_num(start_num){
+            var who_num2 = Number($(who).text());
+            start_num = who_num2;
+            start_num--;
+            $(who).text(start_num);
+            if(start_num <= who_num){
+                if(numId != null) {clearTimeout(numId);}
+                // 다음 순서실행시점
+                if(arr.length <= how){
+                    return;
+                }else{
+                    var next = Number(how) + 1;
+                    var next = ".counter"+next;
+                    start(next);
+                    how++;
+                    // console.log(next);
+                }
+                return;
+            }
+            timerId = setTimeout(print_num, 20,start_num);
+        },20,start_num);
+    }
+
+    // function stop_count() {
+    //     if(numId != null) {clearInterval(numId);}
+    // }
+</script>
+
+<!-- <script src="./counter.js"></script> -->
+</body>
+</html>

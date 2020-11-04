@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+.wrap{padding:30px;text-align: center;}
+.omok{position:relative;display:inline-block;width:630px;padding:30px;background-color:#cea73d;
+    &:before{content:"";display:block;padding-top:100%;}
+    &__ground{position:absolute;left:30px;top:30px;width:calc(100% - 60px); height:calc(100% - 60px); border:1px solid #000;}
+    &__line{position:absolute;display:block;background-color:#000;
+        &.type-colmn{top:0;left:0; width:1px; height:100%;}
+        &.type-row{top:0;left:0; height:1px; width:100%;}
+    }
+    &__stone{display:block;position:absolute;top:0; left:0; width:28px;height:28px;border-radius: 50%;margin-left:-14px;margin-top:-14px;cursor:pointer;color:transparent;
+        &.type-blk{background-color:#000;}
+        &.type-wht{background-color:#fff;}
+    }
+    &__mak{position:absolute;left:0;top:0; z-index:10;background-color:rgba(0,0,0,.5);color:#fff;font-size:30px;
+        &.type-end{ right:0; bottom:0; }
+    }
+    &__reset{position:absolute;left:50%; top:50%; width:100px; height:50px; margin-left:-50px;margin-top:-25px;font-size:18px;}
+    &__cancel{margin-bottom:15px;}
+}

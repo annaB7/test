@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./slide.compact.css">
+</head>
+<body>
+
+    <div class="wrap">
+
+        <div class="slide">
+            <ul class="slide__list">
+                <li class="slide__item type-1" style="background-color:#ff5675">1</li>
+                <li class="slide__item type-2" style="background-color:#ff82ff">2</li>
+                <li class="slide__item type-3" style="background-color:#cd1039">3</li>
+                <li class="slide__item type-4" style="background-color:#c71585">4</li>
+                <li class="slide__item type-5" style="background-color:purple">5</li>
+            </ul>
+
+        </div>
+        <div class="slide__inner type-btn">
+            <button type="button" class="slide__btn type-prev">prev</button>
+            <button type="button" class="slide__btn type-next">next</button>
+            <button type="button" class="slide__btn type-play">auto_play</button>
+            <button type="button" class="slide__btn type-stop">stop</button>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            var idx = 0;
+            var length = $(".slide__item").length;
+            var play = null;
+            var play_key = 0;
+//버튼클릭시
+            $(".slide__btn").click(function(){
+                if($(this).hasClass("type-prev")){
+                    play_act("stop");
+                    slide_prev();
+                }else if($(this).hasClass("type-next")){
+                    play_act("stop");
+                    slide_next();
+
+                }else if($(this).hasClass("type-play")){
+                    play_act("play");
+                }else if($(this).hasClass("type-stop")){
+                    play_act("stop");
+                }
+
+            });
+//이전함수
+            function slide_prev(){
+                append();
+                $(".slide__list").stop().animate({
+                    left:0+ "%"
+                },100);
+
+                function append(){
+                    var last = $(".slide__list li:last");
+                    $(".slide__list").prepend(last);
+                    $(".slide__list").css("left","-100%");
+                    $(".slide__list li:first").addClass("active").siblings().removeClass("active");
+                }
+            }
+//다음함수
+            function slide_next(){
+                $(".slide__list").stop().animate({
+                    left:-100+ "%"
+                },100);
+                setTimeout(append,150);
+
+                function append(){
+                    var first = $(".slide__list li:first");
+                    $(".slide__list").append(first);
+                    $(".slide__list").css("left","0%");
+                    $(".slide__list li:first").addClass("active").siblings().removeClass("active");
+                }
+            }
+//재생함수
+            function play_act(which){
+
+                if(which == "play"){
+                    if(play_key == 0){
+
+                        let play = setTimeout(function slide_next_s(){
+                            console.log("play");
+                            slide_next();
+                            timerId = setTimeout(slide_next_s, 1000);
+                        },1000);
+                        play_key = 1;
+                    }else if(play_key > 0){
+                        console.log("already done!");
+                    }
+
+                }else if(which == "stop"){
+                    console.log("stop");
+                    // if(play != null){
+                        clearTimeout(play);
+                        clearTimeout(timerId);
+                    // }
+                    play_key = 0;
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

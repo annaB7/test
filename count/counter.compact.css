@@ -1,0 +1,9 @@
+* { list-style: none; margin: 0; padding: 0; }
+
+.counter { text-align: center; font-size: 60px; font-weight: 700; opacity: 0; transition: opacity .8s; text-align: left; color: #fff; }
+
+.counter.on { opacity: 1; }
+
+li { height: 100vh; background-color: #0d5efe; }
+
+li:nth-child(2n) { text-align: right; background-color: #ddd; }

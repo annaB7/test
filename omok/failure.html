@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" id="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width" />
+    <title>오목</title>
+    <link rel="stylesheet" href="./omok.compact.css">
+</head>
+<body>
+    <h3>오목</h3>
+    <div class="wrap">
+        <p class="omok__order">흑돌차례</p>
+        <div class="omok">
+            <div class="omok__ground">
+                <span class="omok__stone"></span>
+            </div>
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+    var order = 0;
+
+    var wid=30;
+    var arr_blk = [];
+    var arr_wht = [];
+    $(document).ready(function(){
+        //rendering
+        var line = 20;
+        var spots = (line+2)*(line+2);
+        for(i=0;i<line;i++){
+            $(".omok__ground").append("<span class='omok__line type-colmn' style='left:"+(wid*(i+1))+"px'></span><span class='omok__line type-row' style='top:"+(wid*(i+1))+"px'></span>");
+        }
+        var num=0;
+        var left=0;
+        for(j=0;j<spots;j++){
+            if(Math.floor(j%22) == 0){
+                num++;
+                left=0;
+            }
+            if(j <= (22*num)){
+                left++;
+                $(".omok__ground").append("<span class='omok__stone' style='left:"+((left-1)*wid)+"px;top:"+((num-1)*wid)+"px;' data='"+j+"'>"+j+"</span>");
+            }
+        }
+    });
+    //play
+    $(document).on("click",".omok__stone",function(){
+        if($(this).hasClass("type-blk") || $(this).hasClass("type-wht")){
+            console.log("already done");
+        }else{
+            order++;
+            if(order%2){//짝수면 흑돌
+                $(this).addClass("type-blk");
+                var su_blk = Number($(this).text())
+                arr_blk.push(su_blk);
+                victory(arr_blk);
+                // console.log(arr_blk);
+                $(".omok__order").html("백돌차례");
+            }else{//홀수면 백돌
+                $(this).addClass("type-wht");
+                var su_wht = Number($(this).text())
+                arr_wht.push(su_wht);
+                victory2(arr_wht);
+                $(".omok__order").html("흑돌차례");
+            }
+        }
+    });
+
+    function victory(arr){
+        // var arr = [1,2,3,4,5];
+        //서로의 차이는?
+        var hap_all = 0,hap_all2 = 0,hap_all3 = 0, hap_all4 = 0;
+        for(k=0;k<arr.length;k++){
+            for(a=0;a<arr.length;a++){
+                if(k != a){
+                    if(arr[k] - arr[a] == 1){
+                        var hap = arr[k] - arr[a];
+                        // hap_arr.push(hap);
+                        hap_all += hap;
+                        console.log(hap_all);
+                        if(hap_all == 4){
+                            console.log("흑돌승리!");
+                            // setTimeout(function(){location.reload();},1000);
+                        }
+                    }else if(arr[k] - arr[a] == 21){
+                        var hap2 = arr[k] - arr[a];
+                        hap_all2 += hap2;
+                        console.log(hap_all2);
+                        if(hap_all2 ==84){
+                            console.log("흑돌승리!");
+                            // setTimeout(function(){location.reload();},1000);
+                        }
+                    }else if(arr[k] - arr[a] == 22){
+                        var hap3 = arr[k] - arr[a];
+                        hap_all3 += hap3;
+                        console.log(hap_all3);
+                        if(hap_all3 ==88){
+                            console.log("흑돌승리!");
+                            // setTimeout(function(){location.reload();},1000);
+                        }
+                    }else if(arr[k] - arr[a] == 23){
+                        var hap4 = arr[k] - arr[a];
+                        hap_all4 += hap4;
+                        console.log(hap_all4);
+                        if(hap_all4 ==92){
+                            console.log("흑돌승리!");
+                            // setTimeout(function(){location.reload();},1000);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    function victory2(arr){
+        // var arr = [1,2,3,4,5];
+        //서로의 차이는?
+        var hap_all2 = 0, hap_all22 = 0, hap_all23 = 0, hap_all24 = 0;
+        for(k=0;k<arr.length;k++){
+            for(a=0;a<arr.length;a++){
+                if(k != a){
+                    if(arr[k] - arr[a] == 1){
+                        var hap2 = arr[k] - arr[a];
+                        // hap_arr.push(hap);
+                        hap_all2 += hap2;
+                        console.log(hap_all2);
+                        if(hap_all2 == 4){
+                            console.log("백돌승리!");
+                            // setTimeout(function(){location.reload();},1000);
+                        }
+                    }else if(arr[k] - arr[a] == 21){
+                        var hap22 = arr[k] - arr[a];
+                        hap_all22 += hap22;
+                        console.log(hap_all22);
+                        if(hap_all22 ==84){
+                            console.log("백돌승리!");
+                            // setTimeout(function(){location.reload();},1000);
+                        }
+                    }else if(arr[k] - arr[a] == 22){
+                        var hap23 = arr[k] - arr[a];
+                        hap_all23 += hap23;
+                        console.log(hap_all23);
+                        if(hap_all23 ==88){
+                            console.log("백돌승리!");
+                            // setTimeout(function(){location.reload();},1000);
+                        }
+                    }else if(arr[k] - arr[a] == 23){
+                        var hap24 = arr[k] - arr[a];
+                        hap_all24 += hap24;
+                        console.log(hap_all24);
+                        if(hap_all24 ==92){
+                            console.log("백돌승리!");
+                            // setTimeout(function(){location.reload();},1000);
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+
+    //서로의 차이가 21이내일때는 차이가 1씩나서 5개의 차이가 5일때
+    //서로의 차이가 21이상일때는 차이가 21씩나서 5개의 차이가 105일때
+</script>
+</body>
+</html>

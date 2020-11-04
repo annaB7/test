@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" id="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width" />
+    <title>multidimensional_array</title>
+    <link rel="stylesheet" href="./omok.compact.css">
+    <style>
+        *{list-style:none;margin:0;padding:0;}
+        .ul{border:1px solid blue;padding:10px;}
+        .li{border:1px solid red;padding:10px;}
+        .ol{border:1px solid pink;padding:10px;}
+        .ol-li{border:1px solid green;padding:10px;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="ul"></ul>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+    $(document).ready(function(){
+        // // var N_1 = 10;
+        var array = [];
+        for(i = 0; i < 10; i++){
+            $(".ul").append("<li class='li'><h4>"+i+"</h4><ol class='ol ol"+i+"'></ol></li>");
+            for(j = 0; j < 10; j++){
+                array.push([i,j]);
+        //
+                $(".ol"+i).append("<li class='li li"+j+"'>"+j+"</li>");
+            }
+        }
+        console.log(array);
+        console.log(array[0][9]);
+
+        // let dolls = [['라이언',5,1], ['어피치',3,1], ['콘',2,1], ['무지',3,1], ['프로도',3,1]];
+        // dolls[0][1] = "바뀜"
+        // console.table(dolls);
+// console.log(dolls[0][1]); // 5 반환
+    });
+
+</script>
+</body>
+</html>

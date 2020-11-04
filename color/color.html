@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" id="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width" />
+    <title>색깔게임</title>
+    <link rel="stylesheet" href="./color.compact.css">
+</head>
+<body>
+    <h3>색각능력 게임</h3>
+    <div class="wrap">
+        <div class="color__text">
+            <p class="color__level">level: 1</p>
+            <p class="color__life">life: 3</p>
+        </div>
+
+
+        <div class="color">
+            <ul class="color__list"></ul>
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+var life = 3;
+var level = 1;
+var item_N = 4;
+var item_W = "50%";
+var opacity = 0.3;
+var rand;
+    $(document).ready(function(){
+        items(item_N);
+    });//로딩구역
+
+
+        $(document).on("click",".color__item",function(){
+                if($(this).hasClass("js-answer")){
+                    level++;
+                    $(".color__level").text("level: " + level);
+
+                    //다음단계 구현
+                    //갯수
+                    if(level <= 3){
+                        item_W = "50%";
+                        item_N = 4;
+                    }else if(level <= 8){
+                        item_W = "25%";
+                        item_N = 16;
+                    }else if(level <= 18){
+                        item_W = "20%";
+                        item_N = 25;
+                    }else if(level <= 25){
+                        item_W = "16.666%";
+                        item_N = 36;
+                    }else{
+                        item_W = "12.5%";
+                        item_N = 64;
+                    }
+
+                    opacity +=0.02;
+                    // opacity +=1;
+                    if(opacity >= 0.99){//완료 단계 왜안되지...
+                        alert("you win!!!");
+                        location.reload();
+                        return;
+                    }
+                    //색상
+                    var color_C = getRandomColor();
+                    items(item_N,item_W,color_C);
+                }else{
+                    life--;
+                    $(".color__life").text("life: " + life);
+                    if(life == 0){
+                        setTimeout(function(){alert("game over");location.reload();}, 100);
+                        $(".js-answer").css("outline","2px solid red");
+                        return;
+                    }
+                }
+        });
+//색상 랜덤 구하기 함수
+        getRandomColor = function(_isAlpha) {
+          let r = getRand(0, 255),
+          g = getRand(0, 255),
+          b = getRand(0, 255),
+          a = getRand(0, 10) / 10;
+
+          let rgb = _isAlpha ? 'rgba' : 'rgb';
+          rgb += '(' + r + ',' + g + ',' + b;
+          rgb += _isAlpha ? ',' + a + ')' : ')';
+
+          return rgb;
+
+          // Return random number from in to max
+          function getRand(min, max) {
+            if (min >= max) return false;
+            return ~~(Math.random() * (max - min + 1)) + min;
+          };
+        };
+//컬러아이템 랜더링 함수
+    function items(item_N,item_W,color_C){
+        //랜더링
+        $(".color__list").html("");
+        for(i=0; i<item_N; i++){
+
+            $(".color__list").append("<li class='color__item'><div class='color__color'></div></li>");
+            $(".color__item div").css("background-color",color_C);
+        }
+        //정답인 숫자 뽑기
+        var length = String(item_N).length;
+        num(length,item_N);
+        $(".color__item").css("width",item_W).eq(rand).addClass("js-answer").find("div").css("opacity",opacity);
+
+    }
+    function num(length,item_N){
+        if(length == 1){
+            rand = Math.floor(Math.random() * 10);
+        }else if(length == 2){
+            rand = Math.floor(Math.random() * 100);
+        }
+        if(rand >= item_N){
+            num(length,item_N);
+        }else{
+            return rand;
+        }
+    }
+</script>
+</body>
+</html>
