@@ -33,6 +33,12 @@ button { border: 0; background: transparent; display: inline-block; }
 
 .noto { font-family: 'Noto Sans KR', sans-serif; }
 
+.fl { float: left; }
+
+.fr { float: right; }
+
+.clb:after { content: ""; display: block; clear: both; }
+
 .wrap { position: relative; width: 100%; min-height: 100vh; padding-top: 173px; }
 
 .header { position: fixed; left: 0; top: 0; right: 0; height: 173px; border-bottom: 1px solid #ddd; background-color: #fff; z-index: 10; }
@@ -59,17 +65,37 @@ button { border: 0; background: transparent; display: inline-block; }
 
 .top-menu__bottom { position: absolute; left: 0; right: 0; bottom: 0; background-color: #f8f8f8; border-top: 1px solid #eee; height: 68px; padding: 17px 0 0 35px; }
 
-.top-menu__inner { display: inline-block; width: 20%; height: calc(100% - 68px); padding: 22px 0 0 35px; }
+.top-menu__inner { display: block; width: 192px; height: 328px; padding: 22px 0 0 35px; }
 
-.top-menu__inner.type-last { width: 40%; }
+.top-menu__inner.type-last { width: 400px; padding: 30px 35px 0 35px; }
 
 .top-menu__inner + .top-menu__inner { border-left: 1px solid #eee; }
 
 .top-body__tit { font-size: 14px; color: #222; }
 
+.top-body__tit.type-img { font-size: 17px; font-weight: 700; letter-spacing: -1px; line-height: 27px; }
+
+.top-body__txt { font-size: 14px; color: #777; letter-spacing: -1px; line-height: 20px; }
+
 .top-body__list { margin-top: 5px; }
 
+.top-body__item { line-height: 29px; }
+
 .top-body__link { font-size: 14px; color: #777; letter-spacing: -1px; line-height: 29px; }
+
+.top-body__link:hover { text-decoration: underline; }
+
+.top-body__inner.type-img { width: 329px; height: 216px; border: 1px solid #ddd; text-align: center; overflow: hidden; background: url(//image.gmarket.co.kr/hanbando/202002/853719ad-655f-4479-b575-e03b343788d3.jpg) no-repeat center center/cover; }
+
+.top-body__inner.type-img.type-tour { background: url(//image.gmarket.co.kr/hanbando/202010/fc7b12c5-ea07-49af-ae43-f9ae016e2fcc.jpg) no-repeat center center/cover; }
+
+.top-body__inner.type-img.type-rental { background: url(//image.gmarket.co.kr/hanbando/201911/ae029616-cac5-49ad-821a-facb1dbfb4a5.jpg) no-repeat center center/cover; }
+
+.top-body__inner.type-img.type-body { background: url(//image.gmarket.co.kr/hanbando/202010/ebd4d1ac-9865-4043-a6c7-0d69315b0460.jpg) no-repeat center center/cover; }
+
+.top-body__inner.type-img.type-kids { background: url(//image.gmarket.co.kr/hanbando/202005/047f31f0-24ab-4048-90f8-373c14268e68.jpg) no-repeat center center/cover; }
+
+.top-body__inner.type-txt { margin-top: 17px; }
 
 .top-bottom__list { font-size: 0; }
 
@@ -77,11 +103,13 @@ button { border: 0; background: transparent; display: inline-block; }
 
 .top-bottom__item + .top-bottom__item { margin-left: 60px; }
 
-.top-bottom__link { font-size: 14px; line-height: 29px; letter-spacing: -1px; color: #067dfd; }
+.top-bottom__link { font-size: 14px; line-height: 29px; letter-spacing: -1px; color: #067dfd; font-weight: 300; }
 
 .top-bottom__link.type-go { color: #000; font-weight: bold; }
 
 .top-bottom__link.type-go:after { display: inline-block; background: url(//pics.gmarket.co.kr/pc/sprite/kr/common/sprite__common.png) no-repeat; background-size: 400px auto; text-indent: -9999px; content: ''; width: 8px; height: 13px; margin-left: 4px; background-position: -228px -34px; vertical-align: -1px; }
+
+.top-bottom__link:hover { text-decoration: underline; }
 
 .top-slide { position: absolute; right: 0; top: 0; width: calc(100% - 224px); }
 
