@@ -63,6 +63,7 @@
                                   <button type="button" class="top-slide__button type-pause">정지</button>
                                   <div class="top-slide__inner type-control">
                                       <div class="swiper-pagination top-slide__pagination"></div>
+                                       <!-- <div class="top-slide__pagination"></div> -->
                                     <button type="button" class="top-slide__button type-plus"></button>
                                   </div>
 
@@ -476,26 +477,46 @@
     </div>
 
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+<script type="text/javascript" src="http://event.gmarket.co.kr/html/promotion/common/pc.swiper.min.js"></script>
 <script>
 $(document).ready(function(){
     var footer_h = $(".footer").outerHeight();
     $(".wrap").css("padding-bottom",footer_h);
 
-    var swiper1 = new Swiper('.swiper-container1', {
-      pagination: {
-        el: '.swiper-container1 .swiper-pagination',
-        type: 'fraction',
-      },
-      navigation: {
-        nextEl: '.swiper-container1 .swiper-button-next',
-        prevEl: '.swiper-container1 .swiper-button-prev',
-      },
-      loop: true,
-      autoplay: {
-        delay: 5000,
-      },
-    });
+    // var swiper1 = new Swiper('.swiper-container1', {
+    //   pagination: {
+    //     el: '.swiper-container1 .swiper-pagination',
+    //     type: 'fraction',
+    //   },
+    //   navigation: {
+    //     nextEl: '.swiper-container1 .swiper-button-next',
+    //     prevEl: '.swiper-container1 .swiper-button-prev',
+    //   },
+    //   loop: true,
+    //   autoplay: {
+    //     delay: 5000,
+    //   },
+    // });
+
+    // swiper1.on('slideChange',function(){
+    //
+    // });
+
+
+    var mySwiper1 = $('.swiper-container1').swiper({
+		pagination: '.swiper-container1 .swiper-pagination',
+		loop: true,
+		initialSlide: 1,
+		slidesPerView: 1,
+		centeredSlides:true,
+		paginationClickable: true,
+		noSwiping: true,
+		onSlideChangeEnd:function(swiper){
+
+		}
+	});
+
 
     $(".top-slide__button").click(function(){//재생중지
         if($(this).hasClass("type-pause")){
