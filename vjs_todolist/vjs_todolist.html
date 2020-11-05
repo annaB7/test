@@ -6,16 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>todolist</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./vjs_todolist.compact.css">
 </head>
 <body>
     <div class="wrap">
-  <div style="border:1px solid red">
-    <input type="text" class="input" id="input">
-    <button type="button" class="add" id="add">할일추가</button>
+        <h1>To do list - vjs</h1>
+  <div class="box">
+      <div class="box__inner">
+        <h2 class="box__tit">What do you need to do?</h2>
+        <input type="text" class="box__input" id="input">
+        <button type="button" class="box__btn type-add" id="add">add</button>
+      </div>
   </div>
-   <div style="border:1px solid blue">
-    <ul id="list"></ul>
+   <div class="box">
+       <div class="box__inner">
+           <h2 class="box__tit">List to do</h2>
+            <ul class="box__list" id="list"></ul>
+        </div>
   </div>
 </div>
 <script>
@@ -30,14 +37,25 @@
     }
 
     document.addEventListener('click', function (e) {
-        if (hasClass(e.target, 'add')) {
+        if (hasClass(e.target, 'type-add')) {
             var input_val = input.value;
             input.value = "";
-            list.innerHTML += "<li>"+input_val+"<button type='button' id='remove"+idx+"' class='remove'>삭제하기</button></li>"
+            list.innerHTML += "<li class='box__item'><span class='box__span'>" + input_val+"</span><button type='button' id='remove"+idx+"' class='box__btn type-remove'>done</button></li>"
             idx++;
-        } else if (hasClass(e.target, 'remove')) {
+        } else if (hasClass(e.target, 'type-remove')) {
             var li = e.target.parentNode;
-            li.remove();
+
+            // if(agent.indexOf("msie") != -1 || agent.indexOf("rv:1") != -1){
+                li.parentNode.removeChild(li);
+            // }else{
+            //     li.remove();
+            // }
+
+
+            
+            //ie에서 remove가 되지 않아 ie인지 체크해서 별도로 줘야하는데 ie 체크기준을 알아보자.
+            //function hasclass 의 원리를 이해해보자
+
         }
 
     }, false);

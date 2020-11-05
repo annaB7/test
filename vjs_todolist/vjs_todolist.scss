@@ -1,0 +1,46 @@
+*{margin:0;padding:0;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;font-family: 'Noto Sans KR', sans-serif;}
+body{-webkit-text-size-adjust:none}
+ul,ol{list-style:none}
+button{-webkit-border-radius:0;border-radius:0;background-color:transparent;cursor:pointer}
+a,a:hover,a:active,a:focus{text-decoration:none}
+em,address{font-style:normal}
+table{border-collapse:collapse;border-spacing:0}
+iframe,fieldset,img{border:0}
+textarea{resize:none}
+input[type="button"],input[type="email"],input[type="number"],input[type="password"],input[type="reset"],input[type="search"],input[type="submit"],input[type="tel"],input[type="text"],select,textarea{-webkit-appearance:none;-moz-appearance:none;appearance:none}
+input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+img{vertical-align:top}
+hr{display:none}
+button{border:0; background:transparent;display:inline-block;}
+/* Global Common */
+.for-a11y{overflow:hidden;position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;clip:rect(0 0 0 0)}
+
+.noto{font-family: 'Noto Sans KR', sans-serif;}
+.fl{float:left;}
+.fr{float:right}
+.clb:after{content:"";display:block; clear:both;}
+/* 개별 */
+.wrap{width:100%;min-height:100vh;background-color:#f2f2f2;padding:20px;margin:0 auto;font-size:0;}
+.box{display:inline-block;width:50%;padding:0 10px;vertical-align: top;
+    &__tit{font-size:30px;}
+    &__inner{border:1px solid #ddd; border-radius: 10px;padding:40px 15px;background-color:#fff;}
+    &__input{display:inline-block;border:1px solid #ddd; border-radius: 5px;line-height:20px;padding:10px;width:100%;font-size:18px; color:#222;margin-top:20px;}
+    &__btn{display:inline-block;margin-top:5px;background-color:#0d5efe;border-radius: 5px;line-height:20px;padding:10px;color:#fff;font-size:18px;
+        &.type-add{width:100%;}
+        &.type-remove{position:absolute;right:15px; bottom:15px;width:auto;padding:10px 30px;}
+    }
+    &__item{position:relative;font-size:14px;padding:10px 10px 60px 10px; border:1px solid #eee;border-radius:5px;color:#777;margin-top:15px;transition:all .5s;
+        &:hover{color:#222;border:1px solid #0d5efe;}
+    }
+    &__span{position:relative;display:inline-block;padding-left:15px;width:100%;word-break: break-all;
+        &:before{content:"-";position:absolute;left:0;}
+    }
+}
+// 미디어쿼리...?
+@media (max-width:800px){
+    .wrap{width:100%; padding:30px 12px;}
+    .box{width:100%;
+        & + & {margin-top:20px;}
+    }
+}
