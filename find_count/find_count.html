@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" id="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width" />
+    <title>텍스트 찾기</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./find_count.compact.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header class="search-header">
+            <input type="text" class="search-header__input" placeholder="검색하실 단어를 입력하세요">
+            <button type="button" class="search-header__btn js-search">찾아줘</button>
+        </header>
+        <div class="search-cont">
+            <div class="search-cont__inbox">
+                <p>이곳에 결과가 출력됩니다.</p>
+                <ul>
+                    <li>검색단어: <b class="js-word">떢떢떢</b></li>
+                    <li>갯수: <b class="js-number">35</b></li>
+                    <li>기타: <b class="js-etc">블라블라</b></li>
+                </ul>
+            </div>
+            <textarea name="name" rows="8" cols="80" class="search-cont__txt js-txt" placeholder="이곳에 검색하고 싶은 텍스트를 모두 붙여 넣으세요"></textarea>
+
+            <div class="search-cont__box js-field"></div>
+
+        </div>
+    </div>
+<script>
+    $(document).ready(function(){
+        $(".js-search").click(function(){
+            $(".js-field").html("");
+            var txt = $(".js-txt").val();
+            var txt_arr = txt.split(" ");
+
+            for(i=0;i<txt_arr.length;i++){
+                if(i == 2){//동일 단어면 빨갛//아니면 그냥
+                    $(".js-field").append("<span style='color:red;'>"+ txt_arr[i] +"</span>");
+                }else{
+                    $(".js-field").append("<span>"+ txt_arr[i] +"</span>");
+                }
+
+            }
+
+            var txt_num = txt_arr.indexOf("가나");
+            console.log(txt_num);
+        });
+
+
+    });
+</script>
+
+
+
+</body>
+</html>
