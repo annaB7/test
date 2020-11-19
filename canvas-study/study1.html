@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas1" height="1000" width="1000">This browser doesn't support canvas</canvas>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        window.onload = function(){
+            var canvas = document.getElementById("canvas1");
+            var context = canvas.getContext("2d");
+
+            context.fillRect(0,0,150,100);
+            context.fillText("I am hungry",155,110);
+
+            context.beginPath();//시작
+            context.moveTo(170,200);
+            context.lineTo(300,150);
+
+            context.rect(200,200,600,400);
+
+
+            context.stroke();
+
+            context.clearRect(220,200,400,400);
+            context.closePath();//끝
+        }
+
+
+    </script>
+</body>
+</html>
