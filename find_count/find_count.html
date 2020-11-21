@@ -13,16 +13,17 @@
 <body>
     <div class="wrap">
         <header class="search-header">
-            <input type="text" class="search-header__input" placeholder="검색하실 단어를 입력하세요">
-            <button type="button" class="search-header__btn js-search">찾아줘</button>
+            <input type="text" class="search-header__input js-word" placeholder="검색하실 단어를 입력하세요">
+            <button type="button" class="search-header__btn js-search type-only">찾아줘</button>
+            <button type="button" class="search-header__btn js-search">섞인 단어도 찾아줘</button>
         </header>
         <div class="search-cont">
             <div class="search-cont__inbox">
                 <p>이곳에 결과가 출력됩니다.</p>
                 <ul>
-                    <li>검색단어: <b class="js-word">떢떢떢</b></li>
-                    <li>갯수: <b class="js-number">35</b></li>
-                    <li>기타: <b class="js-etc">블라블라</b></li>
+                    <li>검색단어: <b class="js-result"></b></li>
+                    <li>갯수: <b class="js-number">0</b></li>
+                    <li>기타: <b class="js-etc"></b></li>
                 </ul>
             </div>
             <textarea name="name" rows="8" cols="80" class="search-cont__txt js-txt" placeholder="이곳에 검색하고 싶은 텍스트를 모두 붙여 넣으세요"></textarea>
@@ -34,21 +35,57 @@
 <script>
     $(document).ready(function(){
         $(".js-search").click(function(){
-            $(".js-field").html("");
-            var txt = $(".js-txt").val();
-            var txt_arr = txt.split(" ");
 
-            for(i=0;i<txt_arr.length;i++){
-                if(i == 2){//동일 단어면 빨갛//아니면 그냥
-                    $(".js-field").append("<span style='color:red;'>"+ txt_arr[i] +"</span>");
-                }else{
-                    $(".js-field").append("<span>"+ txt_arr[i] +"</span>");
+            var word = $(".js-word").val();
+            if(word == "" || word == " "){alert("검색단어를 입력하세요")}
+
+            $(".js-result").text(word);//검색결과에 출력-동일
+
+            $(".js-field").html("");//검색필드 초기화
+            var txt = $(".js-txt").val();//입력텍스트
+            if(txt == "" || txt == " "){alert("검색텍스트를 입력하세요")}
+
+            var txt_arr = txt.split(" ");//입력텍스트 띄어쓰기로 배열로 변경
+            var num = 0;//갯수 체크용 변수
+
+            if($(this).hasClass("type-only")){//단독 단어만 검색하자
+                $(".js-etc").text("띄어쓰기가 되어있지 않은 단어는 포함되지 않았습니다.");//검색방법 표기
+
+                for(i=0;i<txt_arr.length;i++){
+                    console.log("1");
+                    // var txt_num = txt_arr.indexOf("가나");
+                    if(txt_arr[i] == word){//동일 단어면 빨갛//아니면 그냥
+                        $(".js-field").append("<span style='color:red;'>"+ txt_arr[i] +"</span> ");
+                        num++;
+                    }else{
+                        $(".js-field").append("<span>"+ txt_arr[i] +"</span> ");
+                    }
                 }
+            }else{//섞인 단어도 검색
+                console.log("2");
+                $(".js-etc").text("띄어쓰기가 되어있지 않은 단어도 포함되었습니다.");//검색방법 표기
 
+                for(i=0;i<txt_arr.length;i++){
+                    var txt_num = txt_arr[i].indexOf(word);
+                    if(txt_num > -1){//동일 단어면 빨갛//아니면 그냥
+                        $(".js-field").append("<span style='color:red;'>"+ txt_arr[i] +"</span> ");
+                        num++;
+                    }else{
+                        $(".js-field").append("<span>"+ txt_arr[i] +"</span> ");
+                    }
+                }
             }
 
-            var txt_num = txt_arr.indexOf("가나");
-            console.log(txt_num);
+
+
+
+
+
+
+
+
+            $(".js-number").text(num);
+            // console.log(txt_num);
         });
 
 
