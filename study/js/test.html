@@ -12,8 +12,26 @@
         <li>css</li>
         <li id="active" class="marked current">javascript</li>
     </ul>
+    <div class="div1">
+        <span>sdfsdfsd1111111</span>
+    </div>
+    <div class="div2">
+        <span>sdfsdfglbikjdflgk222222</span>
+    </div>
 
     <script>
+        var div1 = document.getElementsByClassName('div1')[0];
+        var div2 = document.getElementsByClassName('div2')[0];
+
+        var span1 = div1.getElementsByTagName('span')[0];
+        var span2 = div2.getElementsByTagName('span')[0];
+
+        console.log(span1)
+        span1.style.color = 'red';
+        span2.style.color = 'blue';
+
+
+
         // var li = document.getElementById('active');
         // li.id= 'deavti';
 
