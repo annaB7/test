@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vjs - slide : type2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./slide.compact.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="ban">
+            <div class="slide slide2">
+                <ul class="slide__list">
+                    <li class="slide__item">
+                        <span class="slide__text">1</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">2</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">3</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">4</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">5</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">6</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">7</span>
+                    </li>
+                </ul>
+                <div class="slide__inbox type-btn clb">
+                    <button type="button" class="slide__btn type-left fl">left</button>
+                    <button type="button" class="slide__btn type-right fr">right</button>
+                </div>
+                <div class="slide__inbox type-bullet"></div>
+            </div>
+            <!-- <div class="slide slide1">
+                <ul class="slide__list">
+                    <li class="slide__item">
+                        <span class="slide__text">1</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">2</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">3</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">4</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">5</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">6</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">7</span>
+                    </li>
+                </ul>
+                <div class="slide__inbox type-btn clb">
+                    <button type="button" class="slide__btn type-left fl">left</button>
+                    <button type="button" class="slide__btn type-right fr">right</button>
+                </div>
+                <div class="slide__inbox type-bullet"></div>
+            </div> -->
+        </div>
+    </div>
+<script>
+var slide_mod = function(who){
+    // who = 'slide'
+    var slide = document.getElementsByClassName(who)[0];
+    var slide_list = slide.getElementsByClassName('slide__list')[0];
+    var slide_item = slide.getElementsByClassName('slide__item');
+
+    var btn_left = slide.getElementsByClassName('type-left')[0];
+    var btn_right = slide.getElementsByClassName('type-right')[0];
+
+    var bullet_box = slide.getElementsByClassName('type-bullet')[0];
+
+    var left_mg = 0;
+    var bullet_check = function(mg){
+        var idx_now = -(mg/100);
+        console.log(idx_now);
+        var bullets = bullet_box.getElementsByTagName('span');
+        for(j=0;j<bullets.length;j++){
+            bullets[j].style.backgroundColor = 'transparent';
+        }
+        var now_span = bullets[idx_now];
+        now_span.style.backgroundColor = '#ddd';
+    }
+
+
+
+    // 불렛 추가하기
+    for(i=0; i<slide_item.length;i++){
+        bullet_box.innerHTML += "<span class='slide__bullet' onclick='bullet_click(this)'></span>";
+        console.log(bullet_box);
+    }
+    bullet_check(left_mg);
+
+
+    var to_right = function(){
+        left_mg = left_mg - 100;
+        if(left_mg == -100 * (slide_item.length)){
+            left_mg = 0;
+        }
+     slide_list.style.marginLeft = left_mg +'%';
+     bullet_check(left_mg)
+    }
+    var to_left = function(){
+        if(left_mg == 0){
+            left_mg = -100 * (slide_item.length);
+        }
+        left_mg = left_mg + 100;
+     slide_list.style.marginLeft = left_mg +'%';
+     bullet_check(left_mg)
+    }
+
+    //불렛 클릭하면 해당슬라이드로 넘어갈꺼야
+    var go_that = function(idx){
+        
+    }
+
+    btn_left.addEventListener('click',to_left);
+    btn_right.addEventListener('click',to_right);
+
+}
+
+var bullet_click = function(who, idx){
+    var par = who.parentNode;
+    var this_idx =  [].indexOf.call(par.children, who);
+    console.log(this_idx);
+    who.style.backgroundColor="#ddd";
+
+    return this_idx;
+}
+
+
+slide_mod('slide2');
+// slide_mod('slide1');
+
+</script>
+</body>
+</html>
