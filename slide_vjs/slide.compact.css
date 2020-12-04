@@ -1,0 +1,64 @@
+* { margin: 0; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; font-family: 'Noto Sans KR', sans-serif; }
+
+body { -webkit-text-size-adjust: none; }
+
+ul, ol { list-style: none; }
+
+button { -webkit-border-radius: 0; border-radius: 0; background-color: transparent; cursor: pointer; }
+
+a, a:hover, a:active, a:focus { text-decoration: none; }
+
+em, address { font-style: normal; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+iframe, fieldset, img { border: 0; }
+
+textarea { resize: none; }
+
+input[type="button"], input[type="email"], input[type="number"], input[type="password"], input[type="reset"], input[type="search"], input[type="submit"], input[type="tel"], input[type="text"], select, textarea { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+img { vertical-align: top; }
+
+hr { display: none; }
+
+button { border: 0; background: transparent; display: inline-block; }
+
+/* Global Common */
+.for-a11y { overflow: hidden; position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; clip: rect(0 0 0 0); }
+
+.noto { font-family: 'Noto Sans KR', sans-serif; }
+
+.fl { float: left; }
+
+.fr { float: right; }
+
+.clb:after { content: ""; display: block; clear: both; }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding: 50px 20px; }
+
+.ban { width: 100%; overflow: hidden; }
+
+.slide__list { width: 400%; white-space: nowrap; font-size: 0; transition: all .3s; }
+
+.slide__item { display: inline-block; width: 25%; height: 300px; text-align: center; }
+
+.slide__item:nth-child(1) { background-color: red; }
+
+.slide__item:nth-child(2) { background-color: orange; }
+
+.slide__item:nth-child(3) { background-color: yellow; }
+
+.slide__item:nth-child(4) { background-color: green; }
+
+.slide__item:nth-child(5) { background-color: blue; }
+
+.slide__text { font-size: 50px; line-height: 300px; color: #fff; font-weight: 700; }
+
+.slide__inbox.type-btn { margin-top: 20px; }
+
+.slide__btn { font-size: 18px; background-color: none; border: 1px solid #ddd; padding: 0 10px; line-height: 30px; border-radius: 5px; }

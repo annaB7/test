@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vjs - slide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./slide.compact.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="ban">
+            <div class="slide">
+                <ul class="slide__list">
+                    <li class="slide__item">
+                        <span class="slide__text">1</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">2</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">3</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">4</span>
+                    </li>
+                    <li class="slide__item">
+                        <span class="slide__text">5</span>
+                    </li>
+                </ul>
+                <div class="slide__inbox type-btn clb">
+                    <button type="button" class="slide__btn type-left fl">left</button>
+                    <button type="button" class="slide__btn type-right fr">right</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    var slide_mod = function(){
+        var slide = document.getElementsByClassName('slide')[0];
+        var slide_list = slide.getElementsByClassName('slide__list')[0];
+        var slide_item = slide.getElementsByClassName('slide__item');
+
+        var btn_left = slide.getElementsByClassName('type-left')[0];
+        var btn_right = slide.getElementsByClassName('type-right')[0];
+
+        var left_mg = 0;
+
+        var to_left = function(){
+            left_mg = left_mg - 100;
+            if(left_mg == -500){
+                left_mg = 0;
+            }
+         slide_list.style.marginLeft = left_mg +'%';
+        }
+        var to_right = function(){
+            if(left_mg == 0){
+                left_mg = -500;
+            }
+            left_mg = left_mg + 100;
+         slide_list.style.marginLeft = left_mg +'%';
+         console.log(left_mg);
+        }
+
+        btn_left.addEventListener('click',to_right);
+        btn_right.addEventListener('click',to_left);
+
+    }
+
+    slide_mod();
+
+
+
+</script>
+</body>
+</html>
