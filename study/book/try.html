@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title></title>
+
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <style>
+            .ab{color:red;}
+        </style>
+</head>
+
+<body>
+    <ul>
+        <li>sdf</li>
+        <li>sdf</li>
+        <li class="ab">sdf</li>
+        <li>sdf</li>
+        <li>sdf</li>
+    </ul>
+    <script>
+        <!-- $(document).ready(function(){ -->
+            aaa();
+        <!-- }); -->
+
+        function aaa(){
+            var lis = $("ul").find("li");
+            var select = $(".ab");
+            lis.on("click",function(){
+                if(select){
+                    select.removeClass("ab");
+                }
+                $(this).addClass("ab");
+
+            });//클릭
+        }
+    </script>
+</body>
+</html>
