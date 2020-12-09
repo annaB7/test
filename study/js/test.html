@@ -8,51 +8,34 @@
 </head>
 <body>
     <ul>
-        <li>html</li>
-        <li>css</li>
-        <li id="active" class="marked current">javascript</li>
+        <li>1qqqq</li>
+        <li>2qqqq</li>
+        <li id="ac">3qqqq</li>
+        <li>4qqqq</li>
+
     </ul>
-    <div class="div1">
-        <span>sdfsdfsd1111111</span>
-    </div>
-    <div class="div2">
-        <span>sdfsdfglbikjdflgk222222</span>
-    </div>
-
+    <a href="www.miaohee.com" id="ddd">아ㅓㅇㅇ</a>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script>
-        var div1 = document.getElementsByClassName('div1')[0];
-        var div2 = document.getElementsByClassName('div2')[0];
-
-        var span1 = div1.getElementsByTagName('span')[0];
-        var span2 = div2.getElementsByTagName('span')[0];
-
-        console.log(span1)
-        span1.style.color = 'red';
-        span2.style.color = 'blue';
+    // var li = document.getElementById('ac');
+    // console.log(li.constructor.name);
+    // var lis = document.querySelectorAll('li');
+    // console.log(lis.constructor.name);
+    // var lis2 = document.getElementsByTagName('li');
+    // console.log(lis2.constructor.name);
 
 
+    var active = document.getElementById('ac');
+    active.className = 'important current';
+    console.log(active.className);
 
-        // var li = document.getElementById('active');
-        // li.id= 'deavti';
+    active.className += ' readed';
 
-        //var lis = document.getElementsByTagName('li');
-        //console.log(lis.constructor.name);
-        // var lis = document.getElementsByTagName('li');
-        // console.group('before');
-        //
-        // for(i = 0; i <lis.length; i++){
-        //     console.log(lis[i]);
-        // }
-        // console.groupEnd();
-        //
-        // console.group('after');
-        //
-        // lis[1].parentNode.removeChild(lis[1]);
-        // for(i = 0; i < lis.length; i++){
-        //     console.log(lis[i]);
-        // }
-        //
-        // console.groupEnd();
+    // var arr = active.classList;
+    // var arr_idx = arr.indexOf('readed');
+    // arr[arr_idx].remove;
+
+
     </script>
 
 </body>
