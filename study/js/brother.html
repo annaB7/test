@@ -9,44 +9,33 @@
         html,body{margin:0;padding:0;}
         *{margin:0;padding:0;}
         .wrap{max-width:800px;margin:0 auto;}
-        .inner{position:relative;}
+        .inner{position:relative;width:100%;}
         img{width:100%; }
         .video__box{position:absolute; left:16%; top:28.5%;width:68%;}
         .go__link{display:block; position:absolute;right:3%;bottom:3%;width:30%; height:15%;}
+        iframe{outline:1px solid red;width:100%;}
+
 
     </style>
 </head>
 <body>
     <div class="wrap">
-        <div class="inner">
-            <img src="../../brother.png" alt="" class="img">
-            <div class="video__box">
-                <iframe width="854" height="480" src="" frameborder="0" allow="autoplay; encrypted-media" id="video_1"></iframe>
-            </div>
-            <a href="https://www.nuskinkorea.co.kr/app/ch/contents?type=003&cate=21&menuIndex=1" class="go__link"></a>
-        </div>
+        <iframe name="progressFrame1" width="300" height="300" id="progressFrame" src="test.html"></iframe>
+  <br>
+  <input type="button" id="park" value="확인" <input type="button" id="park" onclick="test()" />
     </div>
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script type="text/javascript">
-        //반응형 유튜브
-          $(window).resize(function(){resizeYoutube();});
-          $(function(){resizeYoutube();});
-          function resizeYoutube(){ $("iframe").each(function(){ if( /^https?:\/\/www.youtube.com\/embed\//g.test($(this).attr("src")) ){ $(this).css("width","100%"); $(this).css("height",Math.ceil( parseInt($(this).css("width")) * 480 / 854 ) + "px");} }); }
+    var progressFrame1 = document.progressFrame1;
+     var height_f = progressFrame1.document.getElementById("body");
+     height_f = height_f.clientHeight;
+    // console.log(height_f.clientHeight);
+    $("iframe").css("height",height_f + "px");
 
-        //크롬체크
-          var iframe = document.getElementsByTagName('iframe')[0];
-          // var doc_2 =  iframe.contentWindow.document.body;
-          // var btn = $(doc_2).find('.ytp-mute-button');
-          // console.log(doc_2)
-          // doc_2.style.backgroundColor="red";
-          var source = "https://www.youtube.com/embed/HmpKnfmhUg0?&autoplay=1&loop=1;";
-          var agent = navigator.userAgent.toLowerCase();
-          if (agent.indexOf("chrome") != -1) {//크롬만 음소거
-            source = "https://www.youtube.com/embed/HmpKnfmhUg0?mute=1&autoplay=1&loop=1;";
-            var mute_btn = document.getElementsByClassName("ytp-mute-button")[0];
-          }
-
-          iframe.src = source;
+    // $(window).scroll(function(){
+    //     var dddd = progressFrame1.document.getElementsByClassName("navi")[0];
+    //     console.log(dddd);
+    // });
 
     </script>
 </body>

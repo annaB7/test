@@ -13,7 +13,7 @@
         <div class="inner">
             <img src="https://resource2018.nuskinkorea.co.kr/upload/20201208/biz101_84d7f15e-4ca4-4441-be75-ecb2a3d96082.png" alt="" class="img">
             <div class="video__box">
-                <iframe width="854" height="480" src="" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+                <iframe width="854" height="480" src="" frameborder="0" allow="autoplay; encrypted-media" id="iframe_1"></iframe>
             </div>
             <a href="https://www.nuskinkorea.co.kr/app/ch/contents?type=003&cate=21&menuIndex=1" class="go__link"></a>
         </div>
@@ -33,6 +33,11 @@
             var mute_btn = document.getElementsByClassName("ytp-mute-button")[0];
           }
           iframe.src = source;
+
+        var frames = document.getElementsByTagName('iframe');
+          var progressFrame = document.frames[0];
+          alert(progressFrame);
+           progressFrame.document.getElementById("movie_player").style.opacity="0.5";
     </script>
 </body>
 </html>

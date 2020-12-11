@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>test field</title>
+    <style>
+    body{background-color:#f5f5f5;height:2000px;}
+    *{padding:0; margin:0;}
+        .navi{position:relative;background-color:blue; height:80px;}
+
+        .js-navi{position:absolute;width:100%;top:0;left:0;}
+    </style>
 </head>
-<body>
+<body id="body">
+    <div class="navi">sdfkslkdfjlskdjf</div>
+    <input type="text" id="num" value="0" />
     <ul>
         <li>1qqqq</li>
         <li>2qqqq</li>
-        <li id="ac">3qqqq</li>
+        <li id="ac">3qqqdddddddddddddddddddddddddddddddddddq</li>
         <li>4qqqq</li>
 
     </ul>
@@ -34,7 +43,10 @@
     // var arr = active.classList;
     // var arr_idx = arr.indexOf('readed');
     // arr[arr_idx].remove;
-
+    var par = parent.document;
+    $(par).scroll(function(){
+        console.log("ㄴㅇ,라ㅓㄴ이");
+    });
 
     </script>
 
