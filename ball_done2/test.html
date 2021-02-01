@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scable=0">
+    <title>ball</title>
+    <style>
+        *{user-select: none;-ms-user-select:none;outline:0;margin:0;padding:0;-webkit-tab-highlight-color:rgba(0,0,0,0);}
+        ul,ol,li{margin:0; padding:0; list-style:none;}
+        body{position:relative;min-height:100vh}
+        body{cursor:none;}
+        .pointer{display:block;position:absolute; width:10px; height:10px; border-radius:50%; background-color:#000;transition:padding .2s;}
+        .pointer.type-a{background-color:blue;padding:10px 10px 10px 10px;}
+        .wrap{max-width:1200px; margin:0 auto; padding-top:50px;}
+        .item{font-size:30px; margin-bottom:30px;}
+        .item:hover{color:red;}
+    </style>
+
+</head>
+<body>
+<span class="pointer"></span>
+<div class="wrap">
+    <ul class="list">
+        <li class="item">123456</li>
+        <li class="item">123456</li>
+        <li class="item">123456</li>
+        <li class="item">123456</li>
+        <li class="item">123456</li>
+        <li class="item">123456</li>
+
+    </ul>
+</div>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+    $(document).ready(function(){
+
+   $(document).mousemove(function(e){
+      console.log(e.pageX + ', ' + e.pageY);
+        $(".pointer").css('left',e.pageX + 'px');
+        $(".pointer").css('top',e.pageY + 'px');
+   });
+
+   $('.item').hover(function(){
+       $(".pointer").addClass("type-a")
+       $(".pointer").css('left',e.pageX -10 + 'px');
+       $(".pointer").css('top',e.pageY-10 + 'px');
+   },function(){
+       $(".pointer").removeClass("type-a")
+   });
+
+});
+
+
+</script>
+
+</body>
+</html>

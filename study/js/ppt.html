@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script src="https://code.jquery.com/jquery-3.1.0.js"></script> -->
+    <title>Document</title>
+    <style>body{text-align: center;}
+        .ggg{display:inline-block;font-size:25px;border:1px solid red;padding:0 20px;}
+    </style>
+</head>
+<body>
+    <div class="ggg" data="kkkkk">dddd</div>
+    <a href="./demo1.html" id="link_1">sfdfsf</a>
+
+    <ul id="list">
+        <li class="item">1</li>
+        <li class="item">2</li>
+        <li class="item">3</li>
+        <li class="item">4</li>
+    </ul>
+<script>
+var target = document.getElementById("link_1");
+
+var href1 = target.href;
+var href2 = target.getAttribute('href');
+console.log(href1)
+console.log(href2)
+
+
+var cat = {
+    sound: "meow",
+    no:"nono",
+    soundPlay: function () {
+        let that = this // that 사용
+            console.log(that.sound);
+    },
+    noPlay: function () {
+        let that = this // that 사용
+            console.log(that.no);
+    }
+}
+
+cat.soundPlay();
+cat.noPlay();
+
+// node객체 - 210126
+var list = document.getElementById('list');
+var item_1 = list.getElementsByClassName('item')[1];
+
+console.log('node.childNodes'+list.textContext);
+
+
+
+
+</script>
+</body>
+</html>

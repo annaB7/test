@@ -1,0 +1,86 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+*{margin:0;padding:0;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;font-family: 'Noto Sans KR', sans-serif;}
+body{-webkit-text-size-adjust:none}
+ul,ol{list-style:none}
+button{-webkit-border-radius:0;border-radius:0;background-color:transparent;cursor:pointer}
+a,a:hover,a:active,a:focus{text-decoration:none}
+em,address{font-style:normal}
+table{border-collapse:collapse;border-spacing:0}
+iframe,fieldset,img{border:0}
+textarea{resize:none}
+input[type="button"],input[type="email"],input[type="number"],input[type="password"],input[type="reset"],input[type="search"],input[type="submit"],input[type="tel"],input[type="text"],select,textarea{-webkit-appearance:none;-moz-appearance:none;appearance:none}
+input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+img{vertical-align:top}
+hr{display:none}
+button{border:0; background:transparent;display:inline-block;}
+/* Global Common */
+.for-a11y{overflow:hidden;position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;clip:rect(0 0 0 0)}
+
+.noto{font-family: 'Noto Sans KR', sans-serif;}
+.fl{float:left;}
+.fr{float:right}
+.clb:after{content:"";display:block; clear:both;}
+
+.roulette__tit{text-align: center;background-color:#03c75a;color:#fff;height:40px;line-height:40px;}
+.wrap{width:100%; overflow: hidden;font-family: 'Noto Sans KR', sans-serif;}
+.input-area{border-bottom:1px solid #ddd;
+    $this:&;
+    &__wrap{padding:20px 15px;position:relative;padding-bottom:120px;}
+    &__inner{
+        &.type-btn{position:absolute;bottom:10px;left:15px;width:calc(100% - 30px);}
+    }
+    &__btn{display:inline-block;border-radius:4px;
+        & + & {margin-top:5px;}
+        &.type-plus{position:relative;display:block; text-align: center;font-size:18px;border:1px solid #03c75a;color:#fff;height:40px;line-height:40px;padding:0 15px;
+            &:before{content:"";display:block;position:absolute;top:10px;left:50%;margin-left:-2px;width:4px;height:20px;background-color:#03c75a;}
+            &:after{content:"";display:block;position:absolute;top:18px;left:50%;margin-left:-10px;width:20px;height:4px;background-color:#03c75a;}
+        }
+        &.type-start{display:block; text-align: center;font-size:18px;background-color:#03c75a;color:#fff;height:40px;line-height:40px;padding:0 15px;}
+        &.type-minus{position:relative;font-size:14px;background-color:#ddd;color:#fff;width:30px;height:30px;line-height:30px;
+            &:after{content:"";display:block;position:absolute;top:13px;left:5px;width:20px;height:4px;background-color:#fff; }
+        }
+    }
+    &__list{max-height:280px;overflow: auto;}
+    &__item{
+        &.type-remove{animation:remover .2s ;animation-fill-mode: forwards;animation-timing-function: cubic-bezier(0.1, 0.25, 0.75, 0.25);overflow: hidden;}
+        @for $i from 1 through 3{
+            &:nth-child(#{$i}){
+                #{$this}__btn{display:none;}
+            }
+        }
+
+        & + &{margin-top:5px;}
+    }
+    &__input{line-height:30px;font-size:14px;border:1px solid #ddd;border-radius: 4px;box-shadow: none;padding:0 10px;width:calc(100% - 40px);
+        &::placeholder{color:#e9e9e9}
+    }
+}
+
+@keyframes remover {
+    0%{}
+    50%{height:20px;}
+    100%{height:0}
+}
+
+
+// 룰렛
+.roulette-area{
+    &__wrap{padding:20px 15px;}
+    &__box{position:relative;height:100px;width:100%;overflow:hidden;border:1px solid #000;}
+    &__list{position:absolute;width:100%;
+        &.type-go{animation:r_action .2s ;animation-direction:forwards;animation-iteration-count:30;animation-timing-function: linear;overflow: hidden;animation-iteration-count:3;animation-fill-mode:forwards}
+     }
+    &__item{font-size:50px;line-height:50px;text-align: center;vertical-align: middle;animation-iteration-count:3;}
+}
+#replay_btn{display:none;}
+
+
+
+@keyframes r_action {
+    0%{top:0%;}
+    50%{top:-46%;}
+    100%{top:-100%;}
+}
