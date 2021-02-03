@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li class="item">
+            <span class="ee">1</span>
+            <span class="dd">2</span>
+        </li>
+        <li class="item">
+            <span class="ee">3</span>
+            <span class="dd">3</span>
+        </li>
+        <li class="item">
+            <span class="ee">4</span>
+            <span class="dd">4</span>
+        </li>
+    </ul>
+    <div id="ff" style="border:1px solid red;padding:15px;"></div>
+
+    <script>
+        var btn = document.getElementsByClassName('item');
+        for(i=0;i<btn.length;i++){
+            btn[i].addEventListener('click',function(){
+                var num_1 = Number(this.getElementsByClassName('ee')[0].innerText);
+                var num_2 = Number(this.getElementsByClassName('dd')[0].innerText);
+                console.log(num_1 + num_2);
+                document.getElementById('ff').innerHTML = num_1 + num_2;
+            });
+        }
+
+
+
+        var proto = function(aaa,bbb){
+            this.answer = aaa+bbb;
+        }
+        proto.prototype.prints = function(){
+            console.log(this.answer)
+        }
+        var math = new proto(1,2);
+        math.prints();
+
+        //프로토타입
+        // function PersonType(name) {
+        //     this.name = name;
+        // }
+        // PersonType.prototype.sayName = function() {
+        //     console.log(this.name);
+        // };
+        // let person = new PersonType("Nicholas");
+        // person.sayName();   // outputs "Nicholas"
+        // console.log(person instanceof PersonType);  // true
+        // console.log(person instanceof Object);      // true
+
+        //클래스
+        // class PersonClass {
+        //     // PersonType 생성자와 동일합니다.
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        //     // PersonType.prototype.sayName과 동일합니다.
+        //     sayName() {
+        //         console.log(this.name);
+        //     }
+        // }
+        // let person = new PersonClass("Nicholas");
+        // person.sayName();   // outputs "Nicholas"
+        // console.log(person instanceof PersonClass);     // true
+        // console.log(person instanceof Object);          // true
+        // console.log(typeof PersonClass);                    // "function"
+        // console.log(typeof PersonClass.prototype.sayName);  // "function"
+
+    </script>
+</body>
+</html>
