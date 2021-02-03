@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scable=0">
     <title>roulette for menu</title>
     <!-- <script src="https://code.jquery.com/jquery-3.1.0.js"></script> -->
-    <link rel="stylesheet" href="./roulette.compact.css">
+    <link rel="stylesheet" href="./css/roulette.compact.css">
     <style>
 
     </style>
@@ -62,7 +62,14 @@
         }
      //아이템 추가
         function plus_item(){
+
             var list = document.getElementById('list');
+            //최대 10개
+            var items = list.getElementsByTagName('li');
+            if(items.length >= 10){
+                alert('maximum 10');
+                return;
+            }
             //추가될 아이템
             var additional_li = document.createElement('li');
             var addtioinal_inner = "<input type='text' class='input-area__input fl' placeholder='메뉴를 적으세요'><span class='input-area__btn type-minus fr' onclick='minus_item(this)'></span>"
@@ -70,6 +77,8 @@
             additional_li.classList.add("input-area__item", "clb")
             additional_li.innerHTML = addtioinal_inner;
             list.appendChild(additional_li)
+            //추가시 스크롤 내리기
+            list.scrollTop="100";
         }
 
     //룰렛리스트 play
@@ -86,6 +95,10 @@
                     var items_input = items[i].getElementsByTagName('input');
                     if(items_input[0].value != ""){
                         arr.push(items_input[0].value);
+                    }
+                    if(arr.length == 0){
+                        alert('메뉴를 입력해 주세요')
+                        return;
                     }
                 }
                 var roulette_list = document.getElementById('roulette_list');
@@ -104,13 +117,7 @@
                     roulette_list.classList.remove('type-go');
                 },300);
             },100);
-
         }
-
-
-
-
-
     </script>
 </body>
 </html>

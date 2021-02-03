@@ -88,13 +88,13 @@ button { border: 0; background: transparent; display: inline-block; }
 
 .roulette-area__wrap { padding: 20px 15px; }
 
-.roulette-area__box { position: relative; height: 50px; width: 100%; overflow: hidden; border: 1px solid #000; }
+.roulette-area__box { position: relative; height: 50px; width: 100%; overflow: hidden; border: 4px solid #03c75a; }
 
 .roulette-area__list { position: absolute; width: 100%; }
 
 .roulette-area__list.type-go { animation: r_action .3s; animation-direction: forwards; animation-iteration-count: 30; animation-timing-function: linear; overflow: hidden; animation-iteration-count: 3; animation-fill-mode: forwards; }
 
-.roulette-area__item { font-size: 50px; line-height: 50px; height: 50px; overflow: hidden; text-align: center; vertical-align: middle; animation-iteration-count: 3; }
+.roulette-area__item { font-size: 40px; line-height: 50px; height: 50px; overflow: hidden; text-align: center; vertical-align: middle; animation-iteration-count: 3; background-color: #f2f2f2; }
 
 #replay_btn { display: none; }
 

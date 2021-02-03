@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scable=0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        .wrap{width:100%; max-width:1200px;margin:0 auto; padding:50px 40px;}
+        ul{border:1px solid #000;padding:20px}
+        li{text-align:center;}
+        li + li{margin-top:10px;}
+        input{border:1px solid #ddd;font-size:14px; line-height:20px;padding:0 10px;}
+        button{margin-top:20px;display:inline-block;border:1px solid #0d5efe;font-size:20px;line-height:30px; height:30px; padding:0 15px;border-radius:4px;background-color:#0d5efe;color:#fff;}
+        #answer{font-size:30px;color:red;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <form action="" class="clb">
+            <ul>
+                <li>
+                    <input type="text" class="input" id="input1">
+                    <input type="text" class="input" id="input2">
+                    <input type="text" class="input" id="input3">
+                    <input type="text" class="input" id="input4">
+                </li>
+            </ul>
+            <button type="button" class="fr" onclick="do_the_math()">정답을 보자</button>
+        </form>
+        <div class="answer">
+            <span class="answer__span" id="answer">???</span>
+        </div>
+
+    </div>
+
+<script>
+    function do_the_math(){
+        document.getElementById('answer').innerHTML=ddd();
+    }
+
+    function ddd(){
+        var inputs = document.getElementsByTagName('input');
+        var val_arr = [];
+        var answer = null;
+        //인풋벨류 찾기
+        for(i=0;i<inputs.length;i++){
+            if(inputs[i].value != ""){
+                val_arr.push(inputs[i].value);
+            }
+        }
+        //4개 체크
+        if(val_arr.length < 4){
+            alert("fill all inputs");
+            return
+        }else{
+            for(j=0;j<val_arr.length;j++){
+                answer = answer + Number(val_arr[j]);
+            }
+            return answer;
+        }
+    }
+
+
+</script>
+</body>
+</html>

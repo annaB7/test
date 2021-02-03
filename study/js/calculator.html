@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scable=0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/calc.compact.css">
+</head>
+<body>
+    <div class="cont">
+        <div class="calc">
+            <div class="calc__moniter">
+                <div class="calc__inner type-monitor">
+                    <div class="calc__nums" id="monitor">0</div>
+                </div>
+            </div>
+            <div class="calc__wrap clb">
+                <div class="calc__inbox type-keys fl">
+                    <div class="calc-nums">
+                        <ul class="calc-nums__list clb">
+                            <li class="calc-nums__item fl">
+                                <span class="calc-nums__num" onclick="push_btn(this)" data="1">1</span>
+                            </li>
+                            <li class="calc-nums__item fl">
+                                <span class="calc-nums__num" onclick="push_btn(this)" data="2">2</span>
+                            </li>
+                            <li class="calc-nums__item fl">
+                                <span class="calc-nums__num" onclick="push_btn(this)" data="3">3</span>
+                            </li>
+                            <li class="calc-nums__item fl">
+                                <span class="calc-nums__num" onclick="push_btn(this)" data="4">4</span>
+                            </li>
+                            <li class="calc-nums__item fl">
+                                <span class="calc-nums__num" onclick="push_btn(this)" data="5">5</span>
+                            </li>
+                            <li class="calc-nums__item fl">
+                                <span class="calc-nums__num" onclick="push_btn(this)" data="6">6</span>
+                            </li>
+                            <li class="calc-nums__item fl">
+                                <span class="calc-nums__num" onclick="push_btn(this)" data="7">7</span>
+                            </li>
+                            <li class="calc-nums__item fl">
+                                <span class="calc-nums__num" onclick="push_btn(this)" data="8">8</span>
+                            </li>
+                            <li class="calc-nums__item fl">
+                                <span class="calc-nums__num" onclick="push_btn(this)" data="9">9</span>
+                            </li>
+                            <li class="calc-nums__item fl">
+                                <span class="calc-nums__num" onclick="push_btn(this)" data="0">0</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="calc__inbox type-operator fr">
+                    <ul class="calc-operator__list">
+                        <li class="calc-operator__item" data="+" onclick="push_btn(this)">+</li>
+                        <li class="calc-operator__item" data="-" onclick="push_btn(this)">-</li>
+                        <li class="calc-operator__item" data="=" onclick="push_btn(this)">=</li>
+                        <li class="calc-operator__item" data="d" onclick="push_btn(this)">C</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <input type="text" class="calc__input" value="">
+    </div>
+    <script>
+
+    //숫자넣기(0~9) - 연산자 넣기전엔 한개로 묶어야해
+    //1. 연산자 기준으로 인풋을 생성한다.
+    //연산자넣기(+,-)
+    //2.연산자를 넣으면 인풋끊기
+    //반복~~~~
+    //계산하기(=)
+    //3.전부다 더한 다음 모니터에 출력하고
+    //4.인풋들 1개빼고 다 삭제
+    //5.1개의인풋에 해당값넣기
+    //계산후? 똑같은거 반복
+    //초기화하기(C)
+    //인풋 다지우고
+    //1개만남기고
+    //값은 ""
+    //monitor에 0출력
+    //반복~~~
+
+
+
+
+
+
+    //v1
+        // var check_arr = [];
+        // var operator_checker = 0;//연산자 연속으로 못쓰게 체크용
+        // var num = 0;
+        // function push_btn(btn){
+        //
+        //     var monitor = document.getElementById('monitor');
+        //
+        //     var data_this = btn.getAttribute('data');
+        //
+        //     if(isNaN(data_this)){
+        //         if(data_this == "d"){//지우기
+        //             check_arr.pop(data_this);
+        //         }
+        //
+        //         if(operator_checker != 0){
+        //             alert('연속해서 연산자 쓰지마!')
+        //             return;
+        //         }
+        //             // data_this = Number(data_this);
+        //             operator_checker = 1;
+        //     }else{
+        //         data_this = Number(data_this);
+        //
+        //         operator_checker = 0;
+        //     }
+        //     if(monitor.innerText == "0"){
+        //         monitor.innerHTML = data_this;
+        //     }else{
+        //         monitor.innerHTML += data_this;
+        //     }
+        //     check_arr.push(data_this);
+        //     console.log(check_arr);
+        //
+        // }
+
+
+
+    //v2
+        // var number_chk = 0;
+        // var calc_chk = 0;
+        //
+        // function push_btn(btn){
+        //     if(calc_chk == 1){
+        //         init_calc();
+        //         calc_chk = 0;
+        //     }
+        //
+        //     var data = btn.getAttribute('data');
+        //     var inputs = document.getElementsByClassName('calc__input');
+        //     var answer = 0;
+        //     var monitor = document.getElementById('monitor');
+        //     //연산자인지 숫자인지 확인하기
+        //     if(!isNaN(data)){//숫자이면
+        //
+        //             var inputs_last = inputs[inputs.length-1];
+        //             var inputs_last_val = inputs_last.getAttribute('value');
+        //             if(inputs_last_val == null){inputs_last_val = "";}
+        //             inputs_last_val += data;
+        //             inputs_last.setAttribute('value',inputs_last_val);
+        //     }else{//연산자이면
+        //         number_chk = 0;
+        //         if(data == "="){//계산하자!
+        //             for(i=0;i<inputs.length;i++){
+        //                 answer += Number(inputs[i].value);
+        //                 monitor.innerHTML = answer;
+        //                 if(i != 0){
+        //                     inputs[i].parentNode.removeChild(inputs[i]);
+        //                 }else{
+        //                     inputs[i].setAttribute('value',answer);
+        //                 }
+        //             }
+        //             calc_chk = 1;
+        //             return;
+        //         }else if(data == "d"){//초기화
+        //             monitor.innerHTML = 0;
+        //             for(j=0;j<inputs.length;j++){
+        //                 var remove_item = inputs[j]
+        //                 if(j != 0){
+        //                     remove_item.parentNode.removeChild(remove_item);
+        //                 }else{
+        //                     inputs[j].setAttribute('value',"");
+        //                 }
+        //             }
+        //             return
+        //         }else{
+        //             //부호계산
+        //             var input_num = document.createElement('input');
+        //             input_num.setAttribute('type','hidden');
+        //             input_num.classList.add("calc__input");
+        //             input_num.setAttribute('value',data);
+        //             document.getElementsByClassName('cont')[0].appendChild(input_num);
+        //             console.log("sdflkjsl");
+        //         }
+        //     }
+        //     //출력
+        //     var monitor = document.getElementById('monitor');
+        //     if(monitor.innerText == "0"){
+        //             monitor.innerHTML = data;
+        //         }else{
+        //             monitor.innerHTML += data;
+        //         }
+        //         //*스크롤 끝으로 옮겨
+        // }
+        //
+        // //초기화함수
+        // function init_calc(){
+        //     //인풋들 삭제후1개남김
+        //     //moniotr 0으로 남기기
+        //     var inputs_init = document.getElementsByClassName('calc__input');
+        //     var monitor_init = document.getElementById('monitor');
+        //     monitor.innerHTML = 0;
+        //     for(j=0;j<inputs_init.length;j++){
+        //         var remove_item = inputs_init[j]
+        //         if(j != 0){
+        //             remove_item.parentNode.removeChild(remove_item);
+        //         }else{
+        //             inputs_init[j].setAttribute('value','');
+        //         }
+        //     }
+        //     return
+        // }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // common sticky
+            var StickyComponent = function (container, args) {
+                var defParams = {
+                    obj: container,
+                    fixedPosition : 0,
+                    customEvent : '.stickyComponent' + (new Date()).getTime(),
+                };
+                this.opts = Object.assign(defParams, (args || {}));
+                if (!(this.obj = $(defParams.obj)).length) return;
+                this.init();
+            };
+            StickyComponent.prototype = {
+                init : function () {
+                    this.initLayout();
+                    this.bindEvents(true);
+                    this.onScrollFunc();
+                },
+                initLayout : function () {
+                    var stickyWrapClass = this.obj.attr('class').split(' ')[0],
+                        jsStickyWrapClass = 'js-' + stickyWrapClass;
+                    var headerHeight =  $('#header .box__header-inner').outerHeight() + 1;
+                    if (!this.obj.parent().hasClass(jsStickyWrapClass)) {
+                        this.obj.wrap('<div class="' + jsStickyWrapClass + '" />');
+                    }
+                    this.jsStickyWrap = this.obj.parent();
+                    this.jsStickyWrap.css('height', Math.ceil(this.obj.outerHeight(), 10));
+                    this.opts.fixedPosition = (this.jsStickyWrap.offset().top + 1) - headerHeight;
+                },
+                changeEvents : function (event) {
+                    var events = [],
+                        eventNames = event.split(' ');
+                    for (var key in eventNames) {
+                        events.push(eventNames[key] + this.opts.customEvent);
+                    }
+                    return events.join(' ');
+                },
+                bindEvents : function (type) {
+                    if (type) {
+                        $(window).on(this.changeEvents('scroll'), $.proxy(this.onScrollFunc, this));
+                    } else {
+                        $(window).off(this.changeEvents('scroll'));
+                    }
+                },
+                onScrollFunc : function () {
+                    var winTop = $(window).scrollTop(),
+                        fixedClass = this.obj.attr('class').split(' ')[0] + this.opts.fixedClass;
+                    this.obj.toggleClass(fixedClass, winTop > this.opts.fixedPosition);
+                }
+            };
+    </script>
+</body>
+</html>
