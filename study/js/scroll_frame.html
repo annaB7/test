@@ -60,21 +60,12 @@
                 //여기서부터 스크롤되는 값을 구해서 아이템들을 그스크롤 되는값만큼씩 top값내리고 그 내린값이 1개의 height만큼 충족된다면 그다음 요소를 내리는거야
                 //위의 건 4개를 내리는거고
                 var items_h = t_items[0].clientHeight;
-                    t_items[0].style.top = -(target_t) + "px";
-                if(target_t <= -(items_h)){
-                    t_items[1].style.top = -(target_t+items_h) + "px";
-                }
-                if(target_t <= -(items_h*2)){
-                    t_items[2].style.top = -(target_t+(items_h*2)) + "px";
-                }
-                if(target_t <= -(items_h*3)){
-                    t_items[3].style.top = -(target_t+(items_h*3)) + "px";
-                }
-                if(target_t <= -(items_h*4)){
-                    t_items[4].style.top = -(target_t+(items_h*4)) + "px";
+                for(i=0;i<t_items.length;i++){
+                    if(target_t <= -(items_h*i)){
+                        t_items[i].style.top = -(target_t+(items_h*i)) + "px";
+                    }
                 }
             }else{
-
                 if(target_t >= 0){
                     phone.classList.remove('after');
                     for(i=0;i<t_items.length;i++){
@@ -90,8 +81,6 @@
                 phone.classList.remove('fixed');
             }
         })
-
-
     </script>
 </body>
 </html>
