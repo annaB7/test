@@ -50,6 +50,12 @@
                             <li class="calc-nums__item fl">
                                 <span class="calc-nums__num" onclick="push_btn(this)" data="0">0</span>
                             </li>
+                            <li class="calc-nums__item fl">
+                                <span class="calc-nums__num" onclick="push_btn(this)" data="c">C</span>
+                            </li>
+                            <li class="calc-nums__item fl">
+                                <span class="calc-nums__num" onclick="push_btn(this)" data="=">=</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -57,13 +63,13 @@
                     <ul class="calc-operator__list">
                         <li class="calc-operator__item" data="+" onclick="push_btn(this)">+</li>
                         <li class="calc-operator__item" data="-" onclick="push_btn(this)">-</li>
-                        <li class="calc-operator__item" data="=" onclick="push_btn(this)">=</li>
-                        <li class="calc-operator__item" data="d" onclick="push_btn(this)">C</li>
+                        <li class="calc-operator__item" data="*" onclick="push_btn(this)">*</li>
+                        <li class="calc-operator__item" data="/" onclick="push_btn(this)">/</li>
                     </ul>
                 </div>
             </div>
         </div>
-        <input type="text" class="calc__input" value="">
+        <input type="hidden" class="calc__input" value="">
     </div>
     <script>
 
@@ -84,8 +90,42 @@
     //monitor에 0출력
     //반복~~~
 
+    var monitor = document.getElementById('monitor');
 
 
+    function push_btn(data){
+        var input_ans = document.getElementsByClassName('calc__input')[0];
+        var input_val = input_ans.value;
+        var value_this = data.getAttribute('data');
+
+        if(isNaN(value_this)){//숫자가 아니면
+            if(value_this == "="){//계산!
+                // var
+                if(isNaN(input_val.charAt(input_val.length-1))){//인풋의 마지막이 연산자이면!
+                    input_val = input_val.slice(0,-1)
+                }
+                var answer = eval(input_ans.value);
+                console.log(answer);
+                print_monitor(monitor,input_ans,answer)
+
+            }else if(value_this == "c"){//초기화하는거
+                var answer = "";
+                print_monitor(monitor,input_ans,answer)
+            }else{//연산자면 걍 넣어
+                input_ans.value += value_this;
+                monitor.innerHTML = input_ans.value;
+            }
+        }else{//숫자면 걍넣어
+            input_ans.value += value_this;
+            monitor.innerHTML = input_ans.value;
+        }
+        console.log(input_ans.value);
+    }
+
+function print_monitor(monitor,input_ans,answer,c){
+        monitor.innerHTML = answer;
+        input_ans.value=answer;
+}
 
 
 
