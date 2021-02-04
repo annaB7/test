@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scable=0">
+    <title>scroll_frame</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/scroll_frame.compact.css">
+</head>
+<body>
+    <div class="wrap">
+        <section class="sec sec_1">
+            <div class="sec__num">1</div>
+        </section>
+        <section class="sec sec_2">
+            <div class="sec__num">2</div>
+        </section>
+        <section class="sec sec_3 type-scrollable" id="target">
+            <div class="phone" id="phone">
+                <ul class="phone__list">
+                    <li class="phone__item">1</li>
+                    <li class="phone__item">2</li>
+                    <li class="phone__item">3</li>
+                    <li class="phone__item">4</li>
+                    <li class="phone__item">5</li>
+                </ul>
+            </div>
+        </section>
+        <section class="sec sec_4">
+            <div class="sec__num">푸터랄까</div>
+        </section>
+    </div>
+    <script>
+        var target = document.getElementById('target');
+        var t_items = target.getElementsByClassName('phone__item');
+        var plus_height = target.clientHeight;
+        var phone = document.getElementById('phone');
+        var window_h = window.innerHeight;
+
+        window.onload = function(){
+            //높이 세팅
+            for(i=0;i<t_items.length-1;i++){
+                plus_height += (t_items[i].clientHeight);
+            }
+            target.style.height=plus_height + "px";
+        }
+        window.addEventListener('scroll',function(){
+
+            var scroll_t = window.scrollY || document.documentElement.scrollTop;
+            var target = document.getElementById('target')
+            var target_t = target.getBoundingClientRect();
+            target_t = target_t.top;
+
+            if(target_t <= 0 &&  target_t >= -(plus_height - window_h)){
+                for(i=0;i<t_items.length;i++){
+                    t_items[i].classList.remove('off');
+                }
+                phone.classList.add('fixed');
+                //여기서부터 스크롤되는 값을 구해서 아이템들을 그스크롤 되는값만큼씩 top값내리고 그 내린값이 1개의 height만큼 충족된다면 그다음 요소를 내리는거야
+                //위의 건 4개를 내리는거고
+                var items_h = t_items[0].clientHeight;
+                    t_items[0].style.top = -(target_t) + "px";
+                if(target_t <= -(items_h)){
+                    t_items[1].style.top = -(target_t+items_h) + "px";
+                }
+                if(target_t <= -(items_h*2)){
+                    t_items[2].style.top = -(target_t+(items_h*2)) + "px";
+                }
+                if(target_t <= -(items_h*3)){
+                    t_items[3].style.top = -(target_t+(items_h*3)) + "px";
+                }
+                if(target_t <= -(items_h*4)){
+                    t_items[4].style.top = -(target_t+(items_h*4)) + "px";
+                }
+            }else{
+
+                if(target_t >= 0){
+                    phone.classList.remove('after');
+                    for(i=0;i<t_items.length;i++){
+                        t_items[i].classList.add('off');
+                        t_items[i].style.top = "0px";
+                    }
+                }else{
+                    phone.classList.add('after');
+                    for(i=0;i<t_items.length;i++){
+                        t_items[i].classList.remove('off');
+                    }
+                }
+                phone.classList.remove('fixed');
+            }
+        })
+
+
+    </script>
+</body>
+</html>
