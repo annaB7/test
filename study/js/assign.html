@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // const target = { a: 1, b: 'bb',c:'바뀜?'}
+    // const source = { b: 4, c: 10 }
+    //
+    // console.log(Object.assign(target, source));
+    // // { a: 1, b: 4, c: 10 }
+
+    // const obj = {
+    //   prop: 20
+    // };
+    //
+    // Object.freeze(obj);
+    // obj.prop = 33;  // strict 모드에서는 error
+    // console.log(obj.prop);  // 20 출력됨
+    var copy_obj = function(target){
+        var result = {};
+
+        if(typeof target == 'object' && target !== null){
+            for(var prop in target){
+                result[prop] = copyobj(target[prop]);
+            }
+        }else{
+            result = target;
+        }
+        return result;
+    }
+
+
+    </script>
+
+</body>
+</html>

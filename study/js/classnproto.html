@@ -75,6 +75,71 @@
         // console.log(typeof PersonClass);                    // "function"
         // console.log(typeof PersonClass.prototype.sayName);  // "function"
 
+        //var let 차이
+
+        // function test(){
+        //     var var_1 = "var야";
+        //     let let_1 = "let1이야";
+        //
+        //     if(var_1 == "var야"){
+        //         let let_1 = "let2이야";
+        //         var var_1 = "var_2"
+        //         console.log(var_1, let_1);
+        //     }else{
+        //         let let_1 = "let2이야";
+        //     }
+        //     console.log(var_1, let_1);
+        // }
+        // test();
+
+        var mh = {
+            f_name:"bang",
+            name: "mh",
+            age:'35',
+            favfood:[{
+                korean:["kimchi","mandu"],
+                japanese:"sushi",
+                chinese: "jjambbong"
+            },"all"],
+            get nani(){
+                return this.f_name + this.name;
+            }
+        }
+        console.log(mh.nani)
+        console.log(mh.favfood[1])
+
+        // let mh2 = mh;//얕은복사
+        //깊은복사 함수
+        // function deep(target){
+        //     var result = {};
+        //     if(typeof target === 'object' && target !== null){
+        //         for(var prop in target){
+        //             result[prop] = deep(target[prop]);
+        //         }
+        //     }else{
+        //         result = target;
+        //     }
+        //     return result;
+        // }
+        // let mh2=deep(mh);
+
+        //json깊은복사
+        function json_deep(target){
+            return JSON.parse(JSON.stringify(target));
+        }
+        var mh2=json_deep(mh);
+
+        console.log(mh2.favfood[1])
+        mh2.favfood[1] = "alchole"
+        console.log(mh2.favfood[1])
+        console.log(mh.favfood[1])
+        // console.log(mh)
+        // console.log(mh2)
+
+        var ddd ;
+        console.log(ddd)
+        console.log(con());
+
     </script>
 </body>
 </html>

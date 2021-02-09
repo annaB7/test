@@ -37,6 +37,7 @@
         var plus_height = target.clientHeight;
         var phone = document.getElementById('phone');
         var window_h = window.innerHeight;
+        var scrollPos = 0;
 
         window.onload = function(){
             //높이 세팅
@@ -45,21 +46,6 @@
             }
             target.style.height=plus_height + "px";
         }
-        var lastScrollTop = 0;
-        var direction_chk = null;
-        window.addEventListener("scroll", function(){
-           var st = window.pageYOffset || document.documentElement.scrollTop;
-           if (st > lastScrollTop){
-              // downscroll code
-              console.log("내리는");
-              direction_chk = "down"
-           } else {
-              // upscroll code
-              console.log("올리는중");
-              direction_chk = "up"
-           }
-           lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-        }, false);
 
         window.addEventListener('scroll',function(){
 
@@ -68,6 +54,7 @@
             var target = document.getElementById('target')
             var target_t = target.getBoundingClientRect();
             target_t = target_t.top;
+
 
             if(target_t <= 0 &&  target_t >= -(plus_height - window_h)){
                 for(i=0;i<t_items.length;i++){
@@ -80,15 +67,12 @@
                         t_items[i].style.top = -(target_t+(items_h*i)) + "px";
                         //올릴때와 내릴때를 구분해서 올릴때는 이미올라간 친구들한데 top:0을 주고 내릴때는 top:100%주자
                         // console.log(i);
-                        if(direction_chk == "up"){//올릴때
-                            // for(k=t_items.length;k>i;k--){
-                            //     t_items[k].style.top = "0px";
-                            // }
-                        }else{//내릴때
-                            for(k=0;k<i;k++){
-                                t_items[k].style.top = "100%";
-                            }
-                        }
+            //스크롤 방향 감
+                        if ((document.body.getBoundingClientRect()).top > scrollPos)//위로
+                          console.log("위로");
+                       else//아래로
+                          console.log("아래로");
+                       scrollPos = (document.body.getBoundingClientRect()).top;
                     }
                 }
             }else{
@@ -106,7 +90,7 @@
                 }
                 phone.classList.remove('fixed');
             }
-        })
+        });
     </script>
 </body>
 </html>
