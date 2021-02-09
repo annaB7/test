@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <input type="text" id="name_input">
+        <button type="button" id="submit">입력</button>
+    <script>
+        //게터세터
+        // var name_chk = function(target){
+        //     let user = {
+        //       get name() {
+        //         return this._name;
+        //       },
+        //
+        //       set name(value) {
+        //         if (value.length < 4) {
+        //           alert("입력하신 값이 너무 짧습니다. 네 글자 이상으로 구성된 이름을 입력하세요.");
+        //           return;
+        //         }
+        //         this._name = value;
+        //         console.log(this._name);
+        //       }
+        //     };
+        //     user.name = target.value;
+        // }
+        //
+        // document.getElementById('submit').addEventListener('click',function(){
+        //
+        //     name_chk(document.getElementById('name_input'));
+        // })
+
+        //렉시컬스코프
+//         wrapper();
+//
+//
+//
+//             function wrapper() {
+//               var name = 'nero';
+//
+//               log();
+//             }
+//
+// var name = 'zero';
+// function log() {
+//   console.log(name);
+// }
+
+var another = function(){
+  var x = 'local';
+  function y(){
+    alert(x);
+  }
+  return {y : y};
+  console.log("sd;fl");
+}
+another();
+
+// var newScope = another();
+// newScope()
+
+        // let user = {
+        //   get name() {
+        //     return this._name;
+        //   },
+        //
+        //   set name(value) {
+        //     if (value.length < 4) {
+        //       alert("입력하신 값이 너무 짧습니다. 네 글자 이상으로 구성된 이름을 입력하세요.");
+        //       return;
+        //     }
+        //     this._name = value;
+        //   }
+        // };
+        //
+        // user.name = "Pete";
+        // alert(user.name); // Pete
+        //
+        // user.name = ""; // 너무 짧은 이름을 할당하려 함
+    </script>
+</body>
+</html>
