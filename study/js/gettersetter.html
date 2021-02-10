@@ -5,11 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+
+
+    </style>
 </head>
 <body>
-        <input type="text" id="name_input">
-        <button type="button" id="submit">입력</button>
+        <!-- <input type="text" id="name_input">
+        <button type="button" id="submit">입력</button> -->
+
+        <h2 id="title">dddd</h2>
     <script>
+    const title = document.getElementsByTagName("h2")[0];
+    const superEventHandler = {
+      m_in: function () {
+        title.innerHTML = "The mouse is here!";
+        title.style.color = colors[0];
+      },
+      m_out: function () {
+        title.innerHTML = "The mouse is gone!";
+        title.style.color = colors[1];
+      },
+      w_resize: function () {
+        title.innerHTML = "You just resized!";
+        title.style.color = colors[2];
+      },
+      r_click: function () {
+        title.innerHTML = "That was a right click!";
+        title.style.color = colors[3];
+      }
+    };
+    title.addEventListener("mouseover", superEventHandler.m_in);
+    title.addEventListener("mouseout", superEventHandler.m_out);
+    window.addEventListener("resize", superEventHandler.w_resize);
+    document.addEventListener("mousedown", function (event) {
+      if (event.button == 2) {
+        superEventHandler.r_click();
+      }
+    });
+
+    //
+    // function handleClick(){
+    //     title.style.color="blue";
+    // }
+    // title.addEventListener('click',handleClick);
+    //
+    //     console.log(title)
+    //     title.innerHTML = "hi! form js"
+    //     title.style.color="red";
+    //     document.title = "i owe you";
+
+        // function sayHello(name, age){
+        //     return `hello ${name} you are ${age}yearsold`;
+        // }
+
+
+        // sayHello("nico",15);
+        // const greetnico = sayHello("Nico", 15);
+        // console.log(greetnico);
+        //+ - * / 제곱근까지 해서 제출하자************************************
+        // const calc = {
+        //     plus: function(a,b){
+        //         return a + b;
+        //     },
+        //     minus: function(a,b){
+        //         return a - b;
+        //     }
+        //
+        // }
+        //
+        // const plus = calc.plus(5,5)
+        // const plus = calc.plus(5,5)
+        // console.log(plus);*******************************************************
+
+
+
+
+
+
+
+
         //게터세터
         // var name_chk = function(target){
         //     let user = {
@@ -50,15 +125,15 @@
 //   console.log(name);
 // }
 
-var another = function(){
-  var x = 'local';
-  function y(){
-    alert(x);
-  }
-  return {y : y};
-  console.log("sd;fl");
-}
-another();
+// var another = function(){
+//   var x = 'local';
+//   function y(){
+//     alert(x);
+//   }
+//   return {y : y};
+//   console.log("sd;fl");
+// }
+// another();
 
 // var newScope = another();
 // newScope()
