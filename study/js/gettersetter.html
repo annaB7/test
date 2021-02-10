@@ -16,33 +16,41 @@
 
         <h2 id="title">dddd</h2>
     <script>
-    const title = document.getElementsByTagName("h2")[0];
-    const superEventHandler = {
-      m_in: function () {
-        title.innerHTML = "The mouse is here!";
-        title.style.color = colors[0];
-      },
-      m_out: function () {
-        title.innerHTML = "The mouse is gone!";
-        title.style.color = colors[1];
-      },
-      w_resize: function () {
-        title.innerHTML = "You just resized!";
-        title.style.color = colors[2];
-      },
-      r_click: function () {
-        title.innerHTML = "That was a right click!";
-        title.style.color = colors[3];
-      }
-    };
-    title.addEventListener("mouseover", superEventHandler.m_in);
-    title.addEventListener("mouseout", superEventHandler.m_out);
-    window.addEventListener("resize", superEventHandler.w_resize);
-    document.addEventListener("mousedown", function (event) {
-      if (event.button == 2) {
-        superEventHandler.r_click();
-      }
-    });
+    var newScope = (function () {
+  var x = 'local';
+  return {
+    y: function() {
+      alert(x);
+    }
+  };
+})();
+    // const title = document.getElementsByTagName("h2")[0];
+    // const superEventHandler = {
+    //   m_in: function () {
+    //     title.innerHTML = "The mouse is here!";
+    //     title.style.color = colors[0];
+    //   },
+    //   m_out: function () {
+    //     title.innerHTML = "The mouse is gone!";
+    //     title.style.color = colors[1];
+    //   },
+    //   w_resize: function () {
+    //     title.innerHTML = "You just resized!";
+    //     title.style.color = colors[2];
+    //   },
+    //   r_click: function () {
+    //     title.innerHTML = "That was a right click!";
+    //     title.style.color = colors[3];
+    //   }
+    // };
+    // title.addEventListener("mouseover", superEventHandler.m_in);
+    // title.addEventListener("mouseout", superEventHandler.m_out);
+    // window.addEventListener("resize", superEventHandler.w_resize);
+    // document.addEventListener("mousedown", function (event) {
+    //   if (event.button == 2) {
+    //     superEventHandler.r_click();
+    //   }
+    // });
 
     //
     // function handleClick(){
