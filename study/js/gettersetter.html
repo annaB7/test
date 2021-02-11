@@ -6,24 +6,81 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-
-
+        body{background-color:red;}
+        .max_1200{background-color:orange}
+        .max_800{background-color:yellow}
+        h2{color:#fff;transition:color .5s ease-in-out;}
+        /* .color{color:red;}
+        .btn{cursor:pointer;} */
     </style>
 </head>
 <body>
         <!-- <input type="text" id="name_input">
         <button type="button" id="submit">입력</button> -->
 
-        <h2 id="title">dddd</h2>
+        <h2 id="title" class="btn">dddd</h2>
     <script>
-    var newScope = (function () {
-  var x = 'local';
-  return {
-    y: function() {
-      alert(x);
+    window.onload = handleResize();
+
+
+    function handleResize(){
+        console.log(":sdflkjsdflk");
+        const body_chg = document.querySelector('body');
+        const window_width = window.innerWidth;
+        if(window_width >= 1200){
+            body_chg.classList.remove('max_1200');
+            body_chg.classList.remove('max_800');
+        }else if(window_width < 1200 && window_width >=800){
+            body_chg.classList.add('max_1200');
+            body_chg.classList.remove('max_800');
+        }else{
+            body_chg.classList.remove('max_1200');
+            body_chg.classList.add('max_800');
+        }
     }
-  };
-})();
+    window.addEventListener('resize',handleResize);
+    // if("10" === 10){
+    //     console.log("sdlkfjsdlkfj");
+    // }else{
+    //     console.log("not true")
+    // }
+    // prompt(" 물어봐")
+    // const age = prompt("how old are you");
+    // if(age >= 18 && age <= 21){
+    //     console.log("youcan drink")
+    // }else if(age > 21){
+    //     console.log("yes~~~~")
+    // }else{
+    //     console.log("no!!!!")
+    // }
+    // const title = document.querySelector("#title");
+    //
+    // const clicked_class = "color";
+    //
+    // function handleClick(){
+    //     // const hasClass = title.classList.contains(clicked_class)
+    //     // if(!hasClass){
+    //     //     title.classList.add(clicked_class);
+    //     // }else{
+    //     //     title.classList.remove(clicked_class)
+    //     // }
+    //     title.classList.toggle(clicked_class);
+    // }
+    //
+    // function init(){
+    //     title.addEventListener("click",handleClick);
+    //
+    // }
+    // init();
+    //
+//     var newScope = (function () {
+//   var x = 'local';
+//   return {
+//     y: function() {
+//       alert(x);
+//     }
+//   };
+// })();
     // const title = document.getElementsByTagName("h2")[0];
     // const superEventHandler = {
     //   m_in: function () {
