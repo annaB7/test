@@ -5,8 +5,205 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,li,ol{list-style:none;}
+
+        .wrap{width:100%; max-width:800px;margin:0 auto;padding:50px 20px;}
+        .form{margin:20px 0}
+        h2{margin-bottom:15px;}
+        .lists{border:1px solid #ddd;padding:30px;border-radius:8px;}
+        .lists__list{padding-bottom:30px;}
+        .lists__list + .lists__list{margin-top:20px;border-top:1px solid #f2f2f2}
+        .lists__text{padding:0 5px 0 0;}
+        .lists__item + .lists__item{margin-top:10px;}
+        button+button{margin-left:5px}
+    </style>
 </head>
 <body>
+    <div class="wrap">
+        <h1>Todolist</h1>
+        <form class="js-form form">
+            <input type="text" class="js-input">
+        </form>
+        <div class="lists">
+            <div class="pending lists__list">
+                <h2>pending</h2>
+                <ul class="pending__list">
+                    <!-- <li class="pending__item lists__item"><span class="lists__text">gkrry</span><button type="button" class="delete">delete</button><button type="button" class="finished_btn">finished</button></li> -->
+                </ul>
+            </div>
+            <div class="finished lists__list">
+                <h2>finishing</h2>
+                <ul class="finished__list">
+                    <!-- <li class="finished__item lists__item"><span class="lists__text">dlskjfsldfkj</span><button type="button" class="delete">delete</button><button type="button" class="pending_btn">finished</button></li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        const form = document.querySelector('form'),
+        input = form.querySelector('input'),
+        p_list = document.querySelector('.pending__list'),
+        f_list = document.querySelector('.finished__list');
 
+        const pend_tit = "pend_items";
+        let pend_items = [];
+
+        const finished_tit = "finished_items";
+        let finished_items = [];
+
+
+        function handleSubmit(event){
+            event.preventDefault();
+            const input_value = input.value;
+
+            paint_lis("pend",input_value)
+            input.value = "";
+        }
+
+        function paint_lis(type,text){
+            const li = document.createElement('li');
+
+            const del_btn = document.createElement('button');
+            del_btn.innerText = "delete";
+
+            li.innerText = text;
+            li.append(del_btn);
+
+
+            if(type == "pend"){
+                del_btn.addEventListener("click",delete_items);
+                const finish_btn = document.createElement('button');
+                finish_btn.innerText = "finished";
+                finish_btn.addEventListener('click',move_items)
+                li.append(finish_btn);
+                p_list.append(li);
+                const new_id = pend_items.length +1;
+                li.id = new_id;
+                const pend_obj = {
+                    text:text,
+                    id:new_id
+                }
+                pend_items.push(pend_obj);
+                save_ls("pend");
+            }else{
+                del_btn.addEventListener("click",delete_items)
+                const append_btn = document.createElement('button');
+                append_btn.innerText = "append";
+                append_btn.addEventListener('click',move_items)
+                li.append(append_btn)
+                f_list.append(li);
+                const new_id = finished_items.length +1;
+                li.id = new_id;
+                const finished_obj = {
+                    text:text,
+                    id:new_id
+                }
+                finished_items.push(finished_obj);
+                save_ls("finished");
+            }
+        }
+
+        function save_ls(type){
+            if(type == "pend"){
+                localStorage.setItem(pend_tit, JSON.stringify(pend_items))
+            }else{
+                localStorage.setItem(finished_tit, JSON.stringify(finished_items))
+            }
+        }
+
+        function load_ls(){
+            const p_loaded_ls = localStorage.getItem(pend_tit);
+            if(p_loaded_ls !== null){
+                const p_parsed_ls =  JSON.parse(p_loaded_ls);
+                p_parsed_ls.forEach(function(ele){
+                    paint_lis("pend",ele.text)
+                });
+            }
+            const f_loaded_ls = localStorage.getItem(finished_tit);
+            if(f_loaded_ls !== null){
+                const f_parsed_ls =  JSON.parse(f_loaded_ls);
+                f_parsed_ls.forEach(function(ele){
+                    paint_lis("finished",ele.text)
+                });
+            }
+        }
+
+        function delete_items(event){
+            const btn = event.target;
+            const btn_li = btn.parentNode;
+            const li_id = btn_li.id;
+            const contain_class = btn_li.parentNode.classList.contains("pending__list");
+
+            if(contain_class){
+                // let li = document.querySelector('.pending__list').getElementById(li_id);
+                p_list.removeChild(btn_li);
+                const clean_arr = pend_items.filter(function(items){
+                    return items.id !== parseInt(li_id);
+                })
+                pend_items = clean_arr;
+                console.log(pend_items)
+                save_ls("pend");
+            }else{
+                // let li = document.querySelector('.finished__list').getElementById(li_id);
+                f_list.removeChild(btn_li);
+                const clean_arr = finished_items.filter(function(items){
+                    return items.id !== parseInt(li_id);
+                })
+                finished_items = clean_arr;
+                save_ls("finished");
+            }
+        }
+
+        function move_items(event){
+            const btn = event.target;
+            const btn_li = btn.parentNode;
+            const li_id = btn_li.id;
+            const contain_class = btn_li.parentNode.classList.contains("pending__list");
+            let text_idx = null;
+            // let text_idx = pend_items[0].id;
+            // console.log(text_idx);
+            if(contain_class){
+                for(var i in pend_items){
+                    if(pend_items[i].id == btn_li.id){
+                        text_idx = pend_items[i].text;
+                        // console.log(pend_items[i].id);
+                    }
+                }
+                paint_lis("finished",text_idx);
+
+                p_list.removeChild(btn_li);
+                const clean_arr = pend_items.filter(function(items){
+                    return items.id !== parseInt(li_id);
+                })
+                pend_items = clean_arr;
+                console.log(pend_items)
+            }else{
+                // let text_idx = finished_items[parseInt(btn_li.id)-1].text;
+                for(var i in finished_items){
+                    if(finished_items[i].id == btn_li.id){
+                        text_idx= finished_items[i].text;
+                        // console.log(finished_items[i].id);
+                    }
+                }
+                paint_lis("pend",text_idx)
+
+                f_list.removeChild(btn_li);
+                const clean_arr = finished_items.filter(function(items){
+                    return items.id !== parseInt(li_id);
+                })
+                finished_items = clean_arr;
+            }
+            save_ls("finished");
+            save_ls("pend");
+            }
+
+        function init(){
+            load_ls();
+            form.addEventListener('submit',handleSubmit);
+        }
+        init();
+    </script>
 </body>
 </html>
