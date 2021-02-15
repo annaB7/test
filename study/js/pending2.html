@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,li,ol{list-style:none;}
+
+        .wrap{width:100%; max-width:800px;margin:0 auto;padding:50px 20px;}
+        .form{margin:20px 0}
+        h2{margin-bottom:15px;}
+        .lists{border:1px solid #ddd;padding:30px;border-radius:8px;}
+        .lists__list{padding-bottom:30px;}
+        .lists__list + .lists__list{margin-top:20px;border-top:1px solid #f2f2f2}
+        .lists__text{padding:0 5px 0 0;}
+        .lists__item + .lists__item{margin-top:10px;}
+        button+button{margin-left:5px}
+    </style>
+</head>
+<body>
+    <div cl ass="wrap">
+        <h1>To dolist</h1>
+        <form class="js-toDoForm">
+       <input type="text" placeholder="Write a to do" />
+   </form>
+   <ul class="js-toDoList">
+   </ul>
+    </div>
+    <script>
+         const toDoForm = document.querySelector(".js-toDoForm"),
+          toDoInput = toDoForm.querySelector("input"),
+          toDoList = document.querySelector(".js-toDoList");
+
+        const TODOS_LS = "toDos";
+
+        const toDos = [];
+
+        function saveToDos() {
+          localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
+        }
+
+        function paintToDo(text) {
+          const li = document.createElement("li");
+          const delBtn = document.createElement("button");
+          const span = document.createElement("span");
+          const newId = toDos.length + 1;
+          delBtn.innerText = "❌";
+          span.innerText = text;
+          li.appendChild(span);
+          li.appendChild(delBtn);
+          li.id = newId;
+          toDoList.appendChild(li);
+          const toDoObj = {
+            text: text,
+            id: newId
+          };
+          toDos.push(toDoObj);
+          saveToDos();
+        }
+
+        function handleSubmit(event) {
+          event.preventDefault();
+          const currentValue = toDoInput.value;
+          paintToDo(currentValue);
+          toDoInput.value = "";
+        }
+
+        function loadToDos() {
+          const loadedToDos = localStorage.getItem(TODOS_LS);
+          if (loadedToDos !== null) {
+            const parsedToDos = JSON.parse(loadedToDos);
+            parsedToDos.forEach(function(toDo) {
+              paintToDo(toDo.text);
+            });
+          }
+        }
+
+        function init() {
+          loadToDos();
+          toDoForm.addEventListener("submit", handleSubmit);
+        }
+
+init();
+
+
+    </script>
+</body>
+</html>

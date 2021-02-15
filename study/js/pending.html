@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,li,ol{list-style:none;}
+
+        .wrap{width:100%; max-width:800px;margin:0 auto;padding:50px 20px;}
+        .form{margin:20px 0}
+        h2{margin-bottom:15px;}
+        .lists{border:1px solid #ddd;padding:30px;border-radius:8px;}
+        .lists__list{padding-bottom:30px;}
+        .lists__list + .lists__list{margin-top:20px;border-top:1px solid #f2f2f2}
+        .lists__text{padding:0 5px 0 0;}
+        .lists__item + .lists__item{margin-top:10px;}
+        button+button{margin-left:5px}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>Todolist</h1>
+        <form class="js-form form">
+            <input type="text" class="js-input">
+        </form>
+        <div class="lists">
+            <div class="pending lists__list">
+                <h2>pending</h2>
+                <ul class="pending__list">
+                    <!-- <li class="pending__item lists__item"><span class="lists__text">gkrry</span><button type="button" class="delete">delete</button><button type="button" class="finished_btn">finished</button></li> -->
+                </ul>
+            </div>
+            <div class="finished lists__list">
+                <h2>finishing</h2>
+                <ul class="finished__list">
+                    <!-- <li class="finished__item lists__item"><span class="lists__text">dlskjfsldfkj</span><button type="button" class="delete">delete</button><button type="button" class="pending_btn">finished</button></li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+        //1.인풋에 쓰고 엔터 누르면 펜딩에 추가
+        //2.펜딩에 추가된 내용을 로컬 레지스트리에 pending 키값내에 저장하기
+
+        //----------------버튼컨트롤
+        //3.삭제버튼: 해당 리스트내에서 삭제후 로컬레지스트리에서 삭제
+        //4.피니쉬 버튼: 클릭된 내용을 피니쉬 리스트에 옮기고 로컬레지스트리에서도 위치 이동
+        //5.리펜딩버튼: 클릭된 내용을 펜딩 리스트에 옮기고 로컬레지스트리에서도 위치 이동
+
+        const form = document.querySelector('form');
+        const input = form.querySelector('input');
+        const p_list = document.querySelector(".pending__list");
+        const f_list = document.querySelector(".finished__list");
+        let p_current_arr = null ;
+        let f_current_arr = null ;
+
+
+
+
+        function handleSubmit(event){
+            event.preventDefault();
+            const currentValue = input.value;
+            console.log(currentValue);
+            save_ls("pending",currentValue);//로컬에 저장
+            paint_ls('pending',currentValue);
+
+
+            input.value = "";//초기화 시키기
+        }
+
+        function save_ls(type,text){//로컬에 저장하는 함수
+            const current_ls = localStorage.getItem(type);
+            const ls_arr = [current_ls];
+            ls_arr.push(text);
+            localStorage.setItem(type, ls_arr);
+        }
+
+        function load_ls(){
+            let p_current_ls = localStorage.getItem("pending");
+            let f_current_ls = localStorage.getItem("finished");
+            if(p_current_ls === null ){
+                console.log("p아무것도 없어");
+            }else{
+                p_current_arr = p_current_ls.split(',');
+                for(var i in p_current_arr){
+                    if(p_current_arr[i] != ""){
+                        paint_ls('pending',p_current_arr[i]);
+                    }
+                }
+            }
+            if(f_current_ls === null ){
+                console.log("f아무것도 없어");
+            }else{
+                f_current_arr = f_current_ls.split(',');
+                for(var i in f_current_arr){
+                    paint_ls('finished',f_current_arr[i]);
+                }
+            }
+        }
+
+        // function move_item(type){//펜딩, 피니쉬버튼 클릭시
+        //     if(type == "pending"){
+        //         const new_place = f_list;
+        //     }else if(type == "finished"){
+        //         const new_place = p_list;
+        //     }
+        //     const valval =
+        //     console.log(valval);
+        // }
+
+        function delete_item(){
+            // const val = this.parentNode;
+            console.log(val);
+        }
+
+        function paint_ls(type,text){
+            const ls_obj = {
+                text: text,
+                id:p_current_arr.length +1
+            }
+            const li = document.createElement("li");
+            li.classList.add('lists__item');
+            // li.classList.add('list_name');
+            const span = document.createElement('span');
+            span.innerText = text;
+            span.classList.add('lists__text')
+            li.append(span);
+            const d_btn = document.createElement('button');
+            d_btn.classList.add('delete');
+            d_btn.innerText="delete"
+            const f_btn = document.createElement('button');
+            f_btn.classList.add('finished_btn');
+            f_btn.innerText = "finished";
+            li.append(d_btn);
+            li.append(f_btn);
+            if(type == "pending"){
+                p_list.append(li)
+            }else if(type == "finished"){
+                f_list.append(li)
+            }
+        }
+
+        function init(){
+            load_ls();
+            form.addEventListener('submit',handleSubmit);
+        }
+        init();
+
+        window.onload = function(){
+            const d_btn = document.getElementsByClassName('delete');
+
+            for(i = 0; i <d_btn.length;i++){
+                d_btn[i].addEventListener('click',function(){
+                    let p_item = d_btn[i].parentNode;
+                    console.log(p_item)
+                    p_item.style.color="red";
+                });
+            }
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,li,ol{list-style:none;}
+        .wrap{max-width:800px;width:100%;margin:0 auto;padding:50px 20px;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <form>
+            <input type="text">
+        </form>
+        <div class="box_pending">
+            <ul class="lists pending"></ul>
+        </div>
+        <!-- <div class="box_finished">
+            <ul class="lists finished"></ul>
+        </div> -->
+    </div>
+    <script>
+        const form = document.querySelector('form'),
+        input = form.querySelector('input'),
+        list = document.querySelector('ul');
+
+        const ls_tit = "ls_arr";
+        let ls_arr = [];
+
+        // function filterFn(todo){
+        //     return todo.id ===1
+        // }
+
+        function delete_item(event){
+            // console.dir(event.target);
+            const btn = event.target;
+            const li = btn.parentNode;
+            const li_id = li.id;
+            list.removeChild(li);
+            const clean_ls = ls_arr.filter(function(todo){
+
+                return todo.id !== parseInt(li_id);
+            });
+            ls_arr = clean_ls;
+            save_ls();
+        }
+
+
+        function submithandler(event){
+            event.preventDefault();
+            const input_value = input.value;
+            paint_list(input_value);
+            input.value = "";
+        }
+
+        function paint_list(text){
+            const li = document.createElement('li');
+            const delete_btn = document.createElement('button');
+            delete_btn.innerText = "delete";
+            delete_btn.addEventListener('click',delete_item);
+            const new_id = ls_arr.length +1;
+            li.innerText = text;
+            li.append(delete_btn);
+            li.id = new_id;
+            list.append(li);
+            const todo_obj = {
+                text: text,
+                id: new_id
+            };
+            ls_arr.push(todo_obj);
+            save_ls();
+        }
+        function save_ls(){
+            localStorage.setItem(ls_tit,JSON.stringify(ls_arr));
+        }
+        function load_ls(){
+            const loaded_ls = localStorage.getItem(ls_tit);
+            if(loaded_ls !== null){
+                const parsed_ls = JSON.parse(loaded_ls);
+                parsed_ls.forEach(function(ele){
+                    paint_list(ele.text);
+                });
+            }
+        }
+        function init(){
+            load_ls()
+            form.addEventListener('submit',submithandler);
+        }
+        init();
+    </script>
+</body>
+</html>
