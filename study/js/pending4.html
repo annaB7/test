@@ -180,11 +180,9 @@
                 pend_items = clean_arr;
                 console.log(pend_items)
             }else{
-                // let text_idx = finished_items[parseInt(btn_li.id)-1].text;
                 for(var i in finished_items){
                     if(finished_items[i].id == btn_li.id){
                         text_idx= finished_items[i].text;
-                        // console.log(finished_items[i].id);
                     }
                 }
                 paint_lis("pend",text_idx)
