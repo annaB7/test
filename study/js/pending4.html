@@ -79,7 +79,7 @@
                 finish_btn.addEventListener('click',move_items)
                 li.append(finish_btn);
                 p_list.append(li);
-                const new_id = pend_items.length +1;
+                const new_id = ((Math.floor( Math.random() * 10000 ) + 1))+(pend_items.length +1);
                 li.id = new_id;
                 const pend_obj = {
                     text:text,
@@ -94,7 +94,7 @@
                 append_btn.addEventListener('click',move_items)
                 li.append(append_btn)
                 f_list.append(li);
-                const new_id = finished_items.length +1;
+                const new_id = ((Math.floor( Math.random() * 10000 ) + 1))+(pend_items.length +1);
                 li.id = new_id;
                 const finished_obj = {
                     text:text,

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>pending5</title>
+</head>
+<body>
+    <form class="form">
+        <input type="text" class="input">
+    </form>
+    <h3>pend</h3>
+    <ul class="pend"></ul>
+    <h3>fin</h3>
+    <ul class="fin"></ul>
+    <script>
+        const form = document.querySelector('.form'),
+        input = form.querySelector('.input'),
+        p_list = document.querySelector('.pend'),
+        f_list = document.querySelector('.fin');
+
+        function paint_li(text,list_type){
+            if(list_type == "pend"){
+                const list = p_list;
+            }else{
+                const list = f_list;
+            }
+            //li추가하기
+            const li = document.createElement('li');
+            const del_btn = document.createElement('button');
+            del_btn.innerText = "delete";
+
+        }
+
+        function submit_h(e){
+            e.preventDefault();
+            const input_value = input.value;
+
+
+            console.log(input_value);
+        }
+
+
+        function init(){
+            form.addEventListener('submit',submit_h);
+        }
+        init();
+
+    </script>
+
+</body>
+</html>
