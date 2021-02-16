@@ -1,0 +1,66 @@
+@charset "utf-8";
+#event__wrapper{position:relative;max-width:640px;margin:0 auto;overflow:hidden}
+#event__wrapper.web_view .box__event-navigation .box__inner{top:47px}
+#event__wrapper.app_view .box__event-navigation .box__inner{top:0}
+.section__event-yuhan img{width:100%;border:0}
+
+.box__event-header{position:relative}
+.box__event-header .button__join{position:absolute;left:50%;bottom:19%;width:66%;height:15%;transform:translateX(-50%)}
+
+.box__event-navigation{position:relative;width:100%;max-width:640px;height:51px;z-index:90}
+#event__wrapper.app_view .box__event-navigation{height:auto}
+.box__event-navigation .box__inner{height:51px}
+.box__event-navigation .box__inner.js-fixed{position:fixed;top:0;left:0;right:0}
+.box__event-navigation .list__navi{overflow:hidden;position:absolute;top:0;left:0;right:0;font-size:0;line-height:0}
+.box__event-navigation .list__navi a{display:inline-block;width:33%;padding-top:12.5%;background:url(http://image.gmarket.co.kr/Gmkt_Event/2021/03/0301_yuhan/m/image__navi-off.jpg) no-repeat;background-size:cover}
+.box__event-navigation .list__navi a.active{background-image:url(http://image.gmarket.co.kr/Gmkt_Event/2021/03/0301_yuhan/m/image__navi-on.jpg)}
+.box__event-navigation .list__navi .link__navi1,
+.box__event-navigation .list__navi .link__navi1.active{background-position:0 0}
+.box__event-navigation .list__navi .link__navi2,
+.box__event-navigation .list__navi .link__navi2.active{width:34%;background-position:50% 0}
+.box__event-navigation .list__navi .link__navi3,
+.box__event-navigation .list__navi .link__navi3.active{background-position:100% 0}
+
+.box__section1{position:relative}
+.box__section1 .button__coupon{position:absolute;width:51%;height:4.7%;left:50%;transform:translate(-50%);}
+.box__section1 .button__coupon.type-1{top:51.5%}
+.box__section1 .button__coupon.type-2{bottom:4%}
+.box__section1 .button__content-notice{position:absolute;width:30%;height:5%;left:50%;transform:translate(-50%);bottom:-1.5%}
+.box__event-layer{display:none;position:absolute;top:93%;right:3%;left:3%;z-index:80;transform:translateZ(1px)}
+.box__event-layer .button__close-layer{position:absolute;width:100%;height:100%;left:0;top:0;text-indent:-9999px;outline:none;border:none}
+.dim{display:block;position:fixed;top:0;left:0;width:100%;height:100%;z-index:10;background:#000;opacity:0.5}
+
+.box__section2 .list__sale .list-item{margin-bottom:6%}
+
+
+/* 모바일 상품영역 */
+.yuhan_product {padding-bottom:14.0625%}
+
+.yuhan_product .item_list_wrap{text-align:left}
+.yuhan_product .item_list_wrap.catalog{margin:0}
+.yuhan_product .item_list_wrap .lst_prd{margin:0;padding:3px 0 0;font-family:Roboto, 'Droid Sans', -apple-system, AppleSDGothicNeo, Apple-Gothic, '애플고딕', Helvetica, Tahoma, dotum, '돋움', gulim, '굴림', sans-serif;list-style:none outside;}
+.yuhan_product .item_list_wrap .btn_prod,.catalog .bx_banner{position:relative;display:block;background-color:#fff;text-decoration:none}
+.yuhan_product .item_list_wrap .thmb{position:relative;}
+.yuhan_product .item_list_wrap .thmb img{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%}
+.yuhan_product .item_list_wrap .sold_out{position:absolute;top:0;left:0;z-index:80; width:100%; height:100%;}
+.yuhan_product .item_list_wrap .sold_out img{vertical-align: top; width:118px; height:118px;left: 50%;top: 50%;margin: -59px 0 0 -59px;}
+.yuhan_product .item_list_wrap .info{overflow:hidden;position:relative;width:100%;height:106px;padding:14px 12px 10px 12px;box-sizing:border-box;-webkit-box-sizing: border-box}
+.yuhan_product .item_list_wrap .info .tit{overflow:hidden;margin:0 0 2px 0;font-weight:normal;font-size:14px;line-height:19px;color:#333333;white-space:nowrap}
+.yuhan_product .item_list_wrap .tags{display:block;padding:6px 1px 0}
+.yuhan_product .item_list_wrap .tag{display:inline-block;height:24px;color:#666;font-size:12px;font-weight:normal;line-height:24px}
+.yuhan_product .item_list_wrap .tag:before{content:'';display:inline-block;width:1px;height:11px;margin:0 7px 0 3px;background:#ebebeb;vertical-align:middle}
+.yuhan_product .item_list_wrap .tag:first-child:before{display:none}
+
+/* 모바일 상품영역 2단*/
+.yuhan_product .goods_c2.item_list_wrap .lst_prd{overflow: hidden;position: relative;padding:0 1%;}
+.yuhan_product .goods_c2.item_list_wrap .lst_prd .bx_prd{box-shadow: none}
+.yuhan_product .goods_c2.item_list_wrap .lst_prd > li{width:48%;float:left;box-sizing: border-box;margin:2% 1% 0 1%;overflow: hidden;}
+.yuhan_product .goods_c2.item_list_wrap .thmb{padding-bottom:100%;border:1px solid #ccc;}
+.yuhan_product .goods_c2.item_list_wrap .info{height:116px;padding:10px 10px 0 12px;}
+.yuhan_product .goods_c2.item_list_wrap .info .tit{font-size: 14px;line-height: 18px;height:38px;white-space:pre-wrap;margin-bottom:9px;word-break: break-all;}
+.yuhan_product .goods_c2.item_list_wrap .price{margin-right:-10px;line-height: 16px;margin-bottom:2px;margin:0 0 9px;color:#333333;overflow: hidden;}
+.yuhan_product .goods_c2.item_list_wrap .price li{margin-right:3px;padding:0;width:auto}
+.yuhan_product .goods_c2.item_list_wrap .price .discount{line-height: 18px;float: left;margin-top: 0;margin-bottom: 0;letter-spacing: -0.5px;font-size:18px;font-weight: bold;color: #f3000e;}
+.yuhan_product .goods_c2.item_list_wrap .price .selling{margin:0 -2px 0 0;font-size:14px;line-height: 15px;vertical-align: text-bottom;float:left}
+.yuhan_product .goods_c2.item_list_wrap .price .selling strong{height: 18px;margin-bottom: 4px;line-height: 1;letter-spacing: -0.5px;font-size:18px;margin-right:1px;vertical-align: -1px}
+.yuhan_product .goods_c2.item_list_wrap .tags{position: absolute;bottom:0;left:10px;right:10px;padding:4px 0;border-top: 1px solid #f3f3f3;}
