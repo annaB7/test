@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .answer_area{display:none}
+        .show{display:block;}
+    </style>
+</head>
+<body>
+    <h1>Random number Game</h1>
+    <p>Generate a number between 0 and <span class="max_num">50</span></p>
+    <input type="range" min="0" max="200" step="1" class="ranger" name="range" value="0">
+    <form class="form">
+        <p>Guess the number: <input type="text" class="guess_input"><button type="submit" class="play_btn">play</button></p>
+    </form>
+    <div class="answer_area">
+        <p>You chose: <span class="guess_num"></span>, the machine chose: <span class="answer_num"></span></p>
+        <p class="result">You lost!</p>
+    </div>
+    <script>
+        const ranger = document.querySelector('.ranger');
+        let answer = null;
+        let range = null;
+        let guess_num = null;
+        const form = document.querySelector('.form');
+        const guess_input = document.querySelector('.guess_input');
+        const play_btn = document.querySelector('.play_btn');
+        const result_area = document.querySelector('.result');
+        const result_guess = document.querySelector('.guess_num');
+        const result_com = document.querySelector('.answer_num');
+
+
+        function set_range(){
+            ranger.addEventListener('input',function(){
+                const range_value = ranger.value;
+                range = range_value;
+                document.querySelector('.max_num').innerText=range;
+                set_answer(range);
+            });
+        }
+        function set_answer(range){
+            var rand_num = Math.floor(Math.random()*(range-0+1)) + 0;
+            answer = rand_num;
+        }
+
+        function play(answer,guess_num){
+            if(guess_input.value == ""){
+                alert('숫자를 입력해')
+            }else{
+                result_guess.innerText=guess_num;
+                result_com.innerText=answer;
+                if(answer == guess_num){
+                    result_area.innerText="맞앗어!"
+                }else{
+                    result_area.innerText="틀렸어!"
+                }
+                document.querySelector('.answer_area').classList.add('show');
+            }
+        }
+        function form_h(evevt){
+            evevt.preventDefault();
+            guess_num = parseInt(guess_input.value);
+            play(answer,guess_num);
+        }
+        form.addEventListener('submit',form_h)
+        function init(){
+            set_range();
+        }
+        init();
+    </script>
+</body>
+</html>
