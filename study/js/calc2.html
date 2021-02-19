@@ -80,31 +80,26 @@
             const this_value = e.target.getAttribute('data');
             let input_value = input.value;
             if(this_value == "="){//계산해라
-                if(isNaN(input_value.charAt(input_value.length-1))){//인풋의 마지막이 연산자이면!
-                    input_value = input_value.slice(0,-1)
-                }
-                const answer = eval(input_value);
-
-                input.value = answer;
-                monitor.innerText = answer;
+                equal(input_value);
             }else if(this_value == "c"){//초기화
                 input.value = "";
                 monitor.innerText = 0;
             }else{
-                if(isNaN(input_value.charAt(input_value.length-1))){//인풋의 마지막이 연산자이면!
-                    if(isNaN(parseInt(this_value))){
-                        alert("연산자다음은 숫자를 입력해!")
-                        return false;
+                    if(isNaN(parseInt(this_value)) ){
+                        equal(input_value);
                     }
-                }
-                if(isNaN(parseInt(this_value))){
-                    monitor.innerText = this_value;
-                }else{
-                    monitor.innerText += this_value;
-                }
+                monitor.innerText += this_value;
                 input.value += this_value;
             }
         }
+
+        function equal(input_value){
+            const answer = eval(input_value);
+
+            input.value = answer;
+            monitor.innerText = answer;
+        }
+
         for(i=0;i<btn.length;i++){
             btn[i].addEventListener('click',btn_action);
         }
