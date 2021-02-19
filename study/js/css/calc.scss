@@ -15,8 +15,8 @@ box-shadow: inset 12px 12px 18px -8px #EDEDED;*/}
 }
 .calc-nums{
     &__list{margin:-10px 0 0 -10px;}
-    &__item{padding:10px 0 0 10px; width:33.33%;}
-    &__num{display:block;background-color:#666;color:#fff;text-align:center;height:50px; line-height:50px;border-radius: 4px;}
+    &__item{padding:10px 0 0 10px; width:33.33%;cursor:pointer;}
+    &__num{display:block;background-color:#666;color:#fff;text-align:center;height:50px; line-height:50px;border-radius: 4px;cursor:pointer;}
 }
 .calc-operator{
     &__list{}
