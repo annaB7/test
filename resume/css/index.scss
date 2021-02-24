@@ -27,7 +27,7 @@ button{border:0; background:transparent;display:inline-block;}
 /*공통*/
 .letter__point{color:#FFD400}
 .txt_1{font-size:1.6rem;}
-.txt_2{font-size:1.8rem;}
+.txt_2{font-size:1.8rem;word-break:keep-all;}
 .list_txt{position:relative;padding-left:1.5rem;margin-left:1rem;
     &:before{content:"";display:block;position:absolute;width:0.5rem;height:0.5rem;border-radius:50%;background-color:#FFD400;left:0.5rem;top:50%;margin-top:-0.4rem;}
 }

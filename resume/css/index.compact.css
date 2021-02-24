@@ -48,7 +48,7 @@ button { border: 0; background: transparent; display: inline-block; }
 
 .txt_1 { font-size: 1.6rem; }
 
-.txt_2 { font-size: 1.8rem; }
+.txt_2 { font-size: 1.8rem; word-break: keep-all; }
 
 .list_txt { position: relative; padding-left: 1.5rem; margin-left: 1rem; }
 
