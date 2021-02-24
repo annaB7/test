@@ -34,14 +34,14 @@
         const result_com = document.querySelector('.answer_num');
 
 
-        function set_range(){
+        var set_range = function(){
             ranger.addEventListener('input',function(){
                 const range_value = ranger.value;
                 range = range_value;
                 document.querySelector('.max_num').innerText=range;
                 set_answer(range);
             });
-        }
+        };
         function set_answer(range){
             var rand_num = Math.floor(Math.random()*(range-0+1)) + 0;
             answer = rand_num;

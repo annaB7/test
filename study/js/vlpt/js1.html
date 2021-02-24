@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="div"></div>
+    <script>
+        // const numbers = {
+        //     a:1,
+        //     b:2,
+        //     get sum(){
+        //         console.log('sum함수가 실행됩니다.');
+        //         return this.a + this.b;
+        //     }
+        // };
+        //
+        // console.log(numbers.sum);
+        // numbers.b = 5;
+        // console.log(numbers.sum)
+
+        // const numbers = {
+        //     _a:1,
+        //     _b:2,
+        //     sum: 3,
+        //     calculate(){
+        //         console.log('calculate');
+        //         this.sum = this._a + this._b;
+        //     },
+        //     get a(){
+        //         return this._a;
+        //     },
+        //     get b(){
+        //         return this._b;
+        //     },
+        //     set a(value){
+        //         console.log('a가 바뀝니다.');
+        //         this._a = value;
+        //         this.calculate();
+        //     },
+        //     set b(value){
+        //         console.log('b가 바뀝니다.');
+        //         this._b = value;
+        //         this.calculate();
+        //     }
+        // };
+        //
+        // console.log(numbers.sum);
+        // numbers.a = 5;
+        // numbers.b = 7;
+        // numbers.a = 9;
+        // console.log(numbers.sum);
+        // console.log(numbers.sum);
+        // console.log(numbers.sum);
+//숫자로 이루어진 배열이 주어졌을 때, 해당 숫자 배열안에 들어있는 숫자 중 3보다 큰 숫자로만 이루어진 배열을 새로 만들어서 반환해보세요.
+        // function biggerThanThree(numbers) {
+        //   const arr_3 = [];
+            // numbers.forEach(n => {
+            //     if(n > 3){
+            //         arr_3.push(n);
+            //     }
+            // })
+
+
+          // for(i=0;i<numbers.length;i++){
+          //     // console.log(numbers[i]);
+          //     if(numbers[i] > 3){
+          //         // console.log("들가여");
+          //         arr_3.push(numbers[i]);
+          //     }
+          // }
+        //   console.log(arr_3)
+        // }
+
+        // const numbers = [1, 2, 3, 4, 5, 6, 7];
+        // console.log(biggerThanThree(numbers)); // [4, 5, 6, 7]
+
+//         const superheroes = ['아이언맨', '캡틴 아메리카', '토르', '닥터 스트레인지'];
+//
+// superheroes.forEach(heroa => {
+//   console.log(heroa);
+// });
+
+const todos = [
+  {
+    id: 1,
+    text: '자바스크립트 입문',
+    done: true
+  },
+  {
+    id: 2,
+    text: '함수 배우기',
+    done: true
+  },
+  {
+    id: 3,
+    text: '객체와 배열 배우기',
+    done: true
+  },
+  {
+    id: 4,
+    text: '배열 내장함수 배우기',
+    done: false
+  }
+];
+
+const superheroes = ['아이언맨', '캡틴 아메리카', '토르', '닥터 스트레인지'];
+// const index = todos.findIndex(todo => todo.id ===3);
+// console.log(index)
+
+// const index = todos.find(todo => todo.id ===3);
+// console.log(index)
+//find는 값자체를 반환한다.  findIndex는 인덱스만 반환한다.
+
+// const index = superheroes.indexOf('ㄴㅇ리ㅏ너이라ㅓㄴ이ㅏ');
+// console.log(index)
+//indexOf는 문자열이나 숫자 모두 가능하고 없는 값은 -1을 반환한다.
+
+//filter는 해당하는 값의 조건을 걸어서 걸러내는 역할을 한다
+// const filter_console = todos.filter(n => n.done === false)
+// console.log(filter_console);
+
+// const index = todos.findIndex(todo => todo.id === 3);
+// console.log(index)
+// todos.splice(index,2);
+// console.log(todos)
+//
+// console.log(superheroes.join(','));
+
+// const numbers = [1, 2, 3, 4, 5];
+//
+// let sum = 0;
+// numbers.forEach(n => {
+// sum += n;
+// });
+// console.log(sum);
+
+const numbers = [1, 2, 3, 4, 5];
+let sum = numbers.reduce((a, b) => a + b, 0);
+
+console.log(sum);
+
+
+    </script>
+</body>
+</html>

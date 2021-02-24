@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="dog"></div>
+    <div class="cat"></div>
+
+    <script>
+        // function animal(box,name,sound){
+        //     this.box = document.querySelector(box);
+        //     this.name = name;
+        //     this.sound = sound;
+        //     this.say = function(){
+        //         this.box.innerText = this.sound;
+        //         // console.log(this.sound)
+        //     }
+        // }
+        //
+        // const dog = new animal(".dog","dog","멍멍");
+        // const cat = new animal(".cat","cat","야옹");
+        //
+        //
+        // dog.say()
+        // cat.say()
+
+        // function Animal(type, name, sound) {
+        //   this.type = type;
+        //   this.name = name;
+        //   this.sound = sound;
+        // }
+        //
+        // Animal.prototype.say = function() {
+        //   console.log(this.sound);
+        // };
+        // Animal.prototype.sharedValue = 1;
+        //
+        // function Dog(name, sound) {
+        //   Animal.call(this, '개', name, sound);
+        // }
+        // Dog.prototype = Animal.prototype;
+        //
+        // function Cat(name, sound) {
+        //   Animal.call(this, '고양이', name, sound);
+        // }
+        // Cat.prototype = Animal.prototype;
+        //
+        // const dog = new Dog('멍멍이', '멍멍');
+        // const cat = new Cat('야옹이', '야옹');
+        //
+        // dog.say();
+        // cat.say();
+
+//         function person() {
+//
+//
+//
+// }
+//
+// console.dir(person)
+// 프로토타입의 의미?
+// 프로토를 사용하지 않고 메소드나 속성을 직접 적용하면 어떤비효율이?
+// 그렇다면 프로토타입을 사용해서 어떻게 해소하는거지?
+
+
+        // function person(name, first, second, third){
+        //         this.name= name;
+        //         this.first = first;
+        //         this.second = second;
+        //
+        // }
+        // person.prototype.sum = function(){
+        //     return 'prototype : ' + (this.first + this.second);
+        // }
+        //
+        // var kim = new person('kim',10,20);
+        // kim.sum = function(){
+        //     return 'this : ' + (this.first + this.second);
+        // }
+        //
+        // var lee = new person('lee',10,10);
+        //
+        // console.log("kim.sum()",kim.sum());
+        // console.log("lee.sum()",lee.sum());
+
+
+        // var d1 = new Date('2019-4-10')
+        // console.log('d1.getFullYear()', d1.getFullYear());
+        // console.log('d1.getMonth()', d1.getMonth());
+        // console.log('date',Date);
+        //
+        // function person(){
+        //     this.name="kim";
+        //     this.first=10;
+        //     this.second=20;
+        //     this.third=30;
+        //     this.sum = function(){
+        //         return this.first + this.second + this.third;
+        //     }
+        // }
+        // console.log('person()' + person())
+        // console.log(new person())
+
+
+        // class Animal {
+        //   constructor(type, name, sound) {
+        //     this.type = type;
+        //     this.name = name;
+        //     this.sound = sound;
+        //   }
+        //   say() {
+        //     console.log(this.sound);
+        //   }
+        // }
+        //
+        // const dog = new Animal('개', '멍멍이', '멍멍');
+        // const cat = new Animal('고양이', '야옹이', '야옹');
+        //
+        // dog.say();
+        // cat.say();
+
+        // function print(person) {
+        //   if (person === undefined) {
+        //     return;
+        //   }
+        //   console.log(person.name);
+        // }
+        //
+        // const person = {
+        //   name: 'John'
+        // };
+        //
+        // print();
+
+
+// //falsy  -> true로 표시됨
+//         console.log(!undefined);
+//         console.log(!null);
+//         console.log(!0);
+//         console.log(!'');
+//         console.log(!NaN);
+//
+// //truthy  -> false로 표시됨
+//         console.log(!3);
+//         console.log(!'hello');
+//         console.log(!['array?']);
+//         console.log(![]);
+//         console.log(!{ value: 1 });
+//
+//
+//         function calculateCircleArea(r = 1) {
+//   return Math.PI * r * r;
+// }
+//
+// const area = calculateCircleArea(4);
+// console.log(area); // 3.141592653589793
+
+
+function getSound(animal) {
+  const sounds = {
+    개: '멍멍!',
+    고양이: '야옹~',
+    참새: '짹짹',
+    비둘기: '구구 구 구'
+  };
+  return sounds[animal] || '?';
+}
+
+console.log(getSound('개')); // 멍멍!
+console.log(getSound('비둘기')); // 구구 구 구
+    </script>
+
+</body>
+</html>
