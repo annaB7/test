@@ -50,7 +50,7 @@ button { border: 0; background: transparent; display: inline-block; }
 
 .txt_2 { font-size: 1.8rem; }
 
-.list_txt { position: relative; padding-left: 1.5rem; }
+.list_txt { position: relative; padding-left: 1.5rem; margin-left: 1rem; }
 
 .list_txt:before { content: ""; display: block; position: absolute; width: 0.5rem; height: 0.5rem; border-radius: 50%; background-color: #FFD400; left: 0.5rem; top: 50%; margin-top: -0.4rem; }
 
@@ -61,10 +61,12 @@ body:before { content: ""; display: block; position: fixed; top: 0; left: 0; wid
 
 .wrap { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 20px; }
 
+.content { padding: 0 0 8rem 0; }
+
 /*헤더*/
 .header__tit { margin: 5rem 0; line-height: 1.1; font-size: 8rem; letter-spacing: -0.5rem; }
 
-.header__txt { font-size: 3.2rem; line-height: 1.4; letter-spacing: -0.2rem; }
+.header__txt { font-size: 3.2rem; line-height: 1.4; letter-spacing: -0.1rem; }
 
 /*section*/
 .section { padding-top: 6.4rem; }
@@ -75,13 +77,23 @@ body:before { content: ""; display: block; position: fixed; top: 0; left: 0; wid
 
 .section__tit.type-b { font-size: 2.08rem; letter-spacing: 0; margin: 0 0 0.5rem; }
 
+.section__txt.type-left { margin-top: -2rem; font-weight: bold; }
+
 .section__item { padding: 4.8rem 0; }
 
 .section__item + .section__item { border-top: 1px solid #f2f2f2; }
 
-.section__box.type-l { width: 40%; }
+.section__box.type-l { width: 35%; }
 
-.section__box.type-r { width: 60%; padding-left: 5rem; }
+.section__box.type-r { width: 65%; padding-left: 2rem; }
 
 /*about*/
 .about__item + .about__item { margin-top: 1rem; }
+
+.career__item { word-break: keep-all; }
+
+.career__item + .career__item { margin-top: 1.5rem; }
+
+.career__tit { font-size: 1.6rem; font-weight: bold; }
+
+/*미디어 쿼리*/

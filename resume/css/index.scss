@@ -28,20 +28,21 @@ button{border:0; background:transparent;display:inline-block;}
 .letter__point{color:#FFD400}
 .txt_1{font-size:1.6rem;}
 .txt_2{font-size:1.8rem;}
-.list_txt{position:relative;padding-left:1.5rem;
+.list_txt{position:relative;padding-left:1.5rem;margin-left:1rem;
     &:before{content:"";display:block;position:absolute;width:0.5rem;height:0.5rem;border-radius:50%;background-color:#FFD400;left:0.5rem;top:50%;margin-top:-0.4rem;}
 }
 .link{color:#FFD400;text-decoration: underline;}
+
 /*body*/
 body{
-    &:before{content:"";display:block;position:fixed;top:0;left:0;width:100%; height:10px;/*background-color:#FFD400 ,#fef454*/ background: linear-gradient( to right,#fef454, #FFD400)}
+    &:before{content:"";display:block;position:fixed;top:0;left:0;width:100%; height:10px;/*background-color:#FFD400 ,#fef454*/ background: linear-gradient( to right,#fef454, #FFD400);}
 }
 .wrap{width:100%;max-width:1040px;margin:0 auto;padding:0 20px}
-
+.content{padding:0 0 8rem 0}
 /*헤더*/
 .header{
     &__tit{margin:5rem 0;line-height:1.1;font-size:8rem;letter-spacing:-0.5rem;}
-    &__txt{font-size:3.2rem;line-height:1.4;letter-spacing:-0.2rem;}
+    &__txt{font-size:3.2rem;line-height:1.4;letter-spacing:-0.1rem;}
 }
 /*section*/
 .section{padding-top:6.4rem;
@@ -49,13 +50,16 @@ body{
         &.type-a{font-size:3.2rem;letter-spacing: -0.1rem;margin:0 0 3rem}
         &.type-b{font-size:2.08rem;letter-spacing: 0;margin:0 0 0.5rem}
     }
+    &__txt{
+        &.type-left{margin-top:-2rem;font-weight:bold;}
+    }
     &__list{}
     &__item{padding:4.8rem 0;
         & + & {border-top:1px solid #f2f2f2}
     }
     &__box{
-        &.type-l{width:40%}
-        &.type-r{width:60%;padding-left:5rem;}
+        &.type-l{width:35%}
+        &.type-r{width:65%;padding-left:2rem;}
     }
 }
 
@@ -65,3 +69,12 @@ body{
         & + & {margin-top:1rem}
     }
 }
+.career{
+    &__item{word-break: keep-all;
+        & + & {margin-top:1.5rem;}
+    }
+    &__tit{font-size:1.6rem;font-weight:bold}
+}
+
+
+/*미디어 쿼리*/
