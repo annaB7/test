@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.compact.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="intime">
+            <h2>언제가 퇴근이니? </h2>
+            <div class="select">
+                <select name="s_hour" id="s_hour" class="select__select">
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                </select>
+            </div>
+            <div class="select">
+                <select name="s_minute" id="s_minute" class="select__select">
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                </select>
+            </div>
+        </div>
+        <div class="outtime">
+            <h2>퇴근까지...남은시간은.....</h2>
+            <p class="outtime__now">현재시각은<span class="js-now"></span></p>
+            <p class="outtime__rest" id="rest">남은시간은?<span></span></p>
+        </div>
+    </div>
+    <script>
+        const start = document.querySelector('#start');
+        const end = document.querySelector('#end');
+        const rest = document.querySelector('#rest');
+        const now = document.querySelector('.js-now');
+
+
+
+        function get_now(){
+            let today = new Date();
+            let hours = today.getHours(); // 시
+            let minutes = today.getMinutes();  // 분
+            let seconds = today.getSeconds();  // 초
+
+            now.innerText = hours + ':' + minutes + ':' + seconds;
+
+            let times = {
+                hours:hours,
+                minutes:minutes,
+                seconds:seconds
+            }
+            return times;
+        }
+        function get_rest(){
+            get_now();
+
+
+        }
+
+        // setInterval(get_now,1000);
+
+
+    </script>
+</body>
+</html>

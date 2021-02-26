@@ -7,8 +7,66 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="div"></div>
+    <div class="div">
+        <ul class="list__lineup"></ul>
+    </div>
     <script>
+
+    var imgBase = "//pics.g9.co.kr/mobile/single/promotion/bigsmileday/202011/teaser/";
+    var lineup_txt = ["뱅앤올룹슨 - 4세대 프리미엄 블루투스 스피커 A9","바디프랜드 -바디프랜드 팬덤2코어 안마의자","샤오미 - 샤오미 미박스S","마이크로소프트 - 마이크로소프트 서피스 프로7","명품지구 - 구찌 스카프 외",
+    "한샘 - 한샘 포레 릴렉스 4인 식탁세트","보이로","다이슨 - 다이슨 가습기 AM10","스마트카라 - 스마트카라 플래티넘 음식물처리기","미샤 - 타임레볼루션 나이트 리페어 앰플 4세대",
+    "유한킴벌리 - NEW 릴리유 퓨어네이비 물티슈 64+8매 15팩","캐논 - 풀프레임 미러리스 EOS R","몰테일 - 스타우브 꼬꼬떼 냄비 24cm","롯데제과 - 롯데제과 빼빼로 선물세트","애경 - 케라시스 데빌스 퍼퓸 샴푸 3개",
+    "스트로베리넷 - 로에베 남성+여성 향수 세트","신선지구 - 서귀포 노지감귤 4.5KG 로열소과","라이온 - 아이깨끗해 용기 1개+리필 5개+증정","청정원 - 청정원 팔선생볶음밥 10개"];
+    const ul = document.querySelector('.list__lineup');
+    for( var i = 0 ; i < lineup_txt.length ; i++){
+
+        const li = document.createElement('li');
+        li.innerHTML = `<li class="list-item"><img src="${imgBase}image__lineup${i+1}.jpg" alt="${lineup_txt[i]}" /></li>`
+        ul.append(li);
+	}
+// });
+
+    // const object = {a:1};
+    // const object2 = {a:10};
+    //
+    // // const {a,b=2} = object;
+    // // console.log(a)
+    // // console.log(b)
+    //
+    // function aaa({a,b=3}){
+    //     console.log(a);
+    //     console.log(b);
+    // }
+    // aaa(object2)
+
+//     const animal = {
+//   name: '멍멍이',
+//   type: '개'
+// };
+//
+// const nickname = animal.name;
+//
+// console.log(nickname); // 멍멍이
+// console.log(animal.name); // 멍멍이
+
+
+    // const object = { a: 1, b: 2 };
+    //
+    //     function print({ a, b }) {
+    //     console.log(a);
+    //     console.log(b);
+    //     }
+    //
+    //     print(object);
+
+    // const object = { a: 1, b: 2, c:3 };
+    //
+    // const { a, b, c } = object;
+    //
+    // console.log(a); // 1
+    // console.log(b); // 2
+    // console.log(c); // 2
+
         // const numbers = {
         //     a:1,
         //     b:2,
@@ -84,30 +142,30 @@
 //   console.log(heroa);
 // });
 
-const todos = [
-  {
-    id: 1,
-    text: '자바스크립트 입문',
-    done: true
-  },
-  {
-    id: 2,
-    text: '함수 배우기',
-    done: true
-  },
-  {
-    id: 3,
-    text: '객체와 배열 배우기',
-    done: true
-  },
-  {
-    id: 4,
-    text: '배열 내장함수 배우기',
-    done: false
-  }
-];
-
-const superheroes = ['아이언맨', '캡틴 아메리카', '토르', '닥터 스트레인지'];
+// const todos = [
+//   {
+//     id: 1,
+//     text: '자바스크립트 입문',
+//     done: true
+//   },
+//   {
+//     id: 2,
+//     text: '함수 배우기',
+//     done: true
+//   },
+//   {
+//     id: 3,
+//     text: '객체와 배열 배우기',
+//     done: true
+//   },
+//   {
+//     id: 4,
+//     text: '배열 내장함수 배우기',
+//     done: false
+//   }
+// ];
+//
+// const superheroes = ['아이언맨', '캡틴 아메리카', '토르', '닥터 스트레인지'];
 // const index = todos.findIndex(todo => todo.id ===3);
 // console.log(index)
 
@@ -138,10 +196,10 @@ const superheroes = ['아이언맨', '캡틴 아메리카', '토르', '닥터 �
 // });
 // console.log(sum);
 
-const numbers = [1, 2, 3, 4, 5];
-let sum = numbers.reduce((a, b) => a + b, 0);
-
-console.log(sum);
+// const numbers = [1, 2, 3, 4, 5];
+// let sum = numbers.reduce((a, b) => a + b, 0);
+//
+// console.log(sum);
 
 
     </script>
