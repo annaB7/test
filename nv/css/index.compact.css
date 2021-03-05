@@ -33,8 +33,6 @@ button { border: 0; background: transparent; display: inline-block; }
 /* Global Common */
 .for-a11y { overflow: hidden; position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; clip: rect(0 0 0 0); }
 
-a, button { outline: 1px solid red; }
-
 .noto { font-family: 'Noto Sans KR', sans-serif; }
 
 .fl { float: left; }
@@ -49,7 +47,7 @@ a, button { outline: 1px solid red; }
 
 .header { height: 160px; border-bottom: 1px solid #e0e3e6; }
 
-.header .wrap { position: relative; height: 100%; }
+.header .wrap { position: relative; height: 100%; padding: 0 30px; }
 
 .header-logo { position: absolute; left: -100px; top: 0; width: 415px; height: 100%; background-image: url(../img/header_1.gif); background-repeat: no-repeat; background-size: auto 100%; -webkit-background-size: auto 100%; }
 
