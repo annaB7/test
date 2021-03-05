@@ -23,7 +23,7 @@ button{border:0; background:transparent;display:inline-block;}
 .fl{float:left;}
 .fr{float:right}
 .clb:after{content:"";display:block; clear:both;}
-
+p{word-break: keep-all;}
 /*공통*/
 .letter__point{color:#FFD400}
 .txt_1{font-size:1.6rem;}
