@@ -9,7 +9,7 @@
     <style>
         html,body {
            position: relative;
-           height: 100%;
+
          }
 
          body {
@@ -45,23 +45,42 @@
            -webkit-align-items: center;
            align-items: center;
          }
+
+         .swiper-slide:after{content:"";display:block;padding-top:100%;}
+         .inbox{position:absolute;top:0;left:0;right:0;bottom:0;}
     </style>
 </head>
 <body>
-    <div class="swiper-container">
+    <div class="swiper-container slide_1">
        <div class="swiper-wrapper">
-         <div class="swiper-slide">Slide 1</div>
-         <div class="swiper-slide">Slide 2</div>
-         <div class="swiper-slide">Slide 3</div>
-         <div class="swiper-slide">Slide 4</div>
-         <div class="swiper-slide">Slide 5</div>
-         <div class="swiper-slide">Slide 6</div>
-         <div class="swiper-slide">Slide 7</div>
-         <div class="swiper-slide">Slide 8</div>
-         <div class="swiper-slide">Slide 9</div>
-         <div class="swiper-slide">Slide 10</div>
+           <div class="swiper-slide"><div class="inbox">1</div></div>
+           <div class="swiper-slide"><div class="inbox">2</div></div>
+           <div class="swiper-slide"><div class="inbox">3</div></div>
+           <div class="swiper-slide"><div class="inbox">4</div></div>
+           <div class="swiper-slide"><div class="inbox">5</div></div>
+         <div class="swiper-slide"><div class="inbox">6</div></div>
        </div>
      </div>
+     <div class="swiper-container slide_2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><div class="inbox">1</div></div>
+            <div class="swiper-slide"><div class="inbox">2</div></div>
+            <div class="swiper-slide"><div class="inbox">3</div></div>
+            <div class="swiper-slide"><div class="inbox">4</div></div>
+            <div class="swiper-slide"><div class="inbox">5</div></div>
+          <div class="swiper-slide"><div class="inbox">6</div></div>
+        </div>
+      </div>
+      <div class="swiper-container slide_3">
+         <div class="swiper-wrapper">
+             <div class="swiper-slide"><div class="inbox">1</div></div>
+             <div class="swiper-slide"><div class="inbox">2</div></div>
+             <div class="swiper-slide"><div class="inbox">3</div></div>
+             <div class="swiper-slide"><div class="inbox">4</div></div>
+             <div class="swiper-slide"><div class="inbox">5</div></div>
+           <div class="swiper-slide"><div class="inbox">6</div></div>
+         </div>
+       </div>
      <script src="./include/swiper-bundle.min.js"></script>
      <script>
          const swiper = new Swiper('.swiper-container', {
@@ -73,20 +92,66 @@
                // when window width is >= 320px
                320: {
                  slidesPerView: 2,
-                 spaceBetween: 20
+                 spaceBetween: 10
                },
                // when window width is >= 480px
                480: {
                  slidesPerView: 3,
-                 spaceBetween: 30
+                 spaceBetween: 10
                },
                // when window width is >= 640px
                640: {
                  slidesPerView: 4,
-                 spaceBetween: 40
+                 spaceBetween: 10
                }
              }
             })
+            // const swiper2 = new Swiper('.slide_2', {
+            //     // Default parameters
+            //     slidesPerView: 1,
+            //     spaceBetween: 10,
+            //     // Responsive breakpoints
+            //     breakpoints: {
+            //       // when window width is >= 320px
+            //       320: {
+            //         slidesPerView: 2,
+            //         spaceBetween: 10
+            //       },
+            //       // when window width is >= 480px
+            //       480: {
+            //         slidesPerView: 3,
+            //         spaceBetween: 10
+            //       },
+            //       // when window width is >= 640px
+            //       640: {
+            //         slidesPerView: 4,
+            //         spaceBetween: 10
+            //       }
+            //     }
+            //    })
+            //    const swiper3 = new Swiper('.slide_3', {
+            //        // Default parameters
+            //        slidesPerView: 1,
+            //        spaceBetween: 10,
+            //        // Responsive breakpoints
+            //        breakpoints: {
+            //          // when window width is >= 320px
+            //          320: {
+            //            slidesPerView: 2,
+            //            spaceBetween: 10
+            //          },
+            //          // when window width is >= 480px
+            //          480: {
+            //            slidesPerView: 3,
+            //            spaceBetween: 10
+            //          },
+            //          // when window width is >= 640px
+            //          640: {
+            //            slidesPerView: 4,
+            //            spaceBetween: 10
+            //          }
+            //        }
+            //       })
      </script>
 </body>
 </html>
