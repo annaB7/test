@@ -10,7 +10,14 @@
 </head>
 <body>
     <div class="wrap">
-        <div class="background"></div>
+        <div class="background">
+            <div style="position: absolute; z-index: -1; width: 100%; height: 100%">
+             <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/eiZlVw1Zt5o?autoplay=1&amp;mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+            </div>
+        </div>
+        <div class="tester">
+            <span class="tester__btn">push</span>
+        </div>
         <ul class="scroll__list">
             <li class="scroll__item">1</li>
             <li class="scroll__item">2</li>
@@ -24,10 +31,20 @@
         </ul>
     </div>
     <script>
-        // setTimeout(function(){
-        //     const bg = document.querySelector('.background');
-        //     bg.classList.add('off');
-        // },500);
+        const back = document.querySelector('.tester');
+        const btn = document.getElementsByClassName('tester__btn')[0];
+        btn.addEventListener('click',function(){
+            btn.classList.toggle('on');
+            if(!back.classList.contains('blk')){
+                back.classList.add('blk');
+                back.classList.remove('back-blk');
+
+            }else{
+                back.classList.remove('blk');
+                back.classList.add('back-blk');
+            }
+
+        })
     </script>
 </body>
 </html>
