@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import url('http://fonts.cdnfonts.com/css/samsung-sharp-sans');
+
 *{margin:0;padding:0;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;font-family: -apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;font-size:10px;}
 body{-webkit-text-size-adjust:none}
 ul,ol{list-style:none}
@@ -24,22 +26,16 @@ button{border:0; background:transparent;display:inline-block;}
 
 
 .wrap{width:100%;max-width:1160px;padding:0 1rem;margin:0 auto;}
+.ssharp{font-family: 'Samsung Sharp Sans', sans-serif!important;}
 
 
-//슬라이드
-.section_1{position:relative;height:100vh;width:100%;
-    &-tit{
-        &__top{}
-        &__main{}
-        &__sub{}
-    }
-}
 //헤더
 .header{position:fixed;top:0;left:0; width:100%;z-index:9999;
     &__wrap{width:100%;max-width:1180px;height:80px;margin:0 auto;}
 }
 
-
+//섹션1
+.section_1{position:relative;height:100vh;width:100%;}
 // 메인배너
 .banner{position:absolute;left:0;top:0;height:100%;width:100%;background-color:#222;
     &__list{width:100%;height:100%;}
@@ -47,20 +43,26 @@ button{border:0; background:transparent;display:inline-block;}
         &:focus{border:0;outline:0;}
     }
     &__inner{position:absolute;left:50%;top:0;transform: translateX(-50%);width:100%;height:100%;z-index:5;background-color:rgba(0,0,0,.3);padding-top:11.5%;}
-    &__tit{color:#fff;font-size:50px;width:100%;max-width:1180px;margin:0 auto;}
+    &__tit{color:#fff;width:100%;max-width:1180px;margin:0 auto;}
     &-tit{
-        &__top{}
-        &__main{}
-        &__sub{}
+        &__logo{position:relative;background:url(../img/ss/ep-logo-3-x3.png)no-repeat 0 0 /100% auto;width:245px;height:62px;margin-left:12px;
+            &:before{content:"";display:block;position:absolute;top:-4px;left:-12px;width:3px;height:62px;background-color:#fff;}
+        }
+        &__main{font-size:5.7rem;font-weight:bold;letter-spacing:-0.56rem;margin-top:2.3rem;margin-bottom:2.1rem}
+        &__sub{font-size:2.1rem;margin-bottom:2.9rem;letter-spacing:-0.36rem}
     }
 }
-
+//슬라이드
 .slick-track, .slick-list{width:100%;height:100%;}
-.slick-dots{position:absolute;width:100%;max-width:1180px;left:50%;transform: translateX(-50%);bottom:6%;z-index:10;font-size:0;
+.slick-dots{position:absolute;width:100%;max-width:1180px;left:50%;transform: translateX(-50%);bottom:6%;z-index:10;font-size:0;margin-bottom:45px;
     &:after{content:"";display:block;clear:both;}
 }
 .slick-dots li{float:left;width:33.3%;}
-.slick-dots li button{width:100%;height:70px;border-bottom:2px solid #fff;opacity:.3;color:#fff;text-align: left;padding-bottom:45px;font-size:1.6rem;letter-spacing:-1.7px;
+.slick-dots li button{width:100%;opacity:.3;color:#fff;text-align: left;font-size:1.6rem;letter-spacing:-1.7px;
     &:focus{outline:0}
 }
 .slick-dots li.slick-active button{opacity:1}
+
+@media screen and (max-width: 737px){
+    .slick-dots li{width:100%;}
+}

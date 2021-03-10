@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/index.compact.css">
+    <link rel="stylesheet" href="./css/main.compact.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header__wrap">
+            <h1 class="header-logo">
+                <a href="#" class="header-logo__link">
+                    <img src="./img/foot_logo.png" alt="에르메스 로고" class="header-logo__img type-normal">
+                    <img src="./img/head_logo.png" alt="에르메스 로고" class="header-logo__img type-fixed">
+                    <span class="for-a11y">에르메스 메인페이지</span>
+                </a>
+            </h1>
+            <button type="button" class="header__btn"><span class="for-a11y">메뉴열기</span></button>
+        </div>
+    </header>
+    <div class="content">
+        <section class="section section_1">
+            <div class="banner">
+                <img src="./img/imsi.jpg" alt="" class="banner__img">
+            </div>
+        </section>
+        <section class="section section_2">
+            <div class="section__wrap clb">
+                <h2 class="section__tit slide-list__tit font-tit2 col col-7 m-col-8 fl">NEW COLLECTION</h2>
+                <div class="slide-list col col-4 m-col-8 fr">
+                    <ul class="slide-list__list">
+                        <li class="slide-list__item">s</li>
+                        <li class="slide-list__item">sdf</li>
+                        <li class="slide-list__item">s</li>
+                        <li class="slide-list__item">g</li>
+                        <li class="slide-list__item">g</li>
+                    </ul>
+                </div>
+                <div class="slide fl col col-7 m-col-6" style="background-color:#ddd;height:300px;">
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <script>
+        //스크롤시 헤더변경 - 클래스만 주면됨.
+        const head = document.getElementsByClassName('header')[0];
+        window.addEventListener('scroll',function(){
+            let scroll_t = window.scrollY;
+            if(scroll_t > 50){
+                head.classList.add('type-fixed')
+            }else{
+                head.classList.remove('type-fixed')
+            }
+        });
+    </script>
+</body>
+</html>

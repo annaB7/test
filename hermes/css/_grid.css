@@ -1,0 +1,60 @@
+@charset "UTF-8";
+.col{display:inline-block;float:left;}
+
+@media screen and (min-width:1441px){/*pc최대*/
+    /* pc1 */
+    .col{padding:0 12px;}
+    .col-1{width:8.333%}
+    .col-2{width:16.666%;}
+    .col-3{width:25%}
+    .col-4{width:33.333%;}
+    .col-5{width:41.666%}
+    .col-6{width:50%}
+    .col-7{width:58.333%}
+    .col-8{width:66.666%}
+    .col-9{width:75%}
+    .col-10{width:83.333%;}
+    .col-11{width:91.666%}
+    .col-12{width:100%;}
+}
+@media screen and (min-width:1025px) and (max-width:1440px){/*pc2*/
+    /* pc1 */
+    .col{padding:0 20px;}
+    .col-1{width:8.333%}
+    .col-2{width:16.666%;}
+    .col-3{width:25%}
+    .col-4{width:33.333%;}
+    .col-5{width:41.666%}
+    .col-6{width:50%}
+    .col-7{width:58.333%}
+    .col-8{width:66.666%}
+    .col-9{width:75%}
+    .col-10{width:83.333%;}
+    .col-11{width:91.666%}
+    .col-12{width:100%;}
+
+}
+@media screen and (min-width:768px) and (max-width:1024px){/*태블릿*/
+    /* pc1 */
+    .col{padding:0 8px;}
+    .m-col-1{width:12.5%}
+    .m-col-2{width:25%;}
+    .m-col-3{width:37.5%}
+    .m-col-4{width:50%;}
+    .m-col-5{width:62.5%}
+    .m-col-6{width:75%}
+    .m-col-7{width:87.5%}
+    .m-col-8{width:100%}
+}
+@media screen and (max-width:767px){/*모바일*/
+    /* pc1 */
+    .col{padding:0 4px;}
+    .m-col-1{width:12.5%}
+    .m-col-2{width:25%;}
+    .m-col-3{width:37.5%}
+    .m-col-4{width:50%;}
+    .m-col-5{width:62.5%}
+    .m-col-6{width:75%}
+    .m-col-7{width:87.5%}
+    .m-col-8{width:100%}
+}

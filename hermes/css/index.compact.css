@@ -1,0 +1,188 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;600&display=swap");
+@import url(./_reset.css);
+@import url(./_grid.css);
+.font-gnb1 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 4.2rem; line-height: 1.14; }
+
+.font-gnb2 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 2rem; line-height: 1.4; }
+
+.font-gnb3 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.8rem; line-height: 1.4; }
+
+.font-tit1 { font-family: "Zilla Slab", serif; font-weight: 600; font-size: 8.4rem; line-height: 1.07; }
+
+.font-tit2 { font-family: "Zilla Slab", serif; font-weight: 600; font-size: 6.8rem; line-height: 1.11; }
+
+.font-tit3 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 6rem; line-height: 1.3; }
+
+.font-tit4 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 4rem; line-height: 1.25; }
+
+.font-ct1 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 3.2rem; line-height: 1.25; }
+
+.font-ct2 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 2.4rem; line-height: 1.75; }
+
+.font-txt1 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 3rem; line-height: 1.26; }
+
+.font-txt2 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 2.4rem; line-height: 1.33; }
+
+.font-txt3 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 2rem; line-height: 1.6; }
+
+.font-txt4 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.8rem; line-height: 1.66; }
+
+.font-price1 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.6rem; line-height: 2; }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) { .font-tit1 { font-family: "Zilla Slab", serif; font-weight: 600; font-size: 6.8rem; line-height: 1.11; }
+    .font-ct1 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 3.2rem; line-height: 1.25; }
+    .font-ct2 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 2.4rem; line-height: 1.75; } }
+
+@media screen and (max-width: 767px) { .font-gnb1 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 2.4rem; line-height: 1; }
+    .font-gnb2 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.4rem; line-height: 1; }
+    .font-gnb3 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.2rem; line-height: 1.08; }
+    .font-tit1 { font-family: "Zilla Slab", serif; font-weight: 600; font-size: 3rem; line-height: 1.16; }
+    .font-tit2 { font-family: "Zilla Slab", serif; font-weight: 600; font-size: 3rem; line-height: 1.16; }
+    .font-tit3 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 3rem; line-height: 1.33; }
+    .font-tit4 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 2rem; line-height: 1.25; }
+    .font-ct1 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 3rem; line-height: 1; }
+    .font-ct2 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 1.8rem; line-height: 1.66; }
+    .font-txt1 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.5rem; line-height: 2.53; }
+    .font-txt2 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.2rem; line-height: 1.33; }
+    .font-txt3 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1rem; line-height: 1.6; }
+    .font-txt4 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 0.9rem; line-height: 1.66; }
+    .font-txt1 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.1rem; line-height: 1.45; } }
+
+.guide-wrap { width: 100%; margin: 0 auto; padding: 50px 0; }
+
+.guide-section + .guide-section { margin-top: 20px; }
+
+.guide-section__tit { font-size: 30px; }
+
+.guide-section__sub { font-size: 24px; padding-top: 15px; font-weight: bold; border-bottom: 1px dotted #333; background-color: #fff; }
+
+.guide-cont { border: 1px solid #ddd; padding: 15px 20px; }
+
+.guide-cont__inner { background-color: #f2f2f24d; }
+
+.guide-color__item { display: table; width: 100px; height: 100px; border-radius: 50%; color: #fff; text-align: center; }
+
+.guide-color__item span { display: table-cell; vertical-align: middle; font-weight: 700; }
+
+.guide-color__item.type-c1 { background-color: #333333; }
+
+.guide-color__item.type-c2 { background-color: #F6F1EB; color: #222; }
+
+.guide-color__item.type-c3 { background-color: #EC6707; }
+
+.guide-color__item + .guide-color__item { margin-left: 30px; }
+
+.guide-txt { padding: 10px; }
+
+.guide-icon__item + .guide-icon__item { margin-left: 20px; }
+
+.header { padding: 0 30px; position: fixed; left: 0; top: 0; width: 100%; transition: all .3s; }
+
+.header__wrap { position: relative; width: 100%; height: 155px; text-align: center; }
+
+.header.type-fixed { background-color: #fff; }
+
+.header.type-fixed .header__wrap { border-bottom: 1px solid #000; }
+
+.header.type-fixed .header-logo__img.type-normal { display: none; }
+
+.header.type-fixed .header-logo__img.type-fixed { display: inline-block; }
+
+.header.type-fixed .header__btn { background-color: #000; }
+
+.header.type-fixed .header__btn:before { content: ""; display: block; position: absolute; width: 100%; height: 2px; left: 0; top: -7px; background-color: #000; }
+
+.header.type-fixed .header__btn:after { content: ""; display: block; position: absolute; width: 100%; height: 2px; left: 0; bottom: -7px; background-color: #000; }
+
+.header-logo { display: inline-block; margin-top: 40px; }
+
+.header-logo__img { width: 127px; }
+
+.header-logo__img.type-normal { display: inline-block; }
+
+.header-logo__img.type-fixed { display: none; }
+
+.header__btn { display: block; position: absolute; top: 50%; margin-top: -1px; right: 38px; width: 24px; height: 2px; background-color: #fff; outline: 0; }
+
+.header__btn:before { content: ""; display: block; position: absolute; width: 100%; height: 2px; left: 0; top: -7px; background-color: #fff; }
+
+.header__btn:after { content: ""; display: block; position: absolute; width: 100%; height: 2px; left: 0; bottom: -7px; background-color: #fff; }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) { /*태블릿*/
+    .header { padding: 0 12px; }
+    .header__wrap { height: 141px; }
+    .header-logo { margin-top: 36px; }
+    .header__btn { right: 40px; } }
+
+@media screen and (max-width: 767px) { .header { padding: 0 12px; }
+    .header__wrap { height: 80px; }
+    .header-logo { display: inline-block; margin-top: 25px; }
+    .header-logo__img { width: 60px; }
+    .header__btn { right: 22px; } }
+
+.icon__link { display: block; width: 21px; height: 21px; background-repeat: no-repeat; background-position: center; }
+
+.icon__link.type-insta { background-image: url("../img/instagram.png"); }
+
+.icon__link.type-tt { background-image: url("../img/twitter.png"); }
+
+.icon__link.type-yt { background-image: url("../img/youtube.png"); }
+
+.icon__link.type-fb { background-image: url("../img/facebook.png"); }
+
+.footer { background-color: #3B2E28; }
+
+.footer__wrap { position: relative; height: 325px; margin: 0 auto; padding: 80px 5%; text-align: center; }
+
+.footer__inner.type-center { display: inline-block; }
+
+.footer-logo__link { display: inline-block; }
+
+.footer-logo__img { width: 122px; }
+
+.footer-sns { margin: 0 auto; margin-top: 25px; font-size: 0; text-align: center; }
+
+.footer-sns__list { font-size: 0; }
+
+.footer-sns__item { display: inline-block; }
+
+.footer-sns__item + .footer-sns__item { margin-left: 24px; }
+
+.footer__rights { display: inline-block; margin-top: 20.9px; color: #7a7a7a; font-family: "Zilla Slab", serif; font-weight: 400; font-size: 1.4rem; line-height: 2.2; }
+
+.footer-nav { position: absolute; left: 0; top: 132px; width: 100%; }
+
+.footer-nav__list { white-space: nowrap; text-align: center; }
+
+.footer-nav__item { display: inline-block; }
+
+.footer-nav__item + .footer-nav__item { margin-left: 6%; }
+
+.footer-nav__item:nth-child(3) { margin-left: 25%; }
+
+.footer-nav__link { display: inline-block; color: #fff; font-family: "Zilla Slab", serif; font-size: 1.8rem; line-height: 1.77; }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) { /*태블릿*/
+    .footer__wrap { position: relative; height: 376px; width: 100%; margin: 0 auto; padding: 70px 0 79px; }
+    .footer__inner.type-center { top: 70px; }
+    .footer-sns { margin-top: 22px; }
+    .footer__rights { margin-top: 20px; }
+    .footer-nav { position: static; margin-top: 3rem; }
+    .footer-nav__item + .footer-nav__item { margin-left: 3rem; }
+    .footer-nav__item:nth-child(3) { margin-left: 3rem; } }
+
+@media screen and (max-width: 767px) { /*모바일*/
+    .footer__wrap { position: relative; height: 240px; width: 100%; padding: 23px 20px 32px 20px; }
+    .footer-logo__link { display: inline-block; }
+    .footer-logo__img { width: 80px; }
+    .footer-sns { margin-top: 22px; }
+    .footer__rights { margin-top: 12px; font-weight: 400; font-size: 1.2rem; line-height: 1.2; }
+    .footer-nav { position: static; margin-top: 22px; }
+    .footer-nav__list { white-space: normal; font-size: 0; }
+    .footer-nav__item { width: 50%; text-align: center; }
+    .footer-nav__item + .footer-nav__item { margin-left: 0; }
+    .footer-nav__item:nth-child(3) { margin-left: 0; margin-top: 18px; }
+    .footer-nav__item:nth-child(4) { margin-top: 18px; }
+    .footer-nav__link { font-size: 1.5rem; line-height: 1; } }

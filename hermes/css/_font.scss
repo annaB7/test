@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+
+//PC****************************************************************************
+// GNB폰트
+.font-gnb1{font-family:$font-zilla;font-weight:$regular;font-size:4.2rem;line-height:1.14;}
+.font-gnb2{font-family:$font-noto;font-weight:$regular;font-size:2rem;line-height:1.4;}
+.font-gnb3{font-family:$font-noto;font-weight:$regular;font-size:1.8rem;line-height:1.4;}
+//타이틀
+.font-tit1{font-family:$font-zilla;font-weight:$semi-bold;font-size:8.4rem;line-height:1.07;}
+.font-tit2{font-family:$font-zilla;font-weight:$semi-bold;font-size:6.8rem;line-height:1.11;}
+.font-tit3{font-family:$font-zilla;font-weight:$regular;font-size:6rem;line-height:1.3;}
+.font-tit4{font-family:$font-zilla;font-weight:$regular;font-size:4rem;line-height:1.25;}
+//카테고리
+.font-ct1{font-family:$font-zilla;font-weight:$regular;font-size:3.2rem;line-height:1.25;}
+.font-ct2{font-family:$font-zilla;font-weight:$regular;font-size:2.4rem;line-height:1.75;}
+//텍스트
+.font-txt1{font-family:$font-noto;font-weight:$regular;font-size:3rem;line-height:1.26;}
+.font-txt2{font-family:$font-noto;font-weight:$regular;font-size:2.4rem;line-height:1.33;}
+.font-txt3{font-family:$font-noto;font-weight:$regular;font-size:2rem;line-height:1.6;}
+.font-txt4{font-family:$font-noto;font-weight:$regular;font-size:1.8rem;line-height:1.66}
+//가격
+.font-price1{font-family:$font-noto;font-weight:$regular;font-size:1.6rem;line-height:2}
+
+
+
+//태블릿****************************************************************************
+@media screen and (min-width:768px) and (max-width:1024px){
+    //타이틀
+    .font-tit1{font-family:$font-zilla;font-weight:$semi-bold;font-size:6.8rem;line-height:1.11;}
+    //카테고리
+    .font-ct1{font-family:$font-zilla;font-weight:$regular;font-size:3.2rem;line-height:1.25;}
+    .font-ct2{font-family:$font-zilla;font-weight:$regular;font-size:2.4rem;line-height:1.75;}
+}
+
+
+
+//모바일****************************************************************************
+@media screen and (max-width:767px){
+    // GNB폰트
+    .font-gnb1{font-family:$font-zilla;font-weight:$regular;font-size:2.4rem;line-height:1;}
+    .font-gnb2{font-family:$font-noto;font-weight:$regular;font-size:1.4rem;line-height:1;}
+    .font-gnb3{font-family:$font-noto;font-weight:$regular;font-size:1.2rem;line-height:1.08;}
+    //타이틀
+    .font-tit1{font-family:$font-zilla;font-weight:$semi-bold;font-size:3rem;line-height:1.16;}
+    .font-tit2{font-family:$font-zilla;font-weight:$semi-bold;font-size:3rem;line-height:1.16;}
+    .font-tit3{font-family:$font-zilla;font-weight:$regular;font-size:3rem;line-height:1.33;}
+    .font-tit4{font-family:$font-zilla;font-weight:$regular;font-size:2rem;line-height:1.25;}
+    //카테고리
+    .font-ct1{font-family:$font-zilla;font-weight:$regular;font-size:3rem;line-height:1;}
+    .font-ct2{font-family:$font-zilla;font-weight:$regular;font-size:1.8rem;line-height:1.66;}
+    //텍스트
+    .font-txt1{font-family:$font-noto;font-weight:$regular;font-size:1.5rem;line-height:2.53;}
+    .font-txt2{font-family:$font-noto;font-weight:$regular;font-size:1.2rem;line-height:1.33;}
+    .font-txt3{font-family:$font-noto;font-weight:$regular;font-size:1rem;line-height:1.6;}
+    .font-txt4{font-family:$font-noto;font-weight:$regular;font-size:0.9rem;line-height:1.66;}
+    //가격
+    .font-txt1{font-family:$font-noto;font-weight:$regular;font-size:1.1rem;line-height:1.45}
+}
