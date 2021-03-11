@@ -1,10 +1,11 @@
 @charset 'utf-8';
+body{position:relative;}
 //헤더
-.header{padding:0 30px;position:fixed;left:0;top:0;width:100%;transition:all .3s;
+.header{padding:0 30px;position:fixed;left:0;top:0;width:100%;transition:all .3s;z-index:150;
     $this:&;
     &__wrap{position:relative;width:100%;height:155px;text-align: center;}
     &.type-fixed{background-color:#fff;
-        #{$this}__wrap{border-bottom:1px solid #000;}
+        // #{$this}__wrap{border-bottom:1px solid #000;}
         #{$this}-logo{
             &__img{
                 &.type-normal{display:none}
@@ -73,7 +74,7 @@
     }
 }
 
-.footer{background-color:#3B2E28;
+.footer{background-color:#3B2E28;position:absolute;bottom:0;left:0;width:100%;
     &__wrap{position:relative;height:325px;margin:0 auto;padding:80px 5%;text-align: center;}
     &__inner{
         &.type-center{display:inline-block;}
@@ -118,7 +119,7 @@
 
 @media screen and (max-width:767px){/*모바일*/
     .footer{
-        &__wrap{position:relative;height:240px;width:100%;padding:23px 20px 32px 20px}
+        &__wrap{position:relative;height:auto;width:100%;padding:23px 20px 32px 20px}
         &-logo{
             &__link{display: inline-block;}
             &__img{width:80px;}

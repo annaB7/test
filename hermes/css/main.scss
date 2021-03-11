@@ -1,21 +1,195 @@
 @charset 'utf-8';
+@import "./_variables.scss";
+@import "./_font.scss";
+@import "./_reset.css";
+@import "./_grid.css";
+@import "./guide.scss";
+@import "./_common.scss";
 
-.banner{width:100%;height:100vh;overflow: hidden;
-    &__img{width:100%;}
+.banner{position:relative;width:100%;height:100vh;overflow: hidden;vertical-align: middle;
+    &__img{display:inline-block;position:absolute;left:50%;top:50%;transform: translate(-50%,-50%);height:100%;}
 }
 .section{
-    &__wrap{}
-    &__tit{margin-top:220px;text-align:right}
+    &__wrap{
+        &.type-section2, &.type-section3,&.type-section4{padding-top:220px;}
+        &.type-section3{width:100%; max-width:1440px;margin:0 auto;}
+        &.type-section5{padding-top:200px;}
+    }
+    &__tit{text-align: center;
+        &.type-section2{margin-bottom:140px;text-align:right;}
+        &.type-section5{position:relative;z-index:10;text-align: left;margin:0 auto;padding-left:4%;}
+    }
+    &__sub{
+        &.type-section3{margin-top:10px;font-size:2.4rem;line-height:3.2rem;text-align: center;font-family:$font-noto}
+    }
+
 }
+.section_2{position:relative;
+    &:before{content:"";display: block;position:absolute;left:0;top:0;width:100%;height:70%;background-color:#F6F1EB;z-index:-1;}
+}
+// 슬라이드
+.slide{position:relative;width:100%;
+    &__wrap{position:relative;
+        &.type-nav{position:absolute;bottom:5%}
+    }
+    &__inbox{
+        &.type-txt{position:relative;background-color:#3B2E28;color:#fff;padding:9% 10% 18% 10%;}
+    }
+    &__img{width:100%;}
+    &__sub{display:inline-block;margin-bottom:10px;color:#fff;}
+    &__txt{color:#fff;}
+    .slick-dots{position:absolute;top:-50%;white-space:nowrap}
+    .slick-arrow{position:absolute;top:11%;width:20px;height:34px;z-index:10;font-size:0;}
+    .slick-prev{right:calc(10% + 48px);background:url('../img/chevron_big_left.png')no-repeat center center/100%;}
+    .slick-next{right:10%;background:url('../img/chevron_big_right.png')no-repeat center center/100%;}
+}
+
+//슬라이드리스트
+.slide-list{display:inline-block;position:absolute;right:0;top:220px;
+    &__list{}
+    &__item{}
+}
+
+//섹션3
+.celebrity{margin:0 auto;margin-top:20px;
+    $this:&;
+    &__list{font-size:0;text-align: center;}
+    &__item{display:inline-block;
+        & + & {margin-left:28px;}
+        &.on{
+            #{$this}__btn{text-decoration:underline;}
+        }
+    }
+    &__btn{font-size:2.4rem;line-height:4.2rem;color:#000;font-family:$font-zilla}
+}
+.celebrity-items{margin-top:60px;
+    &__list{}
+    &__item{padding:0 10px;position:relative;
+        &:before{content:"";display:block;padding-top:100%;background-color:rgba(246,241,235,0.3);}
+    }
+    &__img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:80%;}
+}
+
+
+//섹션4
+.collection{position:relative;
+    &__img{width:100%;}
+    &__link{position:absolute;left:0;top:0;width:100%; height:100%;}
+    &__txt{display:block;position:absolute;top:50%;transform: translateY(-50%);left:0;width:100%;text-align: center;font-size:3.2rem;line-height:40px;color:#fff;font-family:$font-zilla;letter-spacing: 0.72em}
+}
+
+
+//섹션5
+.section_5{position:relative;
+    &:before{content:"";display:block;width:100%;position:absolute;left:0;bottom:0;padding-top:56%;background-color:#F6F1EB;z-index:-1}
+}
+.lookbook{position:relative;top:-45px;margin:0 auto;
+    &__item{
+        &.type-left{width:30%;padding:0 12px;position:absolute;left:10%;top:0;}
+        &.type-right{width:50%;padding:0 12px;margin-left:50%;margin-top:55px;}
+    }
+    &__img{width:100%;}
+}
+
+
 @media screen and (min-width:768px) and (max-width:1024px){/*태블릿*/
-    .banner{height:576px;}
+    .banner{height:576px;
+        &__img{height:100%;}
+    }
     .section{
-        &__tit{margin-top:140px;text-align: center;}
+        &__wrap{
+            &.type-section2,&.type-section3,&.type-section4{text-align: center;padding-top:140px;}
+        }
+        &__tit{
+            &.type-section2{margin-bottom:70px;text-align: center;}
+            &.type-section5{text-align: center;padding-left:0}
+        }
+    }
+    .section_2{
+        &:before{height:57%;}
+    }
+    // 슬라이드
+    .slide{float:none;
+        &__wrap{float:none;
+            &.type-nav{position:static;margin-top:-10%;}
+        }
+        &__inbox{
+            &.type-img{float:none}
+            &.type-txt{float:none;padding:60px 9%;padding-bottom:16%;text-align: left;}
+        }
+        .slick-arrow{top:55px}
+        .slick-prev{right:calc(9% + 68px);}
+        .slick-next{right:9%}
+    }
+
+    //섹션4
+    .collection{
+        &__txt{font-size:2.2rem;}
+    }
+    //섹션5
+    .lookbook{top:70px;
+        &__item{
+            &.type-left{display:none}
+            &.type-right{display:block;margin:0 auto;float:none;}
+        }
     }
 }
 @media screen and (max-width:767px){
-    .banner{height:220px;}
+    .banner{height:auto;
+        &__img{width:100%;height:auto;position:static;transform: translate(0,0);}
+    }
     .section{
-        &__tit{margin-top:60px;text-align: center;}
+        &__wrap{
+            &.type-section2, &.type-section3, &.type-section4{text-align: center;padding-top:59px;}
+
+        }
+        &__tit{
+            &.type-section2{margin-bottom:40px;text-align: center;}
+            &.type-section5{text-align: center;padding-left:0}
+        }
+        &__sub{
+            &.type-section3{margin-top:5px;font-size:1.2rem;line-height:1.6rem;}
+        }
+    }
+    .section_2{
+        &:before{height:57%;}
+    }
+    // 슬라이드
+    .slide{
+        &__wrap{float:none;
+            &.type-nav{position:static;margin-top:-10%;padding:0 12px!important;}
+        }
+        &__inbox{
+            &.type-img{float:none}
+            &.type-txt{float:none;padding:35px 6.4%;text-align: left;}
+        }
+        .slick-arrow{top:30px;width:10px;height:17px;}
+        .slick-prev{right:calc(9% + 34px);}
+        .slick-next{right:9%}
+    }
+    .celebrity{overflow:auto;margin-top:30px;
+        &__list{margin:0 20px;white-space: nowrap;}
+
+    }
+    .celebrity-items{width:75%;margin:0 auto;margin-top:60px;
+        &__item{padding:0}
+        .slick-dots{display:block;margin:0 auto;margin-top:40px;font-size:0;}
+        .slick-dots li{display:inline-block;font-size:0;padding:0 10px;
+
+            button{font-size:0;width:40px;height:4px;background-color:rgba(196,196,196,1);}
+            &.slick-active{
+                button{background-color:rgba(236,103,7,1)}
+            }
+        }
+    }
+    //섹션4
+    .collection{
+        &__txt{font-size:1.3rem;}
+    }
+    .lookbook{top:38px;
+        &__item{
+            &.type-left{display:none}
+            &.type-right{display:block;margin:0 auto;float:none;}
+        }
     }
 }

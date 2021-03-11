@@ -1,13 +1,321 @@
 @charset "UTF-8";
-.banner { width: 100%; height: 100vh; overflow: hidden; }
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;600&display=swap");
+@import url(./_reset.css);
+@import url(./_grid.css);
+.font-gnb1 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 4.2rem; line-height: 1.14; }
 
-.banner__img { width: 100%; }
+.font-gnb2 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 2rem; line-height: 1.4; }
 
-.section__tit { margin-top: 220px; text-align: right; }
+.font-gnb3 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.8rem; line-height: 1.4; }
+
+.font-tit1 { font-family: "Zilla Slab", serif; font-weight: 600; font-size: 8.4rem; line-height: 1.07; }
+
+.font-tit2 { font-family: "Zilla Slab", serif; font-weight: 600; font-size: 6.8rem; line-height: 1.11; }
+
+.font-tit3 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 6rem; line-height: 1.3; }
+
+.font-tit4 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 4rem; line-height: 1.25; }
+
+.font-ct1 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 3.2rem; line-height: 1.25; }
+
+.font-ct2 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 2.4rem; line-height: 1.75; }
+
+.font-txt1 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 3rem; line-height: 1.26; }
+
+.font-txt2 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 2.4rem; line-height: 1.33; }
+
+.font-txt3 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 2rem; line-height: 1.6; }
+
+.font-txt4 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.8rem; line-height: 1.66; }
+
+.font-price1 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.6rem; line-height: 2; }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) { .font-tit1 { font-family: "Zilla Slab", serif; font-weight: 600; font-size: 6.8rem; line-height: 1.11; }
+    .font-ct1 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 3.2rem; line-height: 1.25; }
+    .font-ct2 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 2.4rem; line-height: 1.75; } }
+
+@media screen and (max-width: 767px) { .font-gnb1 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 2.4rem; line-height: 1; }
+    .font-gnb2 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.4rem; line-height: 1; }
+    .font-gnb3 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.2rem; line-height: 1.08; }
+    .font-tit1 { font-family: "Zilla Slab", serif; font-weight: 600; font-size: 3rem; line-height: 1.16; }
+    .font-tit2 { font-family: "Zilla Slab", serif; font-weight: 600; font-size: 3rem; line-height: 1.16; }
+    .font-tit3 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 3rem; line-height: 1.33; }
+    .font-tit4 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 2rem; line-height: 1.25; }
+    .font-ct1 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 3rem; line-height: 1; }
+    .font-ct2 { font-family: "Zilla Slab", serif; font-weight: 400; font-size: 1.8rem; line-height: 1.66; }
+    .font-txt1 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.5rem; line-height: 2.53; }
+    .font-txt2 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.2rem; line-height: 1.33; }
+    .font-txt3 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1rem; line-height: 1.6; }
+    .font-txt4 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 0.9rem; line-height: 1.66; }
+    .font-txt1 { font-family: "Noto Sans KR", sans-serif; font-weight: 400; font-size: 1.1rem; line-height: 1.45; } }
+
+.guide-wrap { width: 100%; margin: 0 auto; padding: 50px 0; }
+
+.guide-section + .guide-section { margin-top: 20px; }
+
+.guide-section__tit { font-size: 30px; }
+
+.guide-section__sub { font-size: 24px; padding-top: 15px; font-weight: bold; border-bottom: 1px dotted #333; background-color: #fff; }
+
+.guide-cont { border: 1px solid #ddd; padding: 15px 20px; }
+
+.guide-cont__inner { background-color: #f2f2f24d; }
+
+.guide-color__item { display: table; width: 100px; height: 100px; border-radius: 50%; color: #fff; text-align: center; }
+
+.guide-color__item span { display: table-cell; vertical-align: middle; font-weight: 700; }
+
+.guide-color__item.type-c1 { background-color: #333333; }
+
+.guide-color__item.type-c2 { background-color: #F6F1EB; color: #222; }
+
+.guide-color__item.type-c3 { background-color: #EC6707; }
+
+.guide-color__item + .guide-color__item { margin-left: 30px; }
+
+.guide-txt { padding: 10px; }
+
+.guide-icon__item + .guide-icon__item { margin-left: 20px; }
+
+body { position: relative; }
+
+.header { padding: 0 30px; position: fixed; left: 0; top: 0; width: 100%; transition: all .3s; z-index: 150; }
+
+.header__wrap { position: relative; width: 100%; height: 155px; text-align: center; }
+
+.header.type-fixed { background-color: #fff; }
+
+.header.type-fixed .header-logo__img.type-normal { display: none; }
+
+.header.type-fixed .header-logo__img.type-fixed { display: inline-block; }
+
+.header.type-fixed .header__btn { background-color: #000; }
+
+.header.type-fixed .header__btn:before { content: ""; display: block; position: absolute; width: 100%; height: 2px; left: 0; top: -7px; background-color: #000; }
+
+.header.type-fixed .header__btn:after { content: ""; display: block; position: absolute; width: 100%; height: 2px; left: 0; bottom: -7px; background-color: #000; }
+
+.header-logo { display: inline-block; margin-top: 40px; }
+
+.header-logo__img { width: 127px; }
+
+.header-logo__img.type-normal { display: inline-block; }
+
+.header-logo__img.type-fixed { display: none; }
+
+.header__btn { display: block; position: absolute; top: 50%; margin-top: -1px; right: 38px; width: 24px; height: 2px; background-color: #fff; outline: 0; }
+
+.header__btn:before { content: ""; display: block; position: absolute; width: 100%; height: 2px; left: 0; top: -7px; background-color: #fff; }
+
+.header__btn:after { content: ""; display: block; position: absolute; width: 100%; height: 2px; left: 0; bottom: -7px; background-color: #fff; }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) { /*태블릿*/
+    .header { padding: 0 12px; }
+    .header__wrap { height: 141px; }
+    .header-logo { margin-top: 36px; }
+    .header__btn { right: 40px; } }
+
+@media screen and (max-width: 767px) { .header { padding: 0 12px; }
+    .header__wrap { height: 80px; }
+    .header-logo { display: inline-block; margin-top: 25px; }
+    .header-logo__img { width: 60px; }
+    .header__btn { right: 22px; } }
+
+.icon__link { display: block; width: 21px; height: 21px; background-repeat: no-repeat; background-position: center; }
+
+.icon__link.type-insta { background-image: url("../img/instagram.png"); }
+
+.icon__link.type-tt { background-image: url("../img/twitter.png"); }
+
+.icon__link.type-yt { background-image: url("../img/youtube.png"); }
+
+.icon__link.type-fb { background-image: url("../img/facebook.png"); }
+
+.footer { background-color: #3B2E28; position: absolute; bottom: 0; left: 0; width: 100%; }
+
+.footer__wrap { position: relative; height: 325px; margin: 0 auto; padding: 80px 5%; text-align: center; }
+
+.footer__inner.type-center { display: inline-block; }
+
+.footer-logo__link { display: inline-block; }
+
+.footer-logo__img { width: 122px; }
+
+.footer-sns { margin: 0 auto; margin-top: 25px; font-size: 0; text-align: center; }
+
+.footer-sns__list { font-size: 0; }
+
+.footer-sns__item { display: inline-block; }
+
+.footer-sns__item + .footer-sns__item { margin-left: 24px; }
+
+.footer__rights { display: inline-block; margin-top: 20.9px; color: #7a7a7a; font-family: "Zilla Slab", serif; font-weight: 400; font-size: 1.4rem; line-height: 2.2; }
+
+.footer-nav { position: absolute; left: 0; top: 132px; width: 100%; }
+
+.footer-nav__list { white-space: nowrap; text-align: center; }
+
+.footer-nav__item { display: inline-block; }
+
+.footer-nav__item + .footer-nav__item { margin-left: 6%; }
+
+.footer-nav__item:nth-child(3) { margin-left: 25%; }
+
+.footer-nav__link { display: inline-block; color: #fff; font-family: "Zilla Slab", serif; font-size: 1.8rem; line-height: 1.77; }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) { /*태블릿*/
+    .footer__wrap { position: relative; height: 376px; width: 100%; margin: 0 auto; padding: 70px 0 79px; }
+    .footer__inner.type-center { top: 70px; }
+    .footer-sns { margin-top: 22px; }
+    .footer__rights { margin-top: 20px; }
+    .footer-nav { position: static; margin-top: 3rem; }
+    .footer-nav__item + .footer-nav__item { margin-left: 3rem; }
+    .footer-nav__item:nth-child(3) { margin-left: 3rem; } }
+
+@media screen and (max-width: 767px) { /*모바일*/
+    .footer__wrap { position: relative; height: auto; width: 100%; padding: 23px 20px 32px 20px; }
+    .footer-logo__link { display: inline-block; }
+    .footer-logo__img { width: 80px; }
+    .footer-sns { margin-top: 22px; }
+    .footer__rights { margin-top: 12px; font-weight: 400; font-size: 1.2rem; line-height: 1.2; }
+    .footer-nav { position: static; margin-top: 22px; }
+    .footer-nav__list { white-space: normal; font-size: 0; }
+    .footer-nav__item { width: 50%; text-align: center; }
+    .footer-nav__item + .footer-nav__item { margin-left: 0; }
+    .footer-nav__item:nth-child(3) { margin-left: 0; margin-top: 18px; }
+    .footer-nav__item:nth-child(4) { margin-top: 18px; }
+    .footer-nav__link { font-size: 1.5rem; line-height: 1; } }
+
+.banner { position: relative; width: 100%; height: 100vh; overflow: hidden; vertical-align: middle; }
+
+.banner__img { display: inline-block; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); height: 100%; }
+
+.section__wrap.type-section2, .section__wrap.type-section3, .section__wrap.type-section4 { padding-top: 220px; }
+
+.section__wrap.type-section3 { width: 100%; max-width: 1440px; margin: 0 auto; }
+
+.section__wrap.type-section5 { padding-top: 200px; }
+
+.section__tit { text-align: center; }
+
+.section__tit.type-section2 { margin-bottom: 140px; text-align: right; }
+
+.section__tit.type-section5 { position: relative; z-index: 10; text-align: left; margin: 0 auto; padding-left: 4%; }
+
+.section__sub.type-section3 { margin-top: 10px; font-size: 2.4rem; line-height: 3.2rem; text-align: center; font-family: "Noto Sans KR", sans-serif; }
+
+.section_2 { position: relative; }
+
+.section_2:before { content: ""; display: block; position: absolute; left: 0; top: 0; width: 100%; height: 70%; background-color: #F6F1EB; z-index: -1; }
+
+.slide { position: relative; width: 100%; }
+
+.slide__wrap { position: relative; }
+
+.slide__wrap.type-nav { position: absolute; bottom: 5%; }
+
+.slide__inbox.type-txt { position: relative; background-color: #3B2E28; color: #fff; padding: 9% 10% 18% 10%; }
+
+.slide__img { width: 100%; }
+
+.slide__sub { display: inline-block; margin-bottom: 10px; color: #fff; }
+
+.slide__txt { color: #fff; }
+
+.slide .slick-dots { position: absolute; top: -50%; white-space: nowrap; }
+
+.slide .slick-arrow { position: absolute; top: 11%; width: 20px; height: 34px; z-index: 10; font-size: 0; }
+
+.slide .slick-prev { right: calc(10% + 48px); background: url("../img/chevron_big_left.png") no-repeat center center/100%; }
+
+.slide .slick-next { right: 10%; background: url("../img/chevron_big_right.png") no-repeat center center/100%; }
+
+.slide-list { display: inline-block; position: absolute; right: 0; top: 220px; }
+
+.celebrity { margin: 0 auto; margin-top: 20px; }
+
+.celebrity__list { font-size: 0; text-align: center; }
+
+.celebrity__item { display: inline-block; }
+
+.celebrity__item + .celebrity__item { margin-left: 28px; }
+
+.celebrity__item.on .celebrity__btn { text-decoration: underline; }
+
+.celebrity__btn { font-size: 2.4rem; line-height: 4.2rem; color: #000; font-family: "Zilla Slab", serif; }
+
+.celebrity-items { margin-top: 60px; }
+
+.celebrity-items__item { padding: 0 10px; position: relative; }
+
+.celebrity-items__item:before { content: ""; display: block; padding-top: 100%; background-color: rgba(246, 241, 235, 0.3); }
+
+.celebrity-items__img { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 80%; }
+
+.collection { position: relative; }
+
+.collection__img { width: 100%; }
+
+.collection__link { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+
+.collection__txt { display: block; position: absolute; top: 50%; transform: translateY(-50%); left: 0; width: 100%; text-align: center; font-size: 3.2rem; line-height: 40px; color: #fff; font-family: "Zilla Slab", serif; letter-spacing: 0.72em; }
+
+.section_5 { position: relative; }
+
+.section_5:before { content: ""; display: block; width: 100%; position: absolute; left: 0; bottom: 0; padding-top: 56%; background-color: #F6F1EB; z-index: -1; }
+
+.lookbook { position: relative; top: -45px; margin: 0 auto; }
+
+.lookbook__item.type-left { width: 30%; padding: 0 12px; position: absolute; left: 10%; top: 0; }
+
+.lookbook__item.type-right { width: 50%; padding: 0 12px; margin-left: 50%; margin-top: 55px; }
+
+.lookbook__img { width: 100%; }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) { /*태블릿*/
     .banner { height: 576px; }
-    .section__tit { margin-top: 140px; text-align: center; } }
+    .banner__img { height: 100%; }
+    .section__wrap.type-section2, .section__wrap.type-section3, .section__wrap.type-section4 { text-align: center; padding-top: 140px; }
+    .section__tit.type-section2 { margin-bottom: 70px; text-align: center; }
+    .section__tit.type-section5 { text-align: center; padding-left: 0; }
+    .section_2:before { height: 57%; }
+    .slide { float: none; }
+    .slide__wrap { float: none; }
+    .slide__wrap.type-nav { position: static; margin-top: -10%; }
+    .slide__inbox.type-img { float: none; }
+    .slide__inbox.type-txt { float: none; padding: 60px 9%; padding-bottom: 16%; text-align: left; }
+    .slide .slick-arrow { top: 55px; }
+    .slide .slick-prev { right: calc(9% + 68px); }
+    .slide .slick-next { right: 9%; }
+    .collection__txt { font-size: 2.2rem; }
+    .lookbook { top: 70px; }
+    .lookbook__item.type-left { display: none; }
+    .lookbook__item.type-right { display: block; margin: 0 auto; float: none; } }
 
-@media screen and (max-width: 767px) { .banner { height: 220px; }
-    .section__tit { margin-top: 60px; text-align: center; } }
+@media screen and (max-width: 767px) { .banner { height: auto; }
+    .banner__img { width: 100%; height: auto; position: static; transform: translate(0, 0); }
+    .section__wrap.type-section2, .section__wrap.type-section3, .section__wrap.type-section4 { text-align: center; padding-top: 59px; }
+    .section__tit.type-section2 { margin-bottom: 40px; text-align: center; }
+    .section__tit.type-section5 { text-align: center; padding-left: 0; }
+    .section__sub.type-section3 { margin-top: 5px; font-size: 1.2rem; line-height: 1.6rem; }
+    .section_2:before { height: 57%; }
+    .slide__wrap { float: none; }
+    .slide__wrap.type-nav { position: static; margin-top: -10%; padding: 0 12px !important; }
+    .slide__inbox.type-img { float: none; }
+    .slide__inbox.type-txt { float: none; padding: 35px 6.4%; text-align: left; }
+    .slide .slick-arrow { top: 30px; width: 10px; height: 17px; }
+    .slide .slick-prev { right: calc(9% + 34px); }
+    .slide .slick-next { right: 9%; }
+    .celebrity { overflow: auto; margin-top: 30px; }
+    .celebrity__list { margin: 0 20px; white-space: nowrap; }
+    .celebrity-items { width: 75%; margin: 0 auto; margin-top: 60px; }
+    .celebrity-items__item { padding: 0; }
+    .celebrity-items .slick-dots { display: block; margin: 0 auto; margin-top: 40px; font-size: 0; }
+    .celebrity-items .slick-dots li { display: inline-block; font-size: 0; padding: 0 10px; }
+    .celebrity-items .slick-dots li button { font-size: 0; width: 40px; height: 4px; background-color: #c4c4c4; }
+    .celebrity-items .slick-dots li.slick-active button { background-color: #ec6707; }
+    .collection__txt { font-size: 1.3rem; }
+    .lookbook { top: 38px; }
+    .lookbook__item.type-left { display: none; }
+    .lookbook__item.type-right { display: block; margin: 0 auto; float: none; } }

@@ -37,14 +37,14 @@
 @media screen and (min-width:768px) and (max-width:1024px){/*태블릿*/
     /* pc1 */
     .col{padding:0 8px;}
-    .m-col-1{width:12.5%}
-    .m-col-2{width:25%;}
-    .m-col-3{width:37.5%}
-    .m-col-4{width:50%;}
-    .m-col-5{width:62.5%}
-    .m-col-6{width:75%}
-    .m-col-7{width:87.5%}
-    .m-col-8{width:100%}
+    .t-col-1{width:12.5%}
+    .t-col-2{width:25%;}
+    .t-col-3{width:37.5%}
+    .t-col-4{width:50%;}
+    .t-col-5{width:62.5%}
+    .t-col-6{width:75%}
+    .t-col-7{width:87.5%}
+    .t-col-8{width:100%}
 }
 @media screen and (max-width:767px){/*모바일*/
     /* pc1 */
