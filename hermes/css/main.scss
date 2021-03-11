@@ -81,7 +81,7 @@
 
 //섹션5
 .section_5{position:relative;
-    &:before{content:"";display:block;width:100%;position:absolute;left:0;bottom:0;padding-top:56%;background-color:#F6F1EB;z-index:-1}
+    &:before{content:"";display:block;width:100%;position:absolute;left:0;bottom:0;padding-top:26%;background-color:#F6F1EB;z-index:-1}
 }
 .lookbook{position:relative;top:-45px;margin:0 auto;
     &__item{
@@ -99,6 +99,7 @@
     .section{
         &__wrap{
             &.type-section2,&.type-section3,&.type-section4{text-align: center;padding-top:140px;}
+            &.type-section5{padding-top:121px;margin:0 auto;}
         }
         &__tit{
             &.type-section2{margin-bottom:70px;text-align: center;}
@@ -141,6 +142,7 @@
     .section{
         &__wrap{
             &.type-section2, &.type-section3, &.type-section4{text-align: center;padding-top:59px;}
+            &.type-section5{padding-top:65px;}
 
         }
         &__tit{
