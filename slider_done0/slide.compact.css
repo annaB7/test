@@ -41,9 +41,7 @@ button { border: 0; background: transparent; display: inline-block; }
 
 .slide__item { position: absolute; top: 0; left: 100%; width: 100%; height: 400px; display: inline-block; font-size: 30px; line-height: 400px; text-align: center; color: #fff; transition: left .3s; }
 
-.slide__item.on { z-index: 5; }
-
-.slide__item.left { left: 0; }
+.slide__item.on { left: 0; z-index: 5; }
 
 .slide__inner.type-btn { position: absolute; width: 600px; bottom: -50px; text-align: center; }
 
