@@ -195,7 +195,7 @@ body { position: relative; }
 
 .section__wrap.type-section3 { width: 100%; max-width: 1440px; margin: 0 auto; }
 
-.section__wrap.type-section5 { padding-top: 200px; }
+.section__wrap.type-section5 { margin: 0 auto; padding-top: 200px; }
 
 .section__tit { text-align: center; }
 
@@ -231,7 +231,17 @@ body { position: relative; }
 
 .slide .slick-next { right: 10%; background: url("../img/chevron_big_right.png") no-repeat center center/100%; }
 
-.slide-list { display: inline-block; position: absolute; right: 0; top: 220px; }
+.slide-list { display: inline-block; position: absolute; right: 0; top: 220px; z-index: 10; }
+
+.slide-list__item { position: relative; }
+
+.slide-list__item.on { text-decoration: underline; }
+
+.slide-list__item.on:before { content: ""; display: block; position: absolute; left: -58px; top: 50%; margin-top: -3px; width: 38px; height: 7px; background-color: #EC6707; }
+
+.slide-list__item + .slide-list__item { margin-top: 4%; }
+
+.slide-list__btn { font-family: "Zilla Slab", serif; font-size: 3.2rem; line-height: 4rem; }
 
 .celebrity { margin: 0 auto; margin-top: 20px; }
 
@@ -261,17 +271,27 @@ body { position: relative; }
 
 .collection__txt { display: block; position: absolute; top: 50%; transform: translateY(-50%); left: 0; width: 100%; text-align: center; font-size: 3.2rem; line-height: 40px; color: #fff; font-family: "Zilla Slab", serif; letter-spacing: 0.72em; }
 
-.section_5 { position: relative; }
+.section_5 { position: relative; padding-bottom: 150px; }
 
-.section_5:before { content: ""; display: block; width: 100%; position: absolute; left: 0; bottom: 0; padding-top: 26%; background-color: #F6F1EB; z-index: -1; }
+.section_5:before { content: ""; display: block; width: 100%; position: absolute; left: 0; bottom: 0; padding-top: 50%; background-color: #F6F1EB; z-index: -1; }
 
-.lookbook { position: relative; top: -45px; margin: 0 auto; }
+.lookbook { position: relative; margin: 0 auto; }
 
-.lookbook__item.type-left { width: 30%; padding: 0 12px; position: absolute; left: 10%; top: 0; }
+.lookbook__item.type-left { width: 30%; padding: 0 12px; position: absolute; top: 90px; }
 
-.lookbook__item.type-right { width: 50%; padding: 0 12px; margin-left: 50%; margin-top: 55px; }
+.lookbook__item.type-right { position: relative; width: 50%; padding: 0 12px; margin-left: 50%; margin-top: 55px; }
 
 .lookbook__img { width: 100%; }
+
+.lookbook__inbox.type-img { padding-left: 43%; }
+
+.lookbook__name { font-family: "Zilla Slab", serif; font-size: 3.6rem; line-height: 4.6rem; }
+
+.lookbook__price { display: inline-block; margin-top: 5px; font-family: "Zilla Slab", serif; font-size: 1.8rem; line-height: 2.8rem; }
+
+.lookbook__detail { position: absolute; width: 60%; height: auto; left: -20%; bottom: 0; }
+
+.lookbook__detail img { width: 100%; }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) { /*태블릿*/
     .banner { height: 576px; }
@@ -289,14 +309,25 @@ body { position: relative; }
     .slide .slick-arrow { top: 55px; }
     .slide .slick-prev { right: calc(9% + 68px); }
     .slide .slick-next { right: 9%; }
+    .slide__txt { font-size: 5rem; }
+    .slide-list { position: static; margin-bottom: 50px; }
+    .slide-list__list { text-align: center; }
+    .slide-list__item { display: none; }
+    .slide-list__item + .slide-list__item { margin-top: 0; }
+    .slide-list__item.on { display: block; position: relative; }
+    .slide-list__item.on:before { content: ""; display: block; position: absolute; left: -58px; top: 50%; margin-top: -3px; width: 38px; height: 7px; background-color: #EC6707; }
     .collection__txt { font-size: 2.2rem; }
-    .lookbook { top: 70px; }
+    .section_5 { padding-bottom: 120px; }
+    .section_5:before { padding-top: 70%; }
+    .lookbook { margin-top: 70px; position: static; }
     .lookbook__item.type-left { display: none; }
-    .lookbook__item.type-right { display: block; margin: 0 auto; float: none; } }
+    .lookbook__item.type-right { display: block; margin: 0 auto; float: none; width: 100%; }
+    .lookbook__inbox.type-img { padding-left: 0; text-align: center; margin-top: 140px; }
+    .lookbook__detail { position: absolute; left: 50%; transform: translateX(-50%); bottom: 111px; width: 33.333%; } }
 
 @media screen and (max-width: 767px) { .banner { height: auto; }
     .banner__img { width: 100%; height: auto; position: static; transform: translate(0, 0); }
-    .section__wrap.type-section2, .section__wrap.type-section3, .section__wrap.type-section4 { text-align: center; padding-top: 59px; }
+    .section__wrap.type-section2, .section__wrap.type-section3, .section__wrap.type-se ction4 { text-align: center; padding-top: 59px; }
     .section__wrap.type-section5 { padding-top: 65px; }
     .section__tit.type-section2 { margin-bottom: 40px; text-align: center; }
     .section__tit.type-section5 { text-align: center; padding-left: 0; }
@@ -309,8 +340,14 @@ body { position: relative; }
     .slide .slick-arrow { top: 30px; width: 10px; height: 17px; }
     .slide .slick-prev { right: calc(9% + 34px); }
     .slide .slick-next { right: 9%; }
+    .slide-list { position: static; margin-bottom: 25px; }
+    .slide-list__list { text-align: center; }
+    .slide-list__item { display: none; }
+    .slide-list__item + .slide-list__item { margin-top: 0; }
+    .slide-list__item.on { display: block; }
     .celebrity { overflow: auto; margin-top: 30px; }
-    .celebrity__list { margin: 0 20px; white-space: nowrap; }
+    .celebrity__inbox { white-space: nowrap; }
+    .celebrity__list { margin: 0 20px; }
     .celebrity-items { width: 75%; margin: 0 auto; margin-top: 60px; }
     .celebrity-items__item { padding: 0; }
     .celebrity-items .slick-dots { display: block; margin: 0 auto; margin-top: 40px; font-size: 0; }
@@ -318,6 +355,12 @@ body { position: relative; }
     .celebrity-items .slick-dots li button { font-size: 0; width: 40px; height: 4px; background-color: #c4c4c4; }
     .celebrity-items .slick-dots li.slick-active button { background-color: #ec6707; }
     .collection__txt { font-size: 1.3rem; }
-    .lookbook { top: 38px; }
+    .section_5 { padding-bottom: 50px; }
+    .section_5:before { padding-top: 100%; }
+    .lookbook { position: static; margin-top: 38px; }
     .lookbook__item.type-left { display: none; }
-    .lookbook__item.type-right { display: block; margin: 0 auto; float: none; } }
+    .lookbook__item.type-right { display: block; margin: 0 auto; float: none; width: 100%; }
+    .lookbook__detail { position: absolute; left: 50%; transform: translateX(-50%); bottom: 70px; width: 50%; }
+    .lookbook__inbox.type-img { padding-left: 0; text-align: center; margin-top: 95px; }
+    .lookbook__name { font-size: 1.8rem; line-height: 2.3rem; }
+    .lookbook__price { margin-top: 10px; font-size: 1.6rem; line-height: 1.4rem; } }

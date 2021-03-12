@@ -33,6 +33,16 @@
         <section class="section section_2">
             <div class="section__wrap clb type-section2">
                 <h2 class="section__tit slide-list__tit font-tit2 col col-7 t-col-8 m-col-8 fl type-section2">NEW COLLECTION</h2>
+                <div class="slide-list col col-4 t-col-8 m-col-8">
+                    <ul class="slider slider-list slide-list__list">
+                        <li class="slide-list__item "><button type="button" class="slide-list__btn" onclick="btn_click(this)">Free Fall Collection</button></li>
+                        <li class="slide-list__item on"><button type="button" class="slide-list__btn" onclick="btn_click(this)">Men’s autumn-winter</button></li>
+                        <li class="slide-list__item"><button type="button" class="slide-list__btn" onclick="btn_click(this)">Soft color pop</button></li>
+                        <li class="slide-list__item"><button type="button" class="slide-list__btn" onclick="btn_click(this)">Freehand line</button></li>
+                        <li class="slide-list__item"><button type="button" class="slide-list__btn" onclick="btn_click(this)">Artisan of light</button></li>
+                        <li class="slide-list__item"><button type="button" class="slide-list__btn" onclick="btn_click(this)">Hermès on Stage</button></li>
+                    </ul>
+                </div>
                 <div class="slide clb">
                     <div class="slide__wrap col col-7 t-col-8 m-col-8 pd0">
                         <div class="slider slider-for">
@@ -108,16 +118,7 @@
             			</div>
                     </div>
                 </div>
-                <div class="slide-list col col-4 t-col-8 m-col-8">
-                    <ul class="slider slider-list slide-list__list">
-                        <li class="slide-list__item">Free Fall Collection</li>
-                        <li class="slide-list__item">Men’s autumn-winter</li>
-                        <li class="slide-list__item">Soft color pop</li>
-                        <li class="slide-list__item">Freehand line</li>
-                        <li class="slide-list__item">Artisan of light</li>
-                        <li class="slide-list__item">Hermès on Stage</li>
-                    </ul>
-                </div>
+
             </div>
         </section>
         <section class="section section_3">
@@ -125,20 +126,22 @@
                 <h2 class="section__tit font-tit2 type-section3">CELEBRITY ITEM</h2>
                 <p class="section__sub type-section3">눈에 띄는 컬렉션 아이템</p>
                 <div class="celebrity">
-                    <ul class="celebrity__list">
-                        <li class="celebrity__item on">
-                            <button type="button" class="celebrity__btn">SILK ITEM</button>
-                        </li>
-                        <li class="celebrity__item">
-                            <button type="button" class="celebrity__btn">SHOES</button>
-                        </li>
-                        <li class="celebrity__item">
-                            <button type="button" class="celebrity__btn">BAGS</button>
-                        </li>
-                        <li class="celebrity__item">
-                            <button type="button" class="celebrity__btn">ACCESSORIES</button>
-                        </li>
-                    </ul>
+                    <div class="celebrity__inbox">
+                        <ul class="celebrity__list">
+                            <li class="celebrity__item on">
+                                <button type="button" class="celebrity__btn" onclick="btn_click(this)">SILK ITEM</button>
+                            </li>
+                            <li class="celebrity__item">
+                                <button type="button" class="celebrity__btn" onclick="btn_click(this)">SHOES</button>
+                            </li>
+                            <li class="celebrity__item">
+                                <button type="button" class="celebrity__btn" onclick="btn_click(this)">BAGS</button>
+                            </li>
+                            <li class="celebrity__item">
+                                <button type="button" class="celebrity__btn" onclick="btn_click(this)">ACCESSORIES</button>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="celebrity-items">
                     <div class="celebrity-items__list slider-celebrity">
@@ -178,13 +181,18 @@
                         <li class="lookbook__item type-left">
                             <img src="./img/main_product_1.png" alt="" class="lookbook__img">
                             <div class="lookbook__inbox type-bottom">
-                                sdfsdf
+                                <p class="lookbook__name">O'Maillon earing</p>
+                                <span class="lookbook__price">₩ 720,000</span>
                             </div>
                         </li>
                         <li class="lookbook__item type-right">
                             <img src="./img/main_product_2.png" alt="" class="lookbook__img">
-                            <div class="lookbook__inbox type-bottom">
-                                sdfsdf
+                            <div class="lookbook__detail">
+                                <img src="./img/main_product_sub.png" alt="">
+                            </div>
+                            <div class="lookbook__inbox type-bottom type-img">
+                                <p class="lookbook__name">"Mix and Match" Cardigan</p>
+                                <span class="lookbook__price">₩ 5,160,000 </span>
                             </div>
                         </li>
                     </ul>
@@ -250,6 +258,19 @@
                 }
             });
         }
+
+        //리스트형 버튼에 클릭시 on 클래스 추가하기
+        function btn_click(who){
+            const parent = $(who).closest('li');
+            parent.siblings().removeClass('on');
+            $(parent).addClass('on');
+        }
+
+        //섹션1에 슬라이드 &슬라이드 리스트 연동하기 함수
+
+
+
+
 
 
         $(document).ready(function(){

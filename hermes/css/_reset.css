@@ -12,7 +12,7 @@ input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-in
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
 img{vertical-align:top}
 hr{display:none}
-button{border:0; background:transparent;display:inline-block;}
+button{border:0;outline:0; background:transparent;display:inline-block;}
 /* Global Common */
 .for-a11y{overflow:hidden;position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;clip:rect(0 0 0 0)}
 .noto{font-family: 'Noto Sans KR', sans-serif;}
@@ -20,3 +20,4 @@ button{border:0; background:transparent;display:inline-block;}
 .fr{float:right}
 .clb:after{content:"";display:block; clear:both;}
 .pd0{padding:0!important;}
+.common-link{display:block;position:absolute;width:100%;height:100%;left:0; top:0;}

@@ -13,7 +13,7 @@
     &__wrap{
         &.type-section2, &.type-section3,&.type-section4{padding-top:220px;}
         &.type-section3{width:100%; max-width:1440px;margin:0 auto;}
-        &.type-section5{padding-top:200px;}
+        &.type-section5{margin:0 auto;padding-top:200px;}
     }
     &__tit{text-align: center;
         &.type-section2{margin-bottom:140px;text-align:right;}
@@ -45,9 +45,15 @@
 }
 
 //슬라이드리스트
-.slide-list{display:inline-block;position:absolute;right:0;top:220px;
+.slide-list{display:inline-block;position:absolute;right:0;top:220px;z-index:10;
     &__list{}
-    &__item{}
+    &__item{position:relative;
+        &.on{text-decoration:underline;
+            &:before{content:"";display:block;position:absolute;left:-58px;top:50%;margin-top:-3px;width:38px;height:7px;background-color:#EC6707;}
+        }
+        & + & {margin-top:4%;}
+    }
+    &__btn{font-family:$font-zilla;font-size:3.2rem;line-height:4rem;}
 }
 
 //섹션3
@@ -80,15 +86,23 @@
 
 
 //섹션5
-.section_5{position:relative;
-    &:before{content:"";display:block;width:100%;position:absolute;left:0;bottom:0;padding-top:26%;background-color:#F6F1EB;z-index:-1}
+.section_5{position:relative;padding-bottom:150px;
+    &:before{content:"";display:block;width:100%;position:absolute;left:0;bottom:0;padding-top:50%;background-color:#F6F1EB;z-index:-1}
 }
-.lookbook{position:relative;top:-45px;margin:0 auto;
+.lookbook{position:relative;margin:0 auto;
     &__item{
-        &.type-left{width:30%;padding:0 12px;position:absolute;left:10%;top:0;}
-        &.type-right{width:50%;padding:0 12px;margin-left:50%;margin-top:55px;}
+        &.type-left{width:30%;padding:0 12px;position:absolute;top:90px;}
+        &.type-right{position:relative;width:50%;padding:0 12px;margin-left:50%;margin-top:55px;}
     }
     &__img{width:100%;}
+    &__inbox{
+        &.type-img{padding-left:43%;}
+    }
+    &__name{font-family:$font-zilla;font-size:3.6rem;line-height: 4.6rem;}
+    &__price{display:inline-block;margin-top:5px;font-family:$font-zilla;font-size:1.8rem;line-height: 2.8rem;}
+    &__detail{position:absolute;width:60%;height:auto;left:-20%;bottom:0;
+        img{width:100%;}
+    }
 }
 
 
@@ -121,6 +135,17 @@
         .slick-arrow{top:55px}
         .slick-prev{right:calc(9% + 68px);}
         .slick-next{right:9%}
+        &__txt{font-size:5rem;}
+    }
+    //슬라이드리스트
+    .slide-list{position:static;margin-bottom:50px;
+        &__list{text-align: center;}
+        &__item{display:none;
+            & + & {margin-top:0;}
+            &.on{display:block;position:relative;
+                &:before{content:"";display:block;position:absolute;left:-58px;top:50%;margin-top:-3px;width:38px;height:7px;background-color:#EC6707;}
+            }
+        }
     }
 
     //섹션4
@@ -128,11 +153,18 @@
         &__txt{font-size:2.2rem;}
     }
     //섹션5
-    .lookbook{top:70px;
+    .section_5{padding-bottom:120px;
+        &:before{padding-top:70%;}
+    }
+    .lookbook{margin-top:70px;position:static;
         &__item{
             &.type-left{display:none}
-            &.type-right{display:block;margin:0 auto;float:none;}
+            &.type-right{display:block;margin:0 auto;float:none;width:100%;}
         }
+        &__inbox{
+            &.type-img{padding-left:0;text-align: center;margin-top:140px;}
+        }
+        &__detail{position:absolute;left:50%;transform:translateX(-50%);bottom:111px;width:33.333%;}
     }
 }
 @media screen and (max-width:767px){
@@ -141,7 +173,7 @@
     }
     .section{
         &__wrap{
-            &.type-section2, &.type-section3, &.type-section4{text-align: center;padding-top:59px;}
+            &.type-section2, &.type-section3, &.type-se ction4{text-align: center;padding-top:59px;}
             &.type-section5{padding-top:65px;}
 
         }
@@ -169,9 +201,19 @@
         .slick-prev{right:calc(9% + 34px);}
         .slick-next{right:9%}
     }
-    .celebrity{overflow:auto;margin-top:30px;
-        &__list{margin:0 20px;white-space: nowrap;}
 
+    //슬라이드리스트
+    .slide-list{position:static;margin-bottom:25px;
+        &__list{text-align: center;}
+        &__item{display:none;
+            & + & {margin-top:0;}
+            &.on{display:block;}
+        }
+    }
+
+    .celebrity{overflow:auto;margin-top:30px;
+        &__inbox{white-space: nowrap;}
+        &__list{margin:0 20px;}
     }
     .celebrity-items{width:75%;margin:0 auto;margin-top:60px;
         &__item{padding:0}
@@ -188,10 +230,21 @@
     .collection{
         &__txt{font-size:1.3rem;}
     }
-    .lookbook{top:38px;
+    //섹션5
+    .section_5{padding-bottom:50px;
+        &:before{padding-top:100%;}
+    }
+    .lookbook{position:static;margin-top:38px;
         &__item{
             &.type-left{display:none}
-            &.type-right{display:block;margin:0 auto;float:none;}
+            &.type-right{display:block;margin:0 auto;float:none;width:100%}
         }
+        &__detail{position:absolute;left:50%;transform:translateX(-50%);bottom:70px;width:50%;}
+        &__inbox{
+            &.type-img{padding-left:0;text-align: center;margin-top:95px;}
+        }
+        &__name{font-size:1.8rem;line-height: 2.3rem;}
+        &__price{margin-top:10px;font-size:1.6rem;line-height: 1.4rem;}
     }
+
 }
