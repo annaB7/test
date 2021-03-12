@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/slick.css"/>
     <link rel="stylesheet" href="./css/index.compact.css">
     <link rel="stylesheet" href="./css/main.compact.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="./js/slick.js"></script>
+    <script src="./js/main.js"></script>
 </head>
 <body>
     <header class="header">
@@ -35,16 +36,16 @@
                 <h2 class="section__tit slide-list__tit font-tit2 col col-7 t-col-8 m-col-8 fl type-section2">NEW COLLECTION</h2>
                 <div class="slide-list col col-4 t-col-8 m-col-8">
                     <ul class="slider slider-list slide-list__list">
-                        <li class="slide-list__item "><button type="button" class="slide-list__btn" onclick="btn_click(this)">Free Fall Collection</button></li>
-                        <li class="slide-list__item on"><button type="button" class="slide-list__btn" onclick="btn_click(this)">Men’s autumn-winter</button></li>
-                        <li class="slide-list__item"><button type="button" class="slide-list__btn" onclick="btn_click(this)">Soft color pop</button></li>
-                        <li class="slide-list__item"><button type="button" class="slide-list__btn" onclick="btn_click(this)">Freehand line</button></li>
-                        <li class="slide-list__item"><button type="button" class="slide-list__btn" onclick="btn_click(this)">Artisan of light</button></li>
-                        <li class="slide-list__item"><button type="button" class="slide-list__btn" onclick="btn_click(this)">Hermès on Stage</button></li>
+                        <li class="slide-list__item"><button type="button" class="slide-list__btn">Free Fall Collection</button></li>
+                        <li class="slide-list__item on"><button type="button" class="slide-list__btn">Men’s autumn-winter</button></li>
+                        <li class="slide-list__item"><button type="button" class="slide-list__btn">Soft color pop</button></li>
+                        <li class="slide-list__item"><button type="button" class="slide-list__btn">Freehand line</button></li>
+                        <li class="slide-list__item"><button type="button" class="slide-list__btn">Artisan of light</button></li>
+                        <li class="slide-list__item"><button type="button" class="slide-list__btn">Hermès on Stage</button></li>
                     </ul>
                 </div>
                 <div class="slide clb">
-                    <div class="slide__wrap col col-7 t-col-8 m-col-8 pd0">
+                    <div class="slide__wrap col col-7 t-col-6 m-col-8 pd0">
                         <div class="slider slider-for">
                             <div class="slide__item">
                                 <div class="slide__inbox type-img col t-col-6 m-col-8 pd0">
@@ -235,84 +236,5 @@
             </div>
         </div>
     </footer>
-
-
-    <script>
-
-    $(window).on("load resize", function () {
-        var footerH = $('.footer').outerHeight();
-        $('body').css('padding-bottom', footerH);
-
-        header_fix();
-    });
-
-        //스크롤시 헤더변경 - 클래스만 주면됨.
-        function header_fix(){
-            const head = document.getElementsByClassName('header')[0];
-            window.addEventListener('scroll',function(){
-                let scroll_t = window.scrollY;
-                if(scroll_t > 50){
-                    head.classList.add('type-fixed')
-                }else{
-                    head.classList.remove('type-fixed')
-                }
-            });
-        }
-
-        //리스트형 버튼에 클릭시 on 클래스 추가하기
-        function btn_click(who){
-            const parent = $(who).closest('li');
-            parent.siblings().removeClass('on');
-            $(parent).addClass('on');
-        }
-
-        //섹션1에 슬라이드 &슬라이드 리스트 연동하기 함수
-
-
-
-
-
-
-        $(document).ready(function(){
-            //slide
-            $('.slider-for').slick({
-             slidesToShow: 1,
-             slidesToScroll: 1,
-             arrows: false,
-             fade: true,
-             asNavFor: '.slider-nav',
-             draggable:false,
-            });
-            $('.slider-nav').slick({
-             slidesToShow: 1,
-             slidesToScroll: 1,
-             asNavFor: '.slider-for',
-             // dots: true,
-             // customPaging: function(slider, i){
-             //     console.log($(slider.$slides[i]))
-             //     return '<button class="tab">' + $(slider.$slides[i]).attr('title') + '</button>';
-             // },
-             focusOnSelect: true,
-             loop: true,
-             fade: true,
-            });
-
-            $('.slider-celebrity').slick({
-             slidesToShow: 3,
-             arrows:false,
-             dots: false,
-             loop: false,
-             draggable:false,
-             responsive: [
-                 {
-                     breakpoint: 767,
-                     settings: { slidesToShow: 1, dots: true }
-                 }
-             ]
-            });
-
-        });
-
-    </script>
 </body>
 </html>

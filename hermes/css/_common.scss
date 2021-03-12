@@ -30,7 +30,7 @@ body{position:relative;}
     }
 }
 
-@media screen and (min-width:768px) and (max-width:1024px){/*태블릿*/
+@media screen and (min-width:688px) and (max-width:1024px){/*태블릿*/
     .header{padding:0 12px;
         &__wrap{height:141px;}
         &-logo{margin-top:36px;}
@@ -39,7 +39,7 @@ body{position:relative;}
 }
 
 
-@media screen and (max-width:767px){
+@media screen and (max-width:687px){
     .header{padding:0 12px;
         &__wrap{height:80px;}
         &-logo{display:inline-block;margin-top:25px;

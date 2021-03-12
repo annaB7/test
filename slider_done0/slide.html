@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./slide.compact.css">
+</head>
+<body>
+
+    <div class="wrap">
+
+        <div class="slide">
+            <ul class="slide__list js-slide">
+                <li class="slide__item on type-1" style="background-color:#ff5675">1</li>
+                <li class="slide__item type-2" style="background-color:#ff82ff">2</li>
+                <li class="slide__item type-3" style="background-color:#cd1039">3</li>
+                <li class="slide__item type-4" style="background-color:#c71585">4</li>
+                <li class="slide__item type-5" style="background-color:purple">5</li>
+            </ul>
+
+        </div>
+        <div class="slide__inner type-btn">
+            <button type="button" class="slide__btn type-prev">prev</button>
+            <button type="button" class="slide__btn type-next">next</button>
+            <button type="button" class="slide__btn type-play">auto_play</button>
+            <button type="button" class="slide__btn type-stop">stop</button>
+        </div>
+
+        <div class="slide">
+            <ul class="slide__list js-nav">
+                <li class="slide__item on type-1" style="background-color:#ff5675">1</li>
+                <li class="slide__item type-2" style="background-color:#ff82ff">2</li>
+                <li class="slide__item type-3" style="background-color:#cd1039">3</li>
+                <li class="slide__item type-4" style="background-color:#c71585">4</li>
+                <li class="slide__item type-5" style="background-color:purple">5</li>
+            </ul>
+
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            //메인슬라이드만들기
+            const main_sl = document.getElementsByClassName('js-slide')[0];
+            const item = main_sl.getElementsByClassName('slide__item');
+            let num = 0;
+
+            console.log(item)
+            function act(idx){
+                item[idx].classList.add('on');
+                setTimeout(function(){
+                    if(idx == 0){
+                        item[item.length-1].classList.remove('on');
+                    }else{
+                        item[idx-1].classList.remove('on');
+                    }
+                },300);
+            }
+
+            function go(){
+
+                    num++;
+                    console.log(num)
+                    if(num == (item.length)){
+                        num = 0;
+                    }
+                    act(num)
+            }
+
+// setInterval(function(){go()},1000);
+//         let num = 0;
+//         const time_act = setInterval(function(){
+//             num++;
+//             if(num >= item.length ){
+//                 num = 0;
+//             }
+//         },500);
+//
+//         function start_sl(){
+//
+//             act(num);
+//         }
+//
+// start_sl()
+        });
+
+    </script>
+</body>
+</html>
