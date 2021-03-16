@@ -35,11 +35,11 @@ button { border: 0; background: transparent; display: inline-block; }
 
 .wrap { margin: 30px; position: relative; }
 
-.slide { border: 1px solid #000; width: 600px; height: 400px; position: relative; padding-left: 100px; overflow: hidden; }
+.slide { border: 1px solid #000; width: 300px; height: 200px; position: relative; padding-left: 100px; overflow: hidden; }
 
 .slide__list { white-space: nowrap; font-size: 0; position: absolute; left: 0%; top: 0; width: 100%; height: 100%; }
 
-.slide__item { position: absolute; top: 0; left: 100%; width: 100%; height: 400px; display: inline-block; font-size: 30px; line-height: 400px; text-align: center; color: #fff; transition: left .3s; }
+.slide__item { position: absolute; top: 0; left: 100%; width: 100%; height: 200px; display: inline-block; font-size: 30px; line-height: 200px; text-align: center; color: #000; transition: left .3s; background-color: #fff; }
 
 .slide__item.on { left: 0; z-index: 5; }
 
