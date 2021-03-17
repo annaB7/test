@@ -13,11 +13,21 @@
 
         <div class="slide">
             <ul class="slide__list js-slide">
-                <li class="slide__item on type-1">1</li>
-                <li class="slide__item type-2">2</li>
-                <li class="slide__item type-3">3</li>
-                <li class="slide__item type-4">4</li>
-                <li class="slide__item type-5">5</li>
+                <li class="slide__item on type-1">
+                    <img src="./img/1.jpg" alt="">
+                </li>
+                <li class="slide__item type-2">
+                    <img src="./img/2.jpg" alt="">
+                </li>
+                <li class="slide__item type-3">
+                    <img src="./img/3.jpg" alt="">
+                </li>
+                <li class="slide__item type-4">
+                    <img src="./img/4.jpg" alt="">
+                </li>
+                <li class="slide__item type-5">
+                    <img src="./img/5.jpg" alt="">
+                </li>
             </ul>
 
         </div>
@@ -48,42 +58,43 @@
             const item = main_sl.getElementsByClassName('slide__item');
             let num = 0;
 
-            console.log(item)
-            function act(idx){
-                item[idx].classList.add('on');
-                setTimeout(function(){
-                    if(idx == 0){
-                        item[item.length-1].classList.remove('on');
-                    }else{
-                        item[idx-1].classList.remove('on');
-                    }
-                },300);
-            }
 
+            function act(idx){
+                if(idx <= 1){
+                    item[idx+3].classList.remove("on");
+
+                }else{
+                    item[idx-2].classList.remove("on");
+                    console.log(idx-2)
+                }
+                for(i=0;i<item.length;i++){
+                    item[i].classList.remove("ready");
+                }
+                if(idx == 4){
+                    item[0].classList.add("ready");
+                }else{
+                    item[idx].classList.add("ready");
+                }
+                item[idx].classList.add("on");
+                // if(idx == 0){
+                //     // console.log("지금 1번에 on 붙어야됨");
+                // }
+
+
+
+            }
             function go(){
                     num++;
-                    console.log(num)
-                    if(num == (item.length)){
+
+                    if(num > (item.length-1)){
                         num = 0;
                     }
+                    // console.log(num)
                     act(num)
             }
 
-setInterval(function(){go()},1000);
-//         let num = 0;
-//         const time_act = setInterval(function(){
-//             num++;
-//             if(num >= item.length ){
-//                 num = 0;
-//             }
-//         },500);
-//
-//         function start_sl(){
-//
-//             act(num);
-//         }
-//
-// start_sl()
+// setInterval(function(){go()},1000);
+
         });
 
     </script>
