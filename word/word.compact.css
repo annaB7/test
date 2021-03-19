@@ -31,10 +31,20 @@ button { border: 0; background: transparent; display: inline-block; }
 /* Global Common */
 .for-a11y { overflow: hidden; position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; clip: rect(0 0 0 0); }
 
+form { text-align: center; }
+
+input { display: inline-block; width: 80%; text-align: center; line-height: 30px; font-size: 20px; box-shadow: none; border: 1px solid #ddd; margin-top: 30px; border-radius: 5px; }
+
 .wrap { width: 100%; height: 100vh; }
 
-.field { height: 80%; background-color: #f2f2f2; }
+.field { position: relative; height: 80%; background-color: #f2f2f2; overflow: hidden; }
 
-.word__item { display: inline-block; padding: 0 10px; line-height: 20px; height: 20px; background-color: #ddd; color: #666; }
+.word__list { position: relative; width: 100%; height: 100%; }
+
+.word__item { position: absolute; display: inline-block; width: 20%; padding: 0 10px; line-height: 25px; height: 25px; background-color: #ddd; color: #666; text-align: center; }
 
 .bottom { height: 20%; border-top: 1px solid blue; }
+
+.start { display: inline-block; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 100; line-height: 40px; height: 40px; padding: 0 20px; font-size: 25px; background-color: #0d5efe; color: #fff; border-radius: 10px; }
+
+.dim { display: block; position: fixed; width: 100%; height: 100%; z-index: 50; background-color: rgba(0, 0, 0, 0.5); }

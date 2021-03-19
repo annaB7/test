@@ -9,31 +9,156 @@
 </head>
 <body>
 <div class="wrap">
-    <h1>단어 맞추기 게임!!!</h1>
-
+    <!-- <h1>단어 맞추기 게임!!!</h1> -->
+    <button type="button" class="start" onclick="act()">시작할까!!!!</button>
+    <div class="dim"></div>
     <div class="field">
-        <ul class="">
-            <li class="word__item">단어1</li>
-        </ul>
+        <ul class="word__list"></ul>
     </div>
     <div class="bottom">
-        <input type="text" id="input" onchange="get_val()">
+        <form action="" id="mmm">
+            <input type="text" id="input" onchange="get_val()">
+            <input type="button" id="submit" style="display:none">
+        </form>
     </div>
+    <div id="text" class="text" style="display:none">유럽의약청(EMA)이 아스트라제네카 백신 접종과 혈전 생성 간 관련성이 없다는 결론을 내리자, 유럽국들은 속속이 아스트라제네카 백신 접종을 재개하기로 결정했다. 노르웨이, 스웨덴, 덴마크 등 일부 국가는 아스트라제네카 백신에 대한 자체 조사 결과가 나올 때까지 백신 접종 재개를 유보하겠다고 밝혔다.
+
+18일(현지시간) EMA는 아스트라제네카 백신이 “혈전과 연관성이 없으며 안전하고 효능도 인정된다”고 밝혔다고 로이터통신 등은 보도했다. 에머 쿡 EMA 청장은 이날 결과를 발표하고 “혈액 응고와 백신 사이의 연관성을 확실히 배제할 순 없다”면서도 “아스트라제네카 백신 접종은 위험성보다 이점이 훨씬 크다”고 말했다.
+
+EMA의 발표에 프랑스·독일·이탈리아 등 대다수 유럽국들은 아스트라제네카 백신 접종을 다시 시작하기로 했다. 옌스 슈판 독일 보건장관은 이날 기자회견에서 “연방정부와 16개주, 백신 승인 담당기관인 파울에를리히연구소(PEI)와 협의한 결과, 내일부터 아스트라제네카 백신 접종을 재개하기로 했다”고 밝혔다.
+
+장 카스텍스 프랑스 총리도 이날 기자회견에서 “19일 오후부터 아스트라제네카 백신 접종을 재개하겠다”고 말했다. 프랑스 일간 르피가로는 “카스텍스 총리가 국민들의 불신을 잠재우기 위해 접종 재개 첫날 자신이 아스트라제네카 백신을 맞을 것”이라고 전했다.
+
+이탈리아·불가리아·리투아니아·라트비아·슬로베니아도 19일 아스트라제네카 백신 접종을 재개하기로 했다. 포르투갈은 22일, 스페인은 24일부터 접종을 다시 시작하며, 네덜란드도 다음주 중 접종을 재개할 계획이다.
+
+노르웨이와 스웨덴, 덴마크는 EMA의 발표에도 아스트라제네카 백신 접종을 보류한다고 밝혔다. 카밀라 스톨텐베르그 노르웨이 공중보건연구소(FHI) 소장은 기자회견에서 “우리가 상황을 완전히 파악할 때까지는 아스트라제네카 백신 접종을 중단할 것”이라고 말했다.
+
+안데르스 텡넬 스웨덴 공공보건청장은 “EMA 조사를 검토하고, 다음주쯤 이 백신을</div>
 </div>
 <script>
-    let word_arr=["단어1","단어2","단어3","단어4","단어5"];
+
+    const level1 = 1000;
+    const level2 = 800;
+    const level3 = 500;
+
+
+    const text = document.querySelector('.text').innerText;
+    let word_arr = text.split(" ");
+
+    let answer_arr=[];
+    let num = 0;
 
     const input = document.querySelector('#input');
+    const form_1 = document.getElementById('mmm');
+    const submit = document.getElementById('submit');
+    const ul = document.querySelector('.word__list');
+    const start = document.querySelector('.start');
+    const dim = document.querySelector('.dim');
+
+
+    //형태 뿌리기
+    function make_li(idx){
+        const li = document.createElement("li");
+        li.classList.add('word__item');
+        li.id = idx;
+        li.classList.add('js-li'+idx);
+        li.innerHTML = word_arr[idx];
+        move_left(li)
+        ul.prepend(li);
+
+    }
+
+    //왼쪽위치랜덤
+    function move_left(ele){
+        const left_arr = [0, 20, 40, 60, 80];
+        const randon_num = (Math.floor((Math.random()) * 5 + 1 ))-1;
+        ele.style.left = (left_arr[randon_num]) + "%";
+    }
+    //아래로 움직이기
+    function move_down(ele,k){
+        let top = ele.style.top;
+        top = top.replace(/[^0-9]/g,'');
+        ele.style.top = (k*5) +"%";
+    }
+
+    //단어 초당 생성 함수
+    function act(){
+        start.remove();
+        dim.remove();
+        let do_make = setInterval(function(){
+            let print_li = ul.children;
+            make_li(num);
+            num++;
+            for(l=0;l<print_li.length;l++){
+                let elee = print_li[l];
+                move_down(elee,l);
+            }
+        },level2);
+        setTimeout(function(){
+            clearInterval(do_make);
+            console.log("스탑!");
+            keep_going()
+        },(level2 * word_arr.length));
+    }
+//단어 다나왔을때 계속내려가자
+    function keep_going(){
+        let ul_num = 0;
+        let ul_go = setInterval(function(){
+            ul_num++;
+            const ul_top = ul.style.top;
+            // ul_top = ul_top.replace(/[^0-9]/g,'');
+            ul.style.top = (ul_num*5) + "%";
+            console.log(ul_num,ul_top)
+        },level2)
+
+        setTimeout(function(){
+            clearInterval(ul_go);
+        console.log("Rmx!");
+        sum()
+    },(level2 * 20));
+    }
 
     //input 값체커
     function get_val(){
         const val = input.value;
         return val;
     }
-
     //단어들과 체크
-    function 
+    function matching(ans){
+        for(i=0;i<word_arr.length;i++){
+            if(word_arr[i] == ans){
+                console.log("정답!");
+                input.value = "";
+                answer_arr.push(word_arr[i]);
+                //완료된건 삭제하기
+                let delele = document.querySelector('.js-li'+i);
+                if(delele){
+                    delele.remove()
+                }else{
+                    console.log("이미 맞춘거임");
+                }
+                //만약 배열이 다 빈다면 성공!
+                if(answer_arr.length == word_arr.length){
+                    alert('성공!!!');
+                }
+                return false;
+            }
+        }
+    }
 
+    //점수내기
+    function sum(){
+        const wrong_num = word_arr.length - answer_arr.length;
+        const right_num = answer_arr.length;
+        alert (right_num+"개 맞음/ 총"+word_arr.length+"개");
+    }
+
+
+
+    form_1.addEventListener('submit',function(event){
+        event.preventDefault();
+        matching(get_val());
+    });
 
 
 </script>
