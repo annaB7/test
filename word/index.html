@@ -42,6 +42,8 @@ But he said he expected many of those would decide to get the jab after "a pause
 
     const text = document.querySelector('.text').innerText;
     let word_arr = text.split(" ");
+    const set = new Set(word_arr);
+    word_arr = [...set];
 
     let answer_arr=[];
     let num = 0;
