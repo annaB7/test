@@ -1,0 +1,165 @@
+:root {
+    --baseBackground: #fff;
+    --baseForeground: #000;
+    --baseBackground-rgb: 255,255,255;
+    --baseForeground-rgb: 0,0,0;
+    --layerBackground: #fff;
+    --layerBorder: rgba(0,0,0,0.1);
+    --baseLink: #1565c0;
+    --colorMint: #18c4cc;
+    --mgSpace: 16px;
+    --mgSpaceDouble: calc(var(--mgSpace) * 2);
+    --mgSpaceMinus: calc(var(--mgSpace) - var(--mgSpaceDouble));
+    --gridSpace: calc(var(--mgSpace) - 2px);
+    --gridSpaceDouble: calc(var(--gridSpace) * 2);
+    --fcBasic: var(--baseForeground);
+    --fcB1: rgba(var(--baseForeground-rgb),.86);
+    --fcSub: rgba(var(--baseForeground-rgb),.76);
+    --fcB3: rgba(var(--baseForeground-rgb),.6);
+    --fcOpt: rgba(var(--baseForeground-rgb),.44);
+    --colorB1: rgba(var(--baseForeground-rgb),.16);
+    --colorB2: rgba(var(--baseForeground-rgb),.1);
+    --colorB3: rgba(var(--baseForeground-rgb),.06);
+    --colorB4: rgba(var(--baseForeground-rgb),.04);
+    --colorB5: rgba(var(--baseForeground-rgb),.02);
+    --colorB6: rgba(var(--baseForeground-rgb),.03);
+}
+
+html {
+    font-size: 10px;
+}
+
+.screen_out {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, button {
+    margin: 0;
+    padding: 0;
+}
+
+body, th, td, input, select, textarea, button {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    font-family: Helvetica,AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',sans-serif;
+    color: rgba(0,0,0,0.76);
+    color: var(--fcSub);
+}
+
+button {
+    border: 0 none;
+    border-radius: 0;
+    background: transparent;
+    cursor: pointer;
+    -webkit-appearance: button;
+    vertical-align: middle;
+    font-size: 100%;
+}
+
+.compo-paging {
+    border-top: 1px solid rgba(0,0,0,0.06);
+    border-top: 1px solid var(--colorB3);
+    font-size: 0;
+    color: rgba(0,0,0,0.6);
+    color: var(--fcB3);
+    line-height: 45px;
+    text-align: center;
+}
+
+.compo-paging [class*=btn_]:disabled .ico-g {
+    opacity: .16;
+}
+
+.compo-paging .btn_prev .ico-g {
+    background-position: -58px 0;
+}
+
+.compo-paging .ico-g {
+    width: 12px;
+    height: 12px;
+    margin: 8px;
+    opacity: .6;
+}
+
+.compo-paging .btn_next .ico-g {
+    background-position: -78px 0;
+}
+
+.ico-g {
+    display: inline-block;
+    overflow: hidden;
+    font-size: 1px;
+    line-height: 0;
+    color: transparent;
+    text-shadow: none;
+    vertical-align: top;
+    background: url(//search1.daumcdn.net/search/statics/common/mi/ico/ico_g_200915.svg) no-repeat;
+    background-size: 155px 76px;
+}
+
+.compo-paging .inner_paging {
+    display: inline-block;
+    font-size: 1.6rem;
+    vertical-align: top;
+}
+
+.compo-paging .inner_paging [class*=num_] {
+    margin: 0 8px;
+}
+
+.compo-paging .inner_paging .num_current {
+    font-weight: bold;
+    color: rgba(0,0,0,0.86);
+    color: var(--fcB1);
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 10px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 300px;
+}
+
+.box:nth-child(1) {
+    background: rebeccapurple;
+}
+
+.box:nth-child(2) {
+    background: aqua;
+}
+
+.box:nth-child(3) {
+    background: aquamarine;
+}
+
+.box:nth-child(4) {
+    background: sienna;
+}
+
+.box:nth-child(5) {
+    background: fuchsia;
+}
+
+.box:nth-child(6) {
+    background: coral;
+}
+
+.box:nth-child(7) {
+    background: darkgoldenrod;
+}
+
+.box:nth-child(8) {
+    background: teal;
+}
+
+.box:nth-child(9) {
+    background: tan;
+}

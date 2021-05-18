@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  $curTab.each((idx, elem) => {
+    const $currentElement = $(elem);
+    const $currentTab = $(elem).closest($tab);
+    const halfW = $currentElement.innerWidth() / 2;
+    const parentHalfW = $currentTab.innerWidth() / 2;
+    const posX = $currentElement.get(0).offsetLeft;
+    const moveX = posX - parentHalfW + halfW;
+
+    $tab.eq(idx).scrollLeft(moveX);
+  });
+</body>
+</html>

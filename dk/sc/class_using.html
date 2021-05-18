@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    li{display:inline-block;margin:0 15px;}
+    a{font-size:20px;color:#000;text-decoration: none;}
+    a.on{color:blue;font-weight:bold}
+  </style>
+</head>
+<body>
+
+  <div class="wrap" id="tab1">
+    <ul>
+      <li class="tab__item"><a href="" class="on">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+    </ul>
+  </div>
+
+  <div class="wrap" id="tab2">
+    <ul>
+      <li class=""><a href="" class="on">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+    </ul>
+  </div>
+
+  <div class="wrap" id="tab3">
+    <ul>
+      <li class="on"><a href="" class="on">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+    </ul>
+  </div>
+
+  <div class="wrap" id="tab4">
+    <ul>
+      <li class="on"><a href="" class="on">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+      <li class="tab__item"><a href="">탭111</a></li>
+    </ul>
+  </div>
+
+  
+  <script>
+    const tab1 = document.getElementById('tab1');
+    const tab2 = document.getElementById('tab2');
+    const tab3 = document.getElementById('tab3');
+    const tab4 = document.getElementById('tab4');
+
+    class Click_tab{
+      constructor(who){
+        this.who = who;
+      }
+
+      //remove_on 을 별도의 함수로 빼고싶음....ㅜㅠㅜㅠㅜㅠ
+      add_on(){
+        const per_tab = this.who.querySelectorAll('a');
+        for(let i=0;i<per_tab.length;i++){
+          per_tab[i].addEventListener('click',function(e){
+            e.preventDefault();
+            //지우기
+            for(let i=0;i<per_tab.length;i++){
+              per_tab[i].classList.remove('on');
+            }
+            //지우기끝
+            this.classList.add('on')
+          });
+        }
+      }
+      // remove_on(){
+      //   for(let i=0;i<per_tab.length;i++){
+      //         per_tab[i].classList.remove('on');
+      //       }
+      // }
+    }
+
+    const tab1_click = new Click_tab(tab1);
+    tab1_click.add_on();
+    const tab2_click = new Click_tab(tab2);
+    tab2_click.add_on();
+    const tab3_click = new Click_tab(tab3);
+    tab3_click.add_on();
+    const tab4_click = new Click_tab(tab4);
+    tab4_click.add_on();
+    
+
+//원형
+    // function add_on(){
+    //   const li = tab1.querySelectorAll('li');
+    //   for(i=0;i<li.length;i++){
+    //     li[i].addEventListener('click',function(){
+    //       remove_on();
+    //       this.classList.add('on')
+    //     });
+    //   }
+    // }
+
+    // function remove_on(){
+    //   const li = tab1.querySelectorAll('li');
+
+    //   for(i=0;i<li.length;i++){
+    //     li[i].classList.remove('on');
+    //   }
+    // }
+
+    // add_on();
+
+
+
+
+
+
+
+
+
+
+    //강댈꺼
+                // let menuElem = document.querySelectorAll('.tab__item');
+                
+                // Array.prototype.forEach.call(menuElem, function (menu, i) {
+                //     menu.addEventListener('click', function (e) {
+                //         // e.preventDefault();
+                //         function removeClass() {
+                //             for (var i = 0; i < menuElem.length; i++) {
+                //                 menuElem[i].classList.remove('on')
+                //             }
+                //         }
+                //         removeClass()
+                //         this.classList.add('on');
+                //     })
+                // })
+
+   
+  </script>
+</body>
+</html>

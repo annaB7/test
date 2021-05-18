@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table{border-collapse:collapse;border:1px solid #ddd;margin-top:50px;}
+    th,td{border:1px solid #ddd;padding:0 15px;line-height:20px;font-size:15px;}
+  </style>
+</head>
+<body>
+  <form id="form">
+    이름: <input type="text" id="name">
+    첫번째 점수: <input type="number" id="first">
+    두번째 점수: <input type="number" id="second">
+    <button type="submit" id="submit">제출</button>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>이름</th>
+        <th>평균점수</th>
+      </tr>
+    </thead>
+    <tbody id="table">
+
+    </tbody>
+  </table>
+  
+  <script>
+    //평균점수를 담아서 높은순서대로 나열하고싶은데.....어쩜? 
+
+
+    //제출 함수 !!!!!
+    let arr = [
+        ['명희',30,30],['소영',25,25],['민지',20,20],['소희',15,15]
+    ];
+
+    const submit = document.getElementById('submit');
+    const table = document.getElementById('table')
+    submit.addEventListener('click',function(e){
+      e.preventDefault();
+      add();
+    });
+
+
+    function add(){//어레이에 추가하는함수야
+      let name1 = document.getElementById('name');
+      let first1 = document.getElementById('first');
+      let second1 = document.getElementById('second');
+
+      //만약 값이 비어있으면 얼럿띄우고 빽!
+      if(name1.value =="" || first1.value =="" || second1.value ==""){
+        alert ("모두 입력하세요!!");
+        return false;
+      }
+
+      arr.push([name1.value,Number(first1.value),Number(second1.value)]);
+
+      name1.value="";
+      first1.value="";
+      second1.value="";
+
+      print();
+    }
+    
+    function make(name,first,second){
+      this.name = name;
+      this.first = first;
+      this.second = second;
+      this.sum = function(){
+        return (this.first + this.second)/2;
+      }
+    }
+    
+    function print(){
+      //테이블 기존이력 삭제하기
+      table.innerHTML = "";
+      for(var i in arr){
+        let aa = new make(arr[i][0],arr[i][1],arr[i][2]);
+        const tr = document.createElement('tr');
+        const td_name = document.createElement('td');
+        td_name.innerText=aa.name;
+        const td_sum = document.createElement('td');
+        td_sum.innerText=aa.sum();
+        tr.appendChild(td_name);
+        tr.appendChild(td_sum);
+        table.appendChild(tr);
+      }
+    }
+
+    
+    print();//초기에 뿌리기
+
+
+
+
+    
+  </script>
+</body>
+</html>

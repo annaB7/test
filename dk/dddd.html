@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul,ol,li{list-style: none;}
+        li{margin-top:10px}
+        li:nth-child(odd){color:blue;}
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <script>
+            const box = document.querySelector('#box');
+            const num = 22;    
+            for(i=0;i<num;i++){
+                const li = document.createElement('li');
+                const text = i + 'dkdkdkdk';
+
+                li.innerHTML = text;
+
+
+                box.appendChild(li);
+            }
+            
+            const person = {};
+
+            Object.defineProperty(person,'firstName',{
+                value:'Ungmo',
+                writable:true,
+                enumerable:true,
+                configurable:true
+            });
+
+            Object.defineProperty(person,'lastName',{
+                value:'Lee',
+                writable:true,
+                enumerable:true,
+                configurable:true
+            });
+            // Object.defineProperty(person,'firstName',{
+            //     value:'kim',
+            //     writable:false,
+            // })
+            let descriptor1 = Object.getOwnPropertyDescriptor(person,'firstName');
+
+            // console.log(descriptor);
+            let descriptor2 = Object.getOwnPropertyDescriptor(person,'lastName');    
+            // console.log(descriptor);
+
+            
+            console.log(descriptor1)
+            // delete person.lastName;
+            console.log(Object.keys(person));
+
+            console.log(Object.isExtensible(person));
+            Object.preventExtensions(person);
+            console.log(Object.isExtensible(person));
+            console.log(person)
+            delete person.lastName;
+            console.log(person);
+            Object.defineProperty(person,'age',{value:20});
+            console.log(person)
+
+    </script>
+</body>
+</html>

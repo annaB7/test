@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>자판기</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="./app_2.js"></script>
+  <style>
+    .vending {
+      width: 100%;
+      background-color: aliceblue;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    .menu {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .menu li {
+      float: left;
+      width: 100px;
+      height: 100px;
+      padding: 10px;
+      margin: 10px;
+    }
+
+    .menu li:nth-child(4n + 1) {
+      background-color: red;
+    }
+
+    .menu li:nth-child(4n + 2) {
+      background-color: green;
+    }
+
+    .menu li:nth-child(4n + 3) {
+      background-color: darkmagenta;
+    }
+
+    .menu li:nth-child(4n + 4) {
+      background-color: cornflowerblue;
+    }
+
+    .menu li button {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<div class="vending">
+  <strong>메뉴</strong>
+  <ul class="menu"></ul>
+  <strong>현재 잔액</strong>
+  <span class="current_money">0</span>
+  <input type="text" class="money" value="0">
+  <button class="btn_money">입금</button>
+  <strong>거스름돈</strong>
+  <span class="output_money">0</span>
+  <button class="btn_change">반환</button>
+  <div class="output_item"></div>
+</div>
+<script src="./index.js"></script>
+</body>
+</html>
